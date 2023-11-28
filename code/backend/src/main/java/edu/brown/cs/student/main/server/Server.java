@@ -3,9 +3,6 @@ package edu.brown.cs.student.main.server;
 import static spark.Spark.after;
 
 import com.google.common.cache.CacheBuilder;
-import edu.brown.cs.student.main.sources.AcsCensusSource;
-import edu.brown.cs.student.main.sources.CensusSource;
-import edu.brown.cs.student.main.sources.mocks.StaleMockCensusSource;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -29,7 +26,7 @@ import spark.Spark;
  */
 public class Server {
 
-  static final int port = 3232;
+  static final int port = 7900;
 
   /**
    * The constructor for the Server class.
@@ -37,8 +34,7 @@ public class Server {
   public Server() {
     // CensusSource source = new AcsCensusSource(); 
     // CacheBuilder cacheBuilder = new CacheBuilder(); 
-    // newBuilder().maximumSize(1000).expireAfterWrite(10, TimeUnit.MINUTES); 
-    CsvDataWrapper csvData = new CsvDataWrapper(new ArrayList<>(), false);
+    // newBuilder().maximumSize(1000).expireAfterWrite(10, TimeUnit.MINUTES);
     Spark.port(port);
     after(
         (request, response) -> {
@@ -47,12 +43,11 @@ public class Server {
         });
 
     // Setting up the handler for the GET /order and /mock endpoints
-    Spark.get("loadcsv", new LoadCsvHandler(csvData));
-    Spark.get("viewcsv", new ViewCsvHandler(csvData));
-    Spark.get("searchcsv", new SearchCsvHandler(csvData));
-    Spark.get("broadband", new BroadbandHandler(new AcsCensusSource(),
+    Spark.get("item", new ItemHandler());
+    Spark.get("account", new AccountHandler());
+    Spark.get("search", new SearchHandler(
     CacheBuilder.newBuilder().maximumSize(1000).expireAfterWrite(10, TimeUnit.MINUTES)));
-    Spark.get("mockbroadband", new BroadbandHandler(new StaleMockCensusSource(),
+    Spark.get("findcategory", new CategoryHandler(
     CacheBuilder.newBuilder().maximumSize(1000).expireAfterWrite(10, TimeUnit.MINUTES)));
     Spark.init();
     Spark.awaitInitialization();
