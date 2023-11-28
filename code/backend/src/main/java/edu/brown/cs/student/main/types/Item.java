@@ -12,16 +12,19 @@ public class Item {
   private String category;
   private String subcategory;
   private double price;
+
+  private Account seller;
   private List<String> photoFilenames;
   private String timestamp;
 
   // Constructor
-  public Item(String title, String description, String category, String subcategory, double price, List<String> photoFilenames) {
+  public Item(String title, String description, String category, String subcategory, double price, Account seller, List<String> photoFilenames) {
     this.title = title;
     this.description = description;
     this.category = category;
     this.subcategory = subcategory;
     this.price = price;
+    this.seller = seller;
     this.photoFilenames = new ArrayList<>(photoFilenames);
     Date today = new Date();
     Long now = today.getTime();
@@ -47,6 +50,10 @@ public class Item {
 
   public double getPrice() {
     return price;
+  }
+
+  public Account getSeller() {
+    return seller;
   }
 
   public List<String> getPhotoFilenames() {
@@ -91,9 +98,12 @@ public class Item {
     this.photoFilenames.remove(oldPhoto);
   }
 
-  // Note: No setter for timestamp to ensure it remains unchangeable
+  // Note: No setter for timestamp or seller to ensure it remains unchangeable
 
-
+  public String getItemDetails() {
+    return title + " " + description + " " + category + " " +
+        subcategory + " " + price + " " + seller.getUsername();
+  }
   @Override
   public String toString() {
     return "Item{" +
@@ -102,6 +112,7 @@ public class Item {
         ", category='" + category + '\'' +
         ", subcategory='" + subcategory + '\'' +
         ", price=" + price +
+        ", seller=" + seller +
         ", photoFilenames=" + photoFilenames +
         ", timestamp=" + timestamp +
         '}';
