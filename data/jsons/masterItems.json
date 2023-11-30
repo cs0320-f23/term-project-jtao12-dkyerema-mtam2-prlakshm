@@ -1,0 +1,266 @@
+[
+  {
+    "title": "Vintage Denim Jacket",
+    "description": "Classic oversized denim jacket with a retro touch.",
+    "seller": "AnnaVintage",
+    "category": "clothing",
+    "subcategory": "second-hand",
+    "price": 34.5,
+    "timestamp": "2023-11-05T15:30:00",
+    "photoFilenames": ["../data/photos/vintage_denim_1.jpg"]
+  },
+  {
+    "title": "Handmade Crochet Scarf",
+    "description": "Cozy scarf handcrafted with intricate crochet patterns.",
+    "seller": "CraftyCarla",
+    "category": "crafts",
+    "subcategory": "crochet",
+    "price": 22.99,
+    "timestamp": "2023-11-10T12:45:00",
+    "photoFilenames": [
+      "../data/photos/crochet_scarf_1.jpg",
+      "../data/photos/crochet_scarf_2.png"
+    ]
+  },
+  {
+    "title": "Artistic Ceramic Bowl",
+    "description": "One-of-a-kind ceramic bowl with artistic hand-painted details.",
+    "seller": "PotteryPassion",
+    "category": "crafts",
+    "subcategory": "pottery",
+    "price": 28.75,
+    "timestamp": "2023-11-15T10:20:00",
+    "photoFilenames": [
+      "../data/photos/ceramic_bowl_1.jpg",
+      "../data/photos/ceramic_bowl_2.png",
+      "../data/photos/ceramic_bowl_3.jpg"
+    ]
+  },
+  {
+    "title": "Boho Embroidered Pillow",
+    "description": "Decorative pillow featuring bohemian-inspired embroidery.",
+    "seller": "BohoChicDecor",
+    "category": "crafts",
+    "subcategory": "embroidery",
+    "price": 19.5,
+    "timestamp": "2023-11-20T09:55:00",
+    "photoFilenames": ["../data/photos/embroidered_pillow_1.jpg"]
+  },
+  {
+    "title": "Hand-Painted Tote Bag",
+    "description": "Unique tote bag hand-painted with vibrant colors and patterns.",
+    "seller": "ArtistryTotes",
+    "category": "accessories",
+    "subcategory": "other",
+    "price": 17.99,
+    "timestamp": "2023-11-25T14:15:00",
+    "photoFilenames": [
+      "../data/photos/painted_tote_1.jpg",
+      "../data/photos/painted_tote_2.png",
+      "../data/photos/painted_tote_3.jpg"
+    ]
+  },
+  {
+    "title": "Abstract Art Print Set",
+    "description": "Set of abstract art prints to add a modern touch to your space.",
+    "seller": "AbstractVisions",
+    "category": "art",
+    "subcategory": "prints",
+    "price": 26.99,
+    "timestamp": "2023-12-01T16:40:00",
+    "photoFilenames": ["../data/photos/abstract_prints_1.jpg"]
+  },
+  {
+    "title": "Handmade Knit Beanie",
+    "description": "Cozy and stylish beanie knitted with love for the winter season.",
+    "seller": "KnitWonders",
+    "category": "clothing",
+    "subcategory": "handmade",
+    "price": 14.5,
+    "timestamp": "2023-12-06T11:25:00",
+    "photoFilenames": [
+      "../data/photos/knit_beanie_1.jpg",
+      "../data/photos/knit_beanie_2.png",
+      "../data/photos/knit_beanie_3.jpg"
+    ]
+  },
+  {
+    "title": "Vintage Leather Messenger Bag",
+    "description": "Classic leather messenger bag with a touch of vintage charm.",
+    "seller": "RetroExplorer",
+    "category": "clothing",
+    "subcategory": "second-hand",
+    "price": 38.99,
+    "timestamp": "2023-12-11T13:50:00",
+    "photoFilenames": [
+      "../data/photos/leather_messenger_1.jpg",
+      "../data/photos/leather_messenger_2.png"
+    ]
+  },
+  {
+    "title": "Quirky Wire Jewelry Set",
+    "description": "Fun and quirky wire jewelry set to elevate your style.",
+    "seller": "WireWhimsy",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 21.99,
+    "timestamp": "2023-12-16T10:15:00",
+    "photoFilenames": [
+      "../data/photos/wire_jewelry_set_1.jpg",
+      "../data/photos/wire_jewelry_set_2.png",
+      "../data/photos/wire_jewelry_set_3.jpg"
+    ]
+  },
+  {
+    "title": "Handcrafted Clay Mug",
+    "description": "Artisan-crafted clay mug for your favorite beverages.",
+    "seller": "ClayCraftsman",
+    "category": "crafts",
+    "subcategory": "pottery",
+    "price": 24.5,
+    "timestamp": "2023-12-21T17:30:00",
+    "photoFilenames": ["../data/photos/clay_mug_1.jpg"]
+  },
+  {
+    "title": "Abstract Acrylic Canvas",
+    "description": "Vibrant abstract acrylic painting on canvas for art enthusiasts.",
+    "seller": "CanvasCreation",
+    "category": "art",
+    "subcategory": "paintings",
+    "price": 34.99,
+    "timestamp": "2023-12-26T14:20:00",
+    "photoFilenames": [
+      "../data/photos/abstract_canvas_1.jpg",
+      "../data/photos/abstract_canvas_2.png"
+    ]
+  },
+  {
+    "title": "Vintage Silk Scarf",
+    "description": "Elegant vintage silk scarf with a touch of sophistication.",
+    "seller": "SilkEnchant",
+    "category": "clothing",
+    "subcategory": "second-hand",
+    "price": 18.75,
+    "timestamp": "2024-01-01T09:45:00",
+    "photoFilenames": [
+      "../data/photos/vintage_silk_scarf_1.jpg",
+      "../data/photos/vintage_silk_scarf_2.png",
+      "../data/photos/vintage_silk_scarf_3.jpg"
+    ]
+  },
+  {
+    "title": "Minimalist Pottery Plate Set",
+    "description": "Set of minimalist pottery plates for a stylish dining experience.",
+    "seller": "MinimalDining",
+    "category": "crafts",
+    "subcategory": "pottery",
+    "price": 32.5,
+    "timestamp": "2024-01-06T16:10:00",
+    "photoFilenames": [
+      "../data/photos/pottery_plate_set_1.jpg",
+      "../data/photos/pottery_plate_set_2.png"
+    ]
+  },
+
+  {
+    "title": "Cozy Handmade Blanket",
+    "description": "Soft and warm handmade blanket for chilly evenings.",
+    "seller": "WarmThreads",
+    "category": "clothing",
+    "subcategory": "handmade",
+    "price": 29.99,
+    "timestamp": "2024-01-11T18:45:00",
+    "photoFilenames": ["../data/photos/handmade_blanket_1.jpg"]
+  },
+  {
+    "title": "Hand-Stamped Leather Wallet",
+    "description": "Handcrafted leather wallet with unique stamped patterns.",
+    "seller": "LeatherCraftsman",
+    "category": "accessories",
+    "subcategory": "other",
+    "price": 26.5,
+    "timestamp": "2024-01-16T14:30:00",
+    "photoFilenames": [
+      "../data/photos/leather_wallet_1.jpg",
+      "../data/photos/leather_wallet_2.png",
+      "../data/photos/leather_wallet_3.jpg"
+    ]
+  },
+  {
+    "title": "Eco-Friendly Tote Bag",
+    "description": "Reusable and eco-friendly tote bag for sustainable shopping.",
+    "seller": "GreenSolutions",
+    "category": "accessories",
+    "subcategory": "bags",
+    "price": 15.99,
+    "timestamp": "2024-01-21T12:20:00",
+    "photoFilenames": [
+      "../data/photos/eco_tote_bag_1.jpg",
+      "../data/photos/eco_tote_bag_2.png",
+      "../data/photos/eco_tote_bag_3.jpg"
+    ]
+  },
+  {
+    "title": "Hand-Painted Silk Scarf",
+    "description": "Luxurious silk scarf hand-painted with intricate designs.",
+    "seller": "SilkArtisan",
+    "category": "clothing",
+    "subcategory": "handmade",
+    "price": 35.5,
+    "timestamp": "2024-01-26T11:10:00",
+    "photoFilenames": [
+      "../data/photos/handpainted_silk_scarf_1.jpg",
+      "../data/photos/handpainted_silk_scarf_2.png"
+    ]
+  },
+  {
+    "title": "Modern Wire Earrings",
+    "description": "Contemporary wire earrings for a touch of elegance.",
+    "seller": "ModernStyle",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 18.99,
+    "timestamp": "2024-02-01T10:05:00",
+    "photoFilenames": [
+      "../data/photos/wire_earrings_1.jpg",
+      "../data/photos/wire_earrings_2.png"
+    ]
+  },
+  {
+    "title": "Hand-Drawn Art Sketch",
+    "description": "Original art sketch created by a talented artist.",
+    "seller": "ArtSketcher",
+    "category": "art",
+    "subcategory": "drawings",
+    "price": 23.75,
+    "timestamp": "2024-02-06T16:50:00",
+    "photoFilenames": ["../data/photos/art_sketch_1.jpg"]
+  },
+  {
+    "title": "Handwoven Boho Rug",
+    "description": "Bohemian-style rug handwoven with vibrant colors and patterns.",
+    "seller": "BohoRugs",
+    "category": "crafts",
+    "subcategory": "other",
+    "price": 31.99,
+    "timestamp": "2024-02-11T14:35:00",
+    "photoFilenames": [
+      "../data/photos/boho_rug_1.jpg",
+      "../data/photos/boho_rug_2.png",
+      "../data/photos/boho_rug_3.jpg"
+    ]
+  },
+  {
+    "title": "Printed Canvas Tote",
+    "description": "Canvas tote featuring unique printed artwork for everyday use.",
+    "seller": "CanvasPrints",
+    "category": "accessories",
+    "subcategory": "bags",
+    "price": 20.5,
+    "timestamp": "2024-02-16T09:30:00",
+    "photoFilenames": [
+      "../data/photos/canvas_tote_1.jpg",
+      "../data/photos/canvas_tote_2.png"
+    ]
+  }
+]
