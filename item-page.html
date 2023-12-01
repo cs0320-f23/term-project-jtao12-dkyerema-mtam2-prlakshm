@@ -18,6 +18,12 @@
   <body>
     <div class="header">
       <a style="color: #303030" href="home.html">Artist's Corner PVD</a>
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search..." name="search" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
     </div>
     <div class="topnav">
       <div class="right-links">
@@ -32,23 +38,38 @@
     </div>
 
     <div class="content">
-      <!-- about -->
       <div class="animated">
         <section
           style="
             text-underline-position: under;
             display: flex;
-            margin-bottom: 5rem;
+            margin-bottom: 7rem;
             margin-left: 5rem;
           "
         >
           <img
-            style="max-width: 26rem"
             class="card-image"
             src="mock-images/pearl earrings 4.png"
             alt="headshot"
           />
-          <div style="max-width: 26rem" class="about">
+          <div
+            style="
+              max-width: 26rem;
+              background-color: #f8f8f8;
+              padding: 2rem;
+              border-radius: 10px;
+            "
+            class="about"
+          >
+            <div class="profile-container">
+              <img
+                src="mock-images/test-headshot.png"
+                alt="Profile Photo"
+                class="profile-photo"
+              />
+              <a href="item-page.html">Marissa Tam</a>
+            </div>
+
             <h2 style="margin: 0rem">
               Handcrafted Pearl Earrings on Gold Hoops
             </h2>
@@ -66,9 +87,11 @@
               💌 &nbsp;<a href="mailto:marissa_tam@brown.edu"
                 >marissa_tam@brown.edu</a
               >
-              &nbsp; 💼 &nbsp;<a href="123-456-7890">123-456-7890</a>
             </p>
-            <!-- ⤳ -->
+            <p>📞 &nbsp;<a href="tel:+123-456-7890">123-456-7890</a></p>
+            <p>
+              IG: &nbsp;<a href="https://www.instagram.com/">@marissa_tam</a>
+            </p>
           </div>
         </section>
       </div>

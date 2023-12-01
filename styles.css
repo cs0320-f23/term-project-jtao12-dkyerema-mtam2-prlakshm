@@ -101,6 +101,8 @@ body {
 
 img {
   max-width: 100%;
+  max-height: 500px;
+  object-fit: cover;
 }
 
 .selected-work {
@@ -125,7 +127,6 @@ img {
   top: 0;
   z-index: 100;
   background-color: #ffffffab;
-  backdrop-filter: blur(6px);
 }
 
 .header a {
@@ -137,6 +138,46 @@ img {
   display: inline-block;
   transition: all 0.3s ease;
   color: #9e9e9e;
+}
+
+.header input[type="text"] {
+  font-family: "Space Grotesk";
+  padding: 6px 6px 6px 12px;
+  margin-top: 8px;
+  margin-right: 6px;
+  font-size: 0.9rem;
+  border: 0.5px solid #cccccc;
+  border-radius: 8px;
+}
+
+.header .search-container button {
+  float: right;
+  padding: 7px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: rgb(238, 238, 238);
+  font-size: 0.9rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.profile-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover; /* This prevents stretching */
+}
+
+.header .search-container button:hover {
+  background: #ccc;
 }
 
 .topnav {
