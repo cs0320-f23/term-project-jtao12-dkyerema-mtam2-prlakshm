@@ -1,7 +1,7 @@
 [
   {
-    "title": "Custom Tie-Dye Sweatshirt",
-    "description": "Unique tie-dye sweatshirt with rainbow colors and patterns.",
+    "title": "Be Kind Tie-Dye Sweatshirt",
+    "description": "\"Be Kind\" tie-dye sweatshirt with rainbow colors and patterns.",
     "seller": "ColorBlendCrafts",
     "category": "clothing",
     "subcategory": "handmade",
@@ -36,17 +36,15 @@
     ]
   },
   {
-    "title": "Sculptural Wire Wall Art",
-    "description": "Modern wire wall art to add a unique touch to your living space.",
+    "title": "Sculptural Wire Wall Art of Dog",
+    "description": "Modern wire wall art of dog to add a unique touch to your living space.",
     "seller": "ArtWireCrafts",
     "category": "art",
     "subcategory": "other",
     "price": 24.99,
     "timestamp": "2024-03-07T10:05:00",
     "photoFilenames": [
-      "./data/photos/wire_wall_art_1.jpg",
-      "./data/photos/wire_wall_art_2.png",
-      "./data/photos/wire_wall_art_3.jpg"
+      "./data/photos/wire_wall_art.jpg"
     ]
   },
   {
@@ -70,14 +68,14 @@
     "photoFilenames": ["./data/photos/crochet_purple_snoopy_tote_bag.jpg"]
   },
   {
-    "title": "Handmade Macramé Plant Hanger",
-    "description": "Boho-inspired macramé plant hanger to showcase your greenery.",
+    "title": "Handmade Macramé Plant Hanger Set of 4",
+    "description": "Set of 4 boho-inspired macramé plant hangers to showcase your greenery.",
     "seller": "MacraméJungle",
     "category": "crafts",
     "subcategory": "other",
     "price": 18.75,
     "timestamp": "2024-03-22T09:55:00",
-    "photoFilenames": ["./data/photos/macrame_plant_hanger_1.jpg"]
+    "photoFilenames": ["./data/photos/macrame_plant_hanger.jpg"]
   },
   {
     "title": "Crochet Pencil Pouch Set of 2",
@@ -211,79 +209,23 @@
     ]
   },
   {
-    "title": "Flame Skateboard Decal",
-    "description": "Flame skateboard decal for a unique and cool ride.",
-    "seller": "SkateArtCustoms",
+    "title": "Anatomical Heart Sculpture",
+    "description": "Mixed media anatomical heart sculpture.",
+    "seller": "Jackie_Cohen",
     "category": "art",
     "subcategory": "other",
     "price": 33.5,
     "timestamp": "2024-06-01T12:40:00",
-    "photoFilenames": ["./data/photos/skateboard_deck_art_1.jpg"]
+    "photoFilenames": ["./data/photos/anatomical_heart_sculpture.png"]
   },
   {
-    "title": "Ribbon Bow Necklace",
-    "description": "Rhinestone bow and pearl necklace with ribbon bow.",
-    "seller": "Sophia_Cheng",
-    "category": "accessories",
-    "subcategory": "jewelry",
-    "price": 15.75,
-    "timestamp": "2024-06-06T09:35:00",
-    "photoFilenames": ["./data/photos/ribbon_bow_necklace_.jpg"]
-  },
-  {
-    "title": "Eco-Friendly Plant-based Candle",
-    "description": "Sustainable and eco-friendly plant-based candle for a cozy atmosphere.",
-    "seller": "GreenLightCandles",
-    "category": "crafts",
-    "subcategory": "other",
-    "price": 17.5,
-    "timestamp": "2024-06-11T16:30:00",
-    "photoFilenames": ["./data/photos/eco_candle_1.jpg"]
-  },
-  {
-    "title": "Warm Toned Two-Faced Painting",
-    "description": "Painting of two faces in reds, oranges, and yellows.",
-    "seller": "Jackie_Cohen",
+    "title": "Crochet Bear and Sunflower Coaster Set",
+    "description": "Set of 2 coasters. Cute brown bear coaster and vibrant sunflower coaster.",
+    "seller": "Emily_Wang",
     "category": "art",
-    "subcategory": "painting",
-    "price": 26.99,
-    "timestamp": "2024-06-16T14:25:00",
-    "photoFilenames": ["./data/photos/two_faced_painting.png"]
-  },
-  {
-    "title": "Personalized Name Embroidery Hoop",
-    "description": "Customized name embroidery hoop for a personalized wall decoration.",
-    "seller": "ThreadArtCraft",
-    "category": "crafts",
-    "subcategory": "embroidery",
-    "price": 21.75,
-    "timestamp": "2024-06-21T11:20:00",
-    "photoFilenames": [
-      "./data/photos/name_embroidery_hoop_1.jpg",
-      "./data/photos/name_embroidery_hoop_2.png"
-    ]
-  },
-  {
-    "title": "Vampire Red Heart Necklace",
-    "description": "Cross and pearl necklace with red statement heart pendant.",
-    "seller": "Sophia_Cheng",
-    "category": "crafts",
-    "subcategory": "other",
-    "price": 18.99,
-    "timestamp": "2024-06-26T10:15:00",
-    "photoFilenames": [
-      "./data/photos/vampire_red_heart_necklace_1.jpg",
-      "./data/photos/vampire_red_heart_necklace_2.jpg"
-    ]
-  },
-  {
-    "title": "Abstract Art Hand-painted Hoodie",
-    "description": "Cozy hoodie featuring abstract hand-painted art for a modern and artistic look.",
-    "seller": "ArtisticComfort",
-    "category": "clothing",
-    "subcategory": "handmade",
-    "price": 29.50,
-    "timestamp": "2024-07-11T14:40:00",
-    "photoFilenames": ["./data/photos/abstract_digital_art_hoodie_1.jpg", "./data/photos/abstract_digital_art_hoodie_2.png"]
+    "subcategory": "crochet",
+    "price": 16.0,
+    "timestamp": "2023-12-11T13:50:00",
+    "photoFilenames": ["../data/photos/crochet_bear_and_sunflower.jpg"]
   }
 ]

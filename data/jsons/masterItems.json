@@ -1,13 +1,16 @@
 [
   {
     "title": "Vintage Denim Jacket",
-    "description": "Classic oversized denim jacket with vintage patches.",
+    "description": "Classic oversized denim jacket with assorted patches.",
     "seller": "AnnaVintage",
     "category": "clothing",
     "subcategory": "second-hand",
     "price": 34.5,
     "timestamp": "2023-11-05T15:30:00",
-    "photoFilenames": ["../data/photos/vintage_denim_1.jpg"]
+    "photoFilenames": [
+      "../data/photos/vintage_denim_1.jpg",
+      "../data/photos/vintage_denim_2.jpg"
+    ]
   },
   {
     "title": "Crochet Fruit Keychain Set of 4",
@@ -15,15 +18,13 @@
     "seller": "Emily_Wang",
     "category": "crafts",
     "subcategory": "crochet",
-    "price": 20.00,
+    "price": 20.0,
     "timestamp": "2023-11-10T12:45:00",
-    "photoFilenames": [
-      "../data/photos/crochet_fruit_keychains.jpg"
-    ]
+    "photoFilenames": ["../data/photos/crochet_fruit_keychains.jpg"]
   },
   {
     "title": "Artistic Ceramic Bowl",
-    "description": "One-of-a-kind ceramic bowl with artistic hand-painted details.",
+    "description": "One-of-a-kind ceramic bowl with flower hand-painted details.",
     "seller": "PotteryPassion",
     "category": "crafts",
     "subcategory": "pottery",
@@ -43,22 +44,20 @@
     "subcategory": "jewelry",
     "price": 15.0,
     "timestamp": "2023-11-20T09:55:00",
-    "photoFilenames": ["../data/photos/blue_green_bow_necklace_1.jpg",
-    "../data/photos/blue_green_bow_necklace_2.jpg"]
+    "photoFilenames": [
+      "../data/photos/blue_green_bow_necklace_1.jpg",
+      "../data/photos/blue_green_bow_necklace_2.jpg"
+    ]
   },
   {
-    "title": "Hand-Painted Tote Bag",
-    "description": "Unique tote bag hand-painted with vibrant colors and patterns.",
+    "title": "Hand-Painted Frog Tote Bag",
+    "description": "Unique tote bag hand-painted with cute frogs.",
     "seller": "ArtsyTotes",
     "category": "accessories",
     "subcategory": "bags",
     "price": 17.99,
     "timestamp": "2023-11-25T14:15:00",
-    "photoFilenames": [
-      "../data/photos/painted_tote_1.jpg",
-      "../data/photos/painted_tote_2.png",
-      "../data/photos/painted_tote_3.jpg"
-    ]
+    "photoFilenames": ["../data/photos/frog_tote.jpg"]
   },
   {
     "title": "Blueno Abomination Digital Art Print",
@@ -76,23 +75,11 @@
     "seller": "Sophia_Cheng",
     "category": "accessories",
     "subcategory": "jewelry",
-    "price": 20.00,
+    "price": 20.0,
     "timestamp": "2023-12-06T11:25:00",
     "photoFilenames": [
       "../data/photos/chunky_seashell_necklace_1.jpg",
       "../data/photos/chunky_seashell_necklace_2.jpg"
-    ]
-  },
-  {
-    "title": "Crochet Bear and Sunflower Coaster Set",
-    "description": "Set of 2 coasters. Cute brown bear coaster and vibrant sunflower coaster.",
-    "seller": "Emily_Wang",
-    "category": "art",
-    "subcategory": "crochet",
-    "price": 16.00,
-    "timestamp": "2023-12-11T13:50:00",
-    "photoFilenames": [
-      "../data/photos/crochet_bear_and_sunflower.jpg"
     ]
   },
   {
@@ -101,7 +88,7 @@
     "seller": "Emily_Wang",
     "category": "art",
     "subcategory": "crochet",
-    "price": 14.00,
+    "price": 14.0,
     "timestamp": "2023-12-16T10:15:00",
     "photoFilenames": [
       "../data/photos/crochet_black_and_white_cat_keychain.jpg"
@@ -115,7 +102,11 @@
     "subcategory": "pottery",
     "price": 24.5,
     "timestamp": "2023-12-21T17:30:00",
-    "photoFilenames": ["../data/photos/clay_mug_1.jpg"]
+    "photoFilenames": [
+      "../data/photos/clay_mug_1.jpg",
+      "../data/photos/clay_mug_2.jpg",
+      "../data/photos/clay_mug_3.jpg"
+    ]
   },
   {
     "title": "Crochet Octopus Set of 7",
@@ -132,34 +123,6 @@
     ]
   },
   {
-    "title": "Vintage Silk Scarf",
-    "description": "Elegant vintage silk scarf with a touch of sophistication.",
-    "seller": "SilkEnchant",
-    "category": "clothing",
-    "subcategory": "second-hand",
-    "price": 18.75,
-    "timestamp": "2024-01-01T09:45:00",
-    "photoFilenames": [
-      "../data/photos/vintage_silk_scarf_1.jpg",
-      "../data/photos/vintage_silk_scarf_2.png",
-      "../data/photos/vintage_silk_scarf_3.jpg"
-    ]
-  },
-  {
-    "title": "Minimalist Pottery Plate Set",
-    "description": "Set of minimalist pottery plates for a stylish dining experience.",
-    "seller": "MinimalDining",
-    "category": "crafts",
-    "subcategory": "pottery",
-    "price": 32.5,
-    "timestamp": "2024-01-06T16:10:00",
-    "photoFilenames": [
-      "../data/photos/pottery_plate_set_1.jpg",
-      "../data/photos/pottery_plate_set_2.png"
-    ]
-  },
-
-  {
     "title": "Cozy Chunky Knit Blanket",
     "description": "Soft and warm handmade chunky knit blanket for chilly evenings.",
     "seller": "WarmThreads",
@@ -167,46 +130,17 @@
     "subcategory": "other",
     "price": 29.99,
     "timestamp": "2024-01-11T18:45:00",
-    "photoFilenames": ["../data/photos/handmade_blanket_1.jpg"]
+    "photoFilenames": ["../data/photos/cozy_knit_blanket.jpg"]
   },
   {
-    "title": "Washi Tape Wallet",
-    "description": "Handmade washi tape wallet with colorful, funky patterns.",
-    "seller": "WashiQueen",
+    "title": "Cherry White Mittens",
+    "description": "Hand knit winter mittens with cherry detail.",
+    "seller": "LotsofKnittens",
     "category": "accessories",
     "subcategory": "other",
     "price": 26.5,
     "timestamp": "2024-01-16T14:30:00",
-    "photoFilenames": [
-      "../data/photos/leather_wallet_1.jpg"
-    ]
-  },
-  {
-    "title": "Eco-Friendly Tote Bag",
-    "description": "Reusable and eco-friendly tote bag for sustainable shopping.",
-    "seller": "GreenSolutions",
-    "category": "accessories",
-    "subcategory": "bags",
-    "price": 15.99,
-    "timestamp": "2024-01-21T12:20:00",
-    "photoFilenames": [
-      "../data/photos/eco_tote_bag_1.jpg",
-      "../data/photos/eco_tote_bag_2.png",
-      "../data/photos/eco_tote_bag_3.jpg"
-    ]
-  },
-  {
-    "title": "Hand-Painted Silk Scarf",
-    "description": "Luxurious silk scarf hand-painted with intricate designs.",
-    "seller": "SilkArtisan",
-    "category": "clothing",
-    "subcategory": "handmade",
-    "price": 35.5,
-    "timestamp": "2024-01-26T11:10:00",
-    "photoFilenames": [
-      "../data/photos/handpainted_silk_scarf_1.jpg",
-      "../data/photos/handpainted_silk_scarf_2.png"
-    ]
+    "photoFilenames": ["../data/photos/cherry_mittens.jpg"]
   },
   {
     "title": "Crochet Duck Set of 3",
@@ -232,30 +166,28 @@
     "photoFilenames": ["../data/photos/crochet_green_coasters.jpg"]
   },
   {
-    "title": "Tufted Boho Rug",
-    "description": "Bohemian-style rug hand-tufted with vibrant colors and patterns.",
-    "seller": "BohoRugs",
+    "title": "Tufted Green Moss Rug",
+    "description": "Green moss rug hand-tufted with vibrant greens and abstract patterns.",
+    "seller": "TuftedRugs",
     "category": "crafts",
     "subcategory": "other",
     "price": 31.99,
     "timestamp": "2024-02-11T14:35:00",
     "photoFilenames": [
-      "../data/photos/boho_rug_1.jpg",
-      "../data/photos/boho_rug_2.png",
-      "../data/photos/boho_rug_3.jpg"
+      "../data/photos/moss_rug_1.jpg",
+      "../data/photos/moss_rug_2.png",
+      "../data/photos/moss_rug_3.jpg"
     ]
   },
   {
-    "title": "Crochet Lavenddar Pot",
-    "description": "Crochet lavendar flowers in hand-painted ceramic pot.",
+    "title": "Crochet Lavender Pot",
+    "description": "Crochet lavender flowers in hand-painted ceramic pot.",
     "seller": "Emily_Wang",
     "category": "crafts",
     "subcategory": "crochet",
     "price": 25.5,
     "timestamp": "2024-02-16T09:30:00",
-    "photoFilenames": [
-      "../data/photos/crochet_lavendar.jpg"
-    ]
+    "photoFilenames": ["../data/photos/crochet_lavender.jpg"]
   },
   {
     "title": "Ribbon Bow Necklace",
@@ -269,7 +201,7 @@
   },
   {
     "title": "Eco-Friendly Plant-based Candle",
-    "description": "Sustainable and eco-friendly plant-based candle for a cozy atmosphere.",
+    "description": "Sustainable and eco-friendly plant-based candle for a cozy atmosphere. Lavender orange blossom and sandalwood scent. Purple and blue crystals inside.",
     "seller": "GreenLightCandles",
     "category": "crafts",
     "subcategory": "other",
@@ -288,16 +220,16 @@
     "photoFilenames": ["./data/photos/two_faced_painting.png"]
   },
   {
-    "title": "Personalized Name Embroidery Hoop",
-    "description": "Customized name embroidery hoop for a personalized wall decoration.",
+    "title": "\"Punch Today in the Face\" Embroidery Hoop",
+    "description": "Embroidery hoop for a personalized wall decoration.",
     "seller": "ThreadArtCraft",
     "category": "crafts",
     "subcategory": "embroidery",
     "price": 21.75,
     "timestamp": "2024-06-21T11:20:00",
     "photoFilenames": [
-      "./data/photos/name_embroidery_hoop_1.jpg",
-      "./data/photos/name_embroidery_hoop_2.png"
+      "./data/photos/embroidery_hoop_1.jpg",
+      "./data/photos/embroidery_hoop_2.png"
     ]
   },
   {
