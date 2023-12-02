@@ -1,7 +1,7 @@
 [
   {
     "title": "Custom Tie-Dye Sweatshirt",
-    "description": "Unique tie-dye sweatshirt with customizable colors and patterns.",
+    "description": "Unique tie-dye sweatshirt with rainbow colors and patterns.",
     "seller": "ColorBlendCrafts",
     "category": "clothing",
     "subcategory": "handmade",
@@ -13,26 +13,26 @@
     ]
   },
   {
-    "title": "DIY Embroidery Kit",
-    "description": "Do-it-yourself embroidery kit for creative crafting sessions.",
-    "seller": "CraftyDIYer",
-    "category": "crafts",
-    "subcategory": "embroidery",
+    "title": "Detailed Tree Drawing",
+    "description": "Intricate drawing of a tree trunk with vines coming out of it.",
+    "seller": "Jackie_Cohen",
+    "category": "art",
+    "subcategory": "drawing",
     "price": 19.99,
     "timestamp": "2024-02-26T14:20:00",
-    "photoFilenames": ["./data/photos/diy_embroidery_kit_1.jpg"]
+    "photoFilenames": ["./data/photos/tree_drawing.png"]
   },
   {
-    "title": "Upcycled Denim Backpack",
-    "description": "Stylish backpack crafted from upcycled denim for a sustainable twist.",
-    "seller": "EcoStyleExplorer",
+    "title": "White Pearl Heart Necklace",
+    "description": "Dainty white pearl necklace with bow and heart pendant.",
+    "seller": "Sophia_Cheng",
     "category": "accessories",
-    "subcategory": "bags",
-    "price": 32.5,
+    "subcategory": "jewelry",
+    "price": 16.5,
     "timestamp": "2024-03-02T13:10:00",
     "photoFilenames": [
-      "./data/photos/upcycled_backpack_1.jpg",
-      "./data/photos/upcycled_backpack_2.png"
+      "./data/photos/white_pearl_heart_necklace_1.jpg",
+      "./data/photos/white_pearl_heart_necklace_2.png"
     ]
   },
   {
@@ -50,30 +50,24 @@
     ]
   },
   {
-    "title": "Handmade Beaded Choker",
-    "description": "Trendy beaded choker handmade for a stylish accessory.",
-    "seller": "BeadedChicStyles",
-    "category": "accessories",
-    "subcategory": "jewelry",
-    "price": 16.5,
+    "title": "Crochet Orange Rabbit",
+    "description": "Cute crochet rabbit plushie with orange hat.",
+    "seller": "Emily_Wang",
+    "category": "crafts",
+    "subcategory": "crochet",
+    "price": 10.5,
     "timestamp": "2024-03-12T16:30:00",
-    "photoFilenames": [
-      "./data/photos/beaded_choker_1.jpg",
-      "./data/photos/beaded_choker_2.png"
-    ]
+    "photoFilenames": ["./data/photos/crochet_orange_rabbit.jpg"]
   },
   {
-    "title": "Digital Art Print Set",
-    "description": "Set of digital art prints for a contemporary and versatile decor.",
-    "seller": "DigitalArtVision",
-    "category": "art",
-    "subcategory": "prints",
+    "title": "Crochet Purple Snoopy Tote Bag",
+    "description": "Crochet snoopy tote bag in purple and white color pattern.",
+    "seller": "Emily_Wang",
+    "category": "accessories",
+    "subcategory": "bags",
     "price": 22.99,
     "timestamp": "2024-03-17T12:15:00",
-    "photoFilenames": [
-      "./data/photos/digital_art_prints_1.jpg",
-      "./data/photos/digital_art_prints_2.png"
-    ]
+    "photoFilenames": ["./data/photos/crochet_purple_snoopy_tote_bag.jpg"]
   },
   {
     "title": "Handmade Macramé Plant Hanger",
@@ -86,17 +80,210 @@
     "photoFilenames": ["./data/photos/macrame_plant_hanger_1.jpg"]
   },
   {
-    "title": "Statement Resin Earrings",
-    "description": "Bold and unique resin earrings to make a fashion statement.",
-    "seller": "ResinArtistry",
+    "title": "Crochet Pencil Pouch Set of 2",
+    "description": "Crochet pencil pouches in white with black border and gray flower latch detail.",
+    "seller": "Emily_Wang",
+    "category": "crafts",
+    "subcategory": "crochet",
+    "price": 9.99,
+    "timestamp": "2024-03-27T14:40:00",
+    "photoFilenames": ["./data/photos/crocet_white_pencil_pouches.jpg"]
+  },
+  {
+    "title": "Double Hanging Pearl Necklace",
+    "description": "Pink and white pearl necklace with double standed bow and heart pendant.",
+    "seller": "Sophia_Cheng",
     "category": "accessories",
     "subcategory": "jewelry",
-    "price": 20.99,
-    "timestamp": "2024-03-27T14:40:00",
+    "price": 14.99,
+    "timestamp": "2024-04-01T11:25:00",
     "photoFilenames": [
-      "./data/photos/resin_earrings_1.jpg",
-      "./data/photos/resin_earrings_2.png",
-      "./data/photos/resin_earrings_3.jpg"
+      "./data/photos/double_hanging_pearl_necklace_1.jpg",
+      "./data/photos/double_hanging_pearl_necklace_2.jpg",
+      "./data/photos/double_hanging_pearl_necklace_3.jpg"
     ]
+  },
+  {
+    "title": "Pencil Sketch Forest Print",
+    "description": "A print made from a drawing of a forest scene.",
+    "seller": "Jackie_Cohen",
+    "category": "art",
+    "subcategory": "prints",
+    "price": 7.99,
+    "timestamp": "2024-04-06T10:15:00",
+    "photoFilenames": ["./data/photos/forest_print.jpg"]
+  },
+  {
+    "title": "Crochet Green Bird Keychain",
+    "description": "Crochet green bird keychain accessory.",
+    "seller": "Emily_Wang",
+    "category": "crafts",
+    "subcategory": "crochet",
+    "price": 6.0,
+    "timestamp": "2024-04-11T14:50:00",
+    "photoFilenames": ["./data/photos/crochet_green_bird.jpg"]
+  },
+  {
+    "title": "Mixed Beads Necklace",
+    "description": "Necklace made with different size and shape beads. Pink, blue, and green color scheme.",
+    "seller": "Sophia_Cheng",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 15.5,
+    "timestamp": "2024-04-16T09:40:00",
+    "photoFilenames": [
+      "./data/photos/Mixed_beads_necklace_1.jpg",
+      "./data/photos/Mixed_beads_necklace_2.jpg",
+      "./data/photos/Mixed_beads_necklace_3.jpg"
+    ]
+  },
+  {
+    "title": "Pearl Tulip Necklace",
+    "description": "Pearl heart necklae with triple bow and tulip pendants.",
+    "seller": "Sophia_Cheng",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 20.0,
+    "timestamp": "2024-04-21T12:30:00",
+    "photoFilenames": ["./data/photos/pearl_tulip_necklace.jpg"]
+  },
+  {
+    "title": "Pink Angel Necklace",
+    "description": "Glass and porcelain beaded necklace with angel charm and green seashell pendant.",
+    "seller": "Sophia_Cheng",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 18.5,
+    "timestamp": "2024-04-26T17:20:00",
+    "photoFilenames": ["./data/photos/pink_angel_necklace.jpg"]
+  },
+  {
+    "title": "Water Girl Digital Art Print",
+    "description": "Digital art print of girl laying on water. Surrounded by lilies and hair floating.",
+    "seller": "Jackie_Cohen",
+    "category": "art",
+    "subcategory": "prints",
+    "price": 32.25,
+    "timestamp": "2024-05-01T14:15:00",
+    "photoFilenames": ["./data/photos/water_girl_digital_art.jpg"]
+  },
+  {
+    "title": "DIY Beaded Phone Case Kit",
+    "description": "DIY beaded phone case kit for a fun and personalized tech accessory.",
+    "seller": "TechCraftKit",
+    "category": "crafts",
+    "subcategory": "other",
+    "price": 16.99,
+    "timestamp": "2024-05-06T11:10:00",
+    "photoFilenames": ["./data/photos/diy_phone_case_kit_1.jpg"]
+  },
+  {
+    "title": "Rhinestone Butterfly Necklace",
+    "description": "Rhinestone bow necklace with silver butterfly charm pendant.",
+    "seller": "Sophia_Cheng",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 18.5,
+    "timestamp": "2024-05-11T16:05:00",
+    "photoFilenames": ["./data/photos/rhinestone_butterfly_necklace.jpg"]
+  },
+  {
+    "title": "Rhinestone Saturn Necklace",
+    "description": "Rhinestone bow necklace with pearls and silver bejeweled saturn charm.",
+    "seller": "Sophia_Cheng",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 17.5,
+    "timestamp": "2024-05-16T13:55:00",
+    "photoFilenames": ["./data/photos/rhinestone_saturn_necklace.jpg"]
+  },
+  {
+    "title": "Reversibe Ribbon Bow Necklace",
+    "description": "Rhinestone bow and pearl necklace with ribbon bow on one side and heart locket on other.",
+    "seller": "Sophia_Cheng",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 25.75,
+    "timestamp": "2024-05-21T10:50:00",
+    "photoFilenames": [
+      "./data/photos/ribbon_bow_necklace_1.jpg",
+      "./data/photos/ribbon_bow_necklace_2.png"
+    ]
+  },
+  {
+    "title": "Flame Skateboard Decal",
+    "description": "Flame skateboard decal for a unique and cool ride.",
+    "seller": "SkateArtCustoms",
+    "category": "art",
+    "subcategory": "other",
+    "price": 33.5,
+    "timestamp": "2024-06-01T12:40:00",
+    "photoFilenames": ["./data/photos/skateboard_deck_art_1.jpg"]
+  },
+  {
+    "title": "Ribbon Bow Necklace",
+    "description": "Rhinestone bow and pearl necklace with ribbon bow.",
+    "seller": "Sophia_Cheng",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 15.75,
+    "timestamp": "2024-06-06T09:35:00",
+    "photoFilenames": ["./data/photos/ribbon_bow_necklace_.jpg"]
+  },
+  {
+    "title": "Eco-Friendly Plant-based Candle",
+    "description": "Sustainable and eco-friendly plant-based candle for a cozy atmosphere.",
+    "seller": "GreenLightCandles",
+    "category": "crafts",
+    "subcategory": "other",
+    "price": 17.5,
+    "timestamp": "2024-06-11T16:30:00",
+    "photoFilenames": ["./data/photos/eco_candle_1.jpg"]
+  },
+  {
+    "title": "Warm Toned Two-Faced Painting",
+    "description": "Painting of two faces in reds, oranges, and yellows.",
+    "seller": "Jackie_Cohen",
+    "category": "art",
+    "subcategory": "painting",
+    "price": 26.99,
+    "timestamp": "2024-06-16T14:25:00",
+    "photoFilenames": ["./data/photos/two_faced_painting.png"]
+  },
+  {
+    "title": "Personalized Name Embroidery Hoop",
+    "description": "Customized name embroidery hoop for a personalized wall decoration.",
+    "seller": "ThreadArtCraft",
+    "category": "crafts",
+    "subcategory": "embroidery",
+    "price": 21.75,
+    "timestamp": "2024-06-21T11:20:00",
+    "photoFilenames": [
+      "./data/photos/name_embroidery_hoop_1.jpg",
+      "./data/photos/name_embroidery_hoop_2.png"
+    ]
+  },
+  {
+    "title": "Vampire Red Heart Necklace",
+    "description": "Cross and pearl necklace with red statement heart pendant.",
+    "seller": "Sophia_Cheng",
+    "category": "crafts",
+    "subcategory": "other",
+    "price": 18.99,
+    "timestamp": "2024-06-26T10:15:00",
+    "photoFilenames": [
+      "./data/photos/vampire_red_heart_necklace_1.jpg",
+      "./data/photos/vampire_red_heart_necklace_2.jpg"
+    ]
+  },
+  {
+    "title": "Abstract Art Hand-painted Hoodie",
+    "description": "Cozy hoodie featuring abstract hand-painted art for a modern and artistic look.",
+    "seller": "ArtisticComfort",
+    "category": "clothing",
+    "subcategory": "handmade",
+    "price": 29.50,
+    "timestamp": "2024-07-11T14:40:00",
+    "photoFilenames": ["./data/photos/abstract_digital_art_hoodie_1.jpg", "./data/photos/abstract_digital_art_hoodie_2.png"]
   }
 ]
