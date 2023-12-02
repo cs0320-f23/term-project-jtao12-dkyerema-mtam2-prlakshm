@@ -1,7 +1,7 @@
 [
   {
     "title": "Vintage Denim Jacket",
-    "description": "Classic oversized denim jacket with a retro touch.",
+    "description": "Classic oversized denim jacket with vintage patches.",
     "seller": "AnnaVintage",
     "category": "clothing",
     "subcategory": "second-hand",
@@ -10,16 +10,15 @@
     "photoFilenames": ["../data/photos/vintage_denim_1.jpg"]
   },
   {
-    "title": "Handmade Crochet Scarf",
-    "description": "Cozy scarf handcrafted with intricate crochet patterns.",
-    "seller": "CraftyCarla",
+    "title": "Crochet Fruit Keychain Set of 4",
+    "description": "Kiwi, watermelon, orange, and lemon crochet keychain set.",
+    "seller": "Emily_Wang",
     "category": "crafts",
     "subcategory": "crochet",
-    "price": 22.99,
+    "price": 20.00,
     "timestamp": "2023-11-10T12:45:00",
     "photoFilenames": [
-      "../data/photos/crochet_scarf_1.jpg",
-      "../data/photos/crochet_scarf_2.png"
+      "../data/photos/crochet_fruit_keychains.jpg"
     ]
   },
   {
@@ -37,21 +36,22 @@
     ]
   },
   {
-    "title": "Boho Embroidered Pillow",
-    "description": "Decorative pillow featuring bohemian-inspired embroidery.",
-    "seller": "BohoChicDecor",
-    "category": "crafts",
-    "subcategory": "embroidery",
-    "price": 19.5,
+    "title": "Blue Green Beaded Bow Necklace",
+    "description": "Necklace with blue and green circle beards and pearl bows.",
+    "seller": "Sophia_Cheng",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 15.0,
     "timestamp": "2023-11-20T09:55:00",
-    "photoFilenames": ["../data/photos/embroidered_pillow_1.jpg"]
+    "photoFilenames": ["../data/photos/blue_green_bow_necklace_1.jpg",
+    "../data/photos/blue_green_bow_necklace_2.jpg"]
   },
   {
     "title": "Hand-Painted Tote Bag",
     "description": "Unique tote bag hand-painted with vibrant colors and patterns.",
-    "seller": "ArtistryTotes",
+    "seller": "ArtsyTotes",
     "category": "accessories",
-    "subcategory": "other",
+    "subcategory": "bags",
     "price": 17.99,
     "timestamp": "2023-11-25T14:15:00",
     "photoFilenames": [
@@ -61,54 +61,50 @@
     ]
   },
   {
-    "title": "Abstract Art Print Set",
-    "description": "Set of abstract art prints to add a modern touch to your space.",
-    "seller": "AbstractVisions",
+    "title": "Blueno Abomination Digital Art",
+    "description": "Blueno resurrected as a Cthulhu style eldritch horror abomination.",
+    "seller": "Jackie_Cohen",
     "category": "art",
-    "subcategory": "prints",
-    "price": 26.99,
+    "subcategory": "digital art",
+    "price": 5.99,
     "timestamp": "2023-12-01T16:40:00",
-    "photoFilenames": ["../data/photos/abstract_prints_1.jpg"]
+    "photoFilenames": ["../data/photos/blueno_digital_art.jpg"]
   },
   {
-    "title": "Handmade Knit Beanie",
-    "description": "Cozy and stylish beanie knitted with love for the winter season.",
-    "seller": "KnitWonders",
-    "category": "clothing",
-    "subcategory": "handmade",
-    "price": 14.5,
-    "timestamp": "2023-12-06T11:25:00",
-    "photoFilenames": [
-      "../data/photos/knit_beanie_1.jpg",
-      "../data/photos/knit_beanie_2.png",
-      "../data/photos/knit_beanie_3.jpg"
-    ]
-  },
-  {
-    "title": "Vintage Leather Messenger Bag",
-    "description": "Classic leather messenger bag with a touch of vintage charm.",
-    "seller": "RetroExplorer",
-    "category": "clothing",
-    "subcategory": "second-hand",
-    "price": 38.99,
-    "timestamp": "2023-12-11T13:50:00",
-    "photoFilenames": [
-      "../data/photos/leather_messenger_1.jpg",
-      "../data/photos/leather_messenger_2.png"
-    ]
-  },
-  {
-    "title": "Quirky Wire Jewelry Set",
-    "description": "Fun and quirky wire jewelry set to elevate your style.",
-    "seller": "WireWhimsy",
+    "title": "Chunky Seashell Necklace",
+    "description": "Porcelain and pearl beaded necklace with a big seashell pendant.",
+    "seller": "Sophia_Cheng",
     "category": "accessories",
     "subcategory": "jewelry",
-    "price": 21.99,
+    "price": 20.00,
+    "timestamp": "2023-12-06T11:25:00",
+    "photoFilenames": [
+      "../data/photos/chunky_seashell_necklace_1.jpg",
+      "../data/photos/chunky_seashell_necklace_2.jpg"
+    ]
+  },
+  {
+    "title": "Crochet Bear and Sunflower Coaster Set",
+    "description": "Set of 2 coasters. Cute brown bear coaster and vibrant sunflower coaster.",
+    "seller": "Emily_Wang",
+    "category": "art",
+    "subcategory": "crochet",
+    "price": 16.00,
+    "timestamp": "2023-12-11T13:50:00",
+    "photoFilenames": [
+      "../data/photos/crochet_bear_and_sunflower.jpg"
+    ]
+  },
+  {
+    "title": "Crochet Black and White Cat Keychains",
+    "description": "Crochet black and White cat keychain set with adorable faces.",
+    "seller": "Emily_Wang",
+    "category": "art",
+    "subcategory": "crochet",
+    "price": 14.00,
     "timestamp": "2023-12-16T10:15:00",
     "photoFilenames": [
-      "../data/photos/wire_jewelry_set_1.jpg",
-      "../data/photos/wire_jewelry_set_2.png",
-      "../data/photos/wire_jewelry_set_3.jpg"
+      "../data/photos/crochet_black_and_white_cat_keychain.jpg"
     ]
   },
   {
@@ -122,16 +118,17 @@
     "photoFilenames": ["../data/photos/clay_mug_1.jpg"]
   },
   {
-    "title": "Abstract Acrylic Canvas",
-    "description": "Vibrant abstract acrylic painting on canvas for art enthusiasts.",
-    "seller": "CanvasCreation",
-    "category": "art",
-    "subcategory": "paintings",
+    "title": "Crochet Octopus Set of 7",
+    "description": "Set of 7 crochet octopi. Comes in blue, pink, purple, and mauve.",
+    "seller": "Emily_Wang",
+    "category": "crafts",
+    "subcategory": "crochet",
     "price": 34.99,
     "timestamp": "2023-12-26T14:20:00",
     "photoFilenames": [
-      "../data/photos/abstract_canvas_1.jpg",
-      "../data/photos/abstract_canvas_2.png"
+      "../data/photos/crochet_octopus_set.jpg",
+      "../data/photos/crochet_pink_octopus.jpg",
+      "../data/photos/crochet_blue_octopus.jpg"
     ]
   },
   {
@@ -163,27 +160,25 @@
   },
 
   {
-    "title": "Cozy Handmade Blanket",
-    "description": "Soft and warm handmade blanket for chilly evenings.",
+    "title": "Cozy Chunky Knit Blanket",
+    "description": "Soft and warm handmade chunky knit blanket for chilly evenings.",
     "seller": "WarmThreads",
-    "category": "clothing",
-    "subcategory": "handmade",
+    "category": "crafts",
+    "subcategory": "other",
     "price": 29.99,
     "timestamp": "2024-01-11T18:45:00",
     "photoFilenames": ["../data/photos/handmade_blanket_1.jpg"]
   },
   {
-    "title": "Hand-Stamped Leather Wallet",
-    "description": "Handcrafted leather wallet with unique stamped patterns.",
-    "seller": "LeatherCraftsman",
+    "title": "Washi Tape Wallet",
+    "description": "Handmade washi tape wallet with colorful, funky patterns.",
+    "seller": "WashiQueen",
     "category": "accessories",
     "subcategory": "other",
     "price": 26.5,
     "timestamp": "2024-01-16T14:30:00",
     "photoFilenames": [
-      "../data/photos/leather_wallet_1.jpg",
-      "../data/photos/leather_wallet_2.png",
-      "../data/photos/leather_wallet_3.jpg"
+      "../data/photos/leather_wallet_1.jpg"
     ]
   },
   {
@@ -214,31 +209,31 @@
     ]
   },
   {
-    "title": "Modern Wire Earrings",
-    "description": "Contemporary wire earrings for a touch of elegance.",
-    "seller": "ModernStyle",
-    "category": "accessories",
-    "subcategory": "jewelry",
+    "title": "Crochet Duck Set of 3",
+    "description": "Set of 3 crochet ducks. Pink, yellow, and blue with beaded eyes and faces.",
+    "seller": "Emily_Wang",
+    "category": "crafts",
+    "subcategory": "crochet",
     "price": 18.99,
     "timestamp": "2024-02-01T10:05:00",
     "photoFilenames": [
-      "../data/photos/wire_earrings_1.jpg",
-      "../data/photos/wire_earrings_2.png"
+      "../data/photos/crochet_ducks.jpg",
+      "../data/photos/blue_crochet_duck.jpg"
     ]
   },
   {
-    "title": "Hand-Drawn Art Sketch",
-    "description": "Original art sketch created by a talented artist.",
-    "seller": "ArtSketcher",
-    "category": "art",
-    "subcategory": "drawings",
+    "title": "Crochet Green Coasters Set of 3",
+    "description": "Crochet green coasters in random blob shapes.",
+    "seller": "Emily_Wang",
+    "category": "crafts",
+    "subcategory": "crochet",
     "price": 23.75,
     "timestamp": "2024-02-06T16:50:00",
-    "photoFilenames": ["../data/photos/art_sketch_1.jpg"]
+    "photoFilenames": ["../data/photos/crochet_green_coasters.jpg"]
   },
   {
-    "title": "Handwoven Boho Rug",
-    "description": "Bohemian-style rug handwoven with vibrant colors and patterns.",
+    "title": "Tufted Boho Rug",
+    "description": "Bohemian-style rug hand-tufted with vibrant colors and patterns.",
     "seller": "BohoRugs",
     "category": "crafts",
     "subcategory": "other",
@@ -251,16 +246,15 @@
     ]
   },
   {
-    "title": "Printed Canvas Tote",
-    "description": "Canvas tote featuring unique printed artwork for everyday use.",
-    "seller": "CanvasPrints",
-    "category": "accessories",
-    "subcategory": "bags",
-    "price": 20.5,
+    "title": "Crochet Lavenddar Pot",
+    "description": "Crochet lavendar flowers in hand-painted ceramic pot.",
+    "seller": "Emily_Wang",
+    "category": "crafts",
+    "subcategory": "crochet",
+    "price": 25.5,
     "timestamp": "2024-02-16T09:30:00",
     "photoFilenames": [
-      "../data/photos/canvas_tote_1.jpg",
-      "../data/photos/canvas_tote_2.png"
+      "../data/photos/crochet_lavendar.jpg"
     ]
   }
 ]

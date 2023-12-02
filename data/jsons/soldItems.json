@@ -1,83 +1,102 @@
 [
-    {
-      "title": "Custom Tie-Dye Sweatshirt",
-      "description": "Unique tie-dye sweatshirt with customizable colors and patterns.",
-      "seller": "ColorBlendCrafts",
-      "category": "clothing",
-      "subcategory": "handmade",
-      "price": 28.99,
-      "timestamp": "2024-02-21T11:45:00",
-      "photoFilenames": ["./data/photos/tie_dye_sweatshirt_1.jpg", "./data/photos/tie_dye_sweatshirt_2.png"]
-    },
-    {
-      "title": "DIY Embroidery Kit",
-      "description": "Do-it-yourself embroidery kit for creative crafting sessions.",
-      "seller": "CraftyDIYer",
-      "category": "crafts",
-      "subcategory": "embroidery",
-      "price": 19.99,
-      "timestamp": "2024-02-26T14:20:00",
-      "photoFilenames": ["./data/photos/diy_embroidery_kit_1.jpg"]
-    },
-    {
-      "title": "Upcycled Denim Backpack",
-      "description": "Stylish backpack crafted from upcycled denim for a sustainable twist.",
-      "seller": "EcoStyleExplorer",
-      "category": "accessories",
-      "subcategory": "bags",
-      "price": 32.50,
-      "timestamp": "2024-03-02T13:10:00",
-      "photoFilenames": ["./data/photos/upcycled_backpack_1.jpg", "./data/photos/upcycled_backpack_2.png"]
-    },
-    {
-      "title": "Sculptural Wire Wall Art",
-      "description": "Modern wire wall art to add a unique touch to your living space.",
-      "seller": "ArtWireCrafts",
-      "category": "art",
-      "subcategory": "other",
-      "price": 24.99,
-      "timestamp": "2024-03-07T10:05:00",
-      "photoFilenames": ["./data/photos/wire_wall_art_1.jpg", "./data/photos/wire_wall_art_2.png", "./data/photos/wire_wall_art_3.jpg"]
-    },
-    {
-      "title": "Handmade Beaded Choker",
-      "description": "Trendy beaded choker handmade for a stylish accessory.",
-      "seller": "BeadedChicStyles",
-      "category": "accessories",
-      "subcategory": "jewelry",
-      "price": 16.50,
-      "timestamp": "2024-03-12T16:30:00",
-      "photoFilenames": ["./data/photos/beaded_choker_1.jpg", "./data/photos/beaded_choker_2.png"]
-    },
-    {
-      "title": "Digital Art Print Set",
-      "description": "Set of digital art prints for a contemporary and versatile decor.",
-      "seller": "DigitalArtVision",
-      "category": "art",
-      "subcategory": "prints",
-      "price": 22.99,
-      "timestamp": "2024-03-17T12:15:00",
-      "photoFilenames": ["./data/photos/digital_art_prints_1.jpg", "./data/photos/digital_art_prints_2.png"]
-    },
-    {
-      "title": "Handmade Macramé Plant Hanger",
-      "description": "Boho-inspired macramé plant hanger to showcase your greenery.",
-      "seller": "MacraméJungle",
-      "category": "crafts",
-      "subcategory": "other",
-      "price": 18.75,
-      "timestamp": "2024-03-22T09:55:00",
-      "photoFilenames": ["./data/photos/macrame_plant_hanger_1.jpg"]
-    },
-    {
-      "title": "Statement Resin Earrings",
-      "description": "Bold and unique resin earrings to make a fashion statement.",
-      "seller": "ResinArtistry",
-      "category": "accessories",
-      "subcategory": "jewelry",
-      "price": 20.99,
-      "timestamp": "2024-03-27T14:40:00",
-      "photoFilenames": ["./data/photos/resin_earrings_1.jpg", "./data/photos/resin_earrings_2.png", "./data/photos/resin_earrings_3.jpg"]
-    }
-  ]
-  
+  {
+    "title": "Custom Tie-Dye Sweatshirt",
+    "description": "Unique tie-dye sweatshirt with customizable colors and patterns.",
+    "seller": "ColorBlendCrafts",
+    "category": "clothing",
+    "subcategory": "handmade",
+    "price": 28.99,
+    "timestamp": "2024-02-21T11:45:00",
+    "photoFilenames": [
+      "./data/photos/tie_dye_sweatshirt_1.jpg",
+      "./data/photos/tie_dye_sweatshirt_2.png"
+    ]
+  },
+  {
+    "title": "DIY Embroidery Kit",
+    "description": "Do-it-yourself embroidery kit for creative crafting sessions.",
+    "seller": "CraftyDIYer",
+    "category": "crafts",
+    "subcategory": "embroidery",
+    "price": 19.99,
+    "timestamp": "2024-02-26T14:20:00",
+    "photoFilenames": ["./data/photos/diy_embroidery_kit_1.jpg"]
+  },
+  {
+    "title": "Upcycled Denim Backpack",
+    "description": "Stylish backpack crafted from upcycled denim for a sustainable twist.",
+    "seller": "EcoStyleExplorer",
+    "category": "accessories",
+    "subcategory": "bags",
+    "price": 32.5,
+    "timestamp": "2024-03-02T13:10:00",
+    "photoFilenames": [
+      "./data/photos/upcycled_backpack_1.jpg",
+      "./data/photos/upcycled_backpack_2.png"
+    ]
+  },
+  {
+    "title": "Sculptural Wire Wall Art",
+    "description": "Modern wire wall art to add a unique touch to your living space.",
+    "seller": "ArtWireCrafts",
+    "category": "art",
+    "subcategory": "other",
+    "price": 24.99,
+    "timestamp": "2024-03-07T10:05:00",
+    "photoFilenames": [
+      "./data/photos/wire_wall_art_1.jpg",
+      "./data/photos/wire_wall_art_2.png",
+      "./data/photos/wire_wall_art_3.jpg"
+    ]
+  },
+  {
+    "title": "Handmade Beaded Choker",
+    "description": "Trendy beaded choker handmade for a stylish accessory.",
+    "seller": "BeadedChicStyles",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 16.5,
+    "timestamp": "2024-03-12T16:30:00",
+    "photoFilenames": [
+      "./data/photos/beaded_choker_1.jpg",
+      "./data/photos/beaded_choker_2.png"
+    ]
+  },
+  {
+    "title": "Digital Art Print Set",
+    "description": "Set of digital art prints for a contemporary and versatile decor.",
+    "seller": "DigitalArtVision",
+    "category": "art",
+    "subcategory": "prints",
+    "price": 22.99,
+    "timestamp": "2024-03-17T12:15:00",
+    "photoFilenames": [
+      "./data/photos/digital_art_prints_1.jpg",
+      "./data/photos/digital_art_prints_2.png"
+    ]
+  },
+  {
+    "title": "Handmade Macramé Plant Hanger",
+    "description": "Boho-inspired macramé plant hanger to showcase your greenery.",
+    "seller": "MacraméJungle",
+    "category": "crafts",
+    "subcategory": "other",
+    "price": 18.75,
+    "timestamp": "2024-03-22T09:55:00",
+    "photoFilenames": ["./data/photos/macrame_plant_hanger_1.jpg"]
+  },
+  {
+    "title": "Statement Resin Earrings",
+    "description": "Bold and unique resin earrings to make a fashion statement.",
+    "seller": "ResinArtistry",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 20.99,
+    "timestamp": "2024-03-27T14:40:00",
+    "photoFilenames": [
+      "./data/photos/resin_earrings_1.jpg",
+      "./data/photos/resin_earrings_2.png",
+      "./data/photos/resin_earrings_3.jpg"
+    ]
+  }
+]
