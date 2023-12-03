@@ -48,7 +48,7 @@
   "profilePhotoFilename": "craftyCreator.jpg",
   "contactInformation": {
     "email": "crafty_liam@brown.edu",
-    "phone number": "+1 555-5678",
+    "phone number": "555-123-4567",
     "twitter": "Crafty_Liam"
   }
 },
@@ -110,7 +110,7 @@
   "profilePhotoFilename": "paintgenius.jpg",
   "contactInformation": {
     "email": "paint_genius@brown.edu",
-    "phone number": "+1 555-8765",
+    "phone number": "555-987-6543",
     "instagram": "PaintGenius_Jackie"
   }
 },
@@ -145,7 +145,7 @@
   "profilePhotoFilename": "ecoFriendlySoul.png",
   "contactInformation": {
     "email": "green_isabella@brown.edu",
-    "phone number": "+1 555-4321",
+    "phone number": "555-234-5678",
     "facebook": "Isabella.Claire.Green"
   }
 },
@@ -223,7 +223,7 @@
   "profilePhotoFilename": "wanderlust_jewels.png",
   "contactInformation": {
     "email": "wanderlust_sophia@brown.edu",
-    "phone number": "+1 555-9876",
+    "phone number": "555-876-5432",
     "instagram": "Wanderlust_Sophia"
   }
 },
@@ -269,7 +269,7 @@
   "profilePhotoFilename": "artisticDreamer.jpg",
   "contactInformation": {
     "email": "sophie_art@brown.edu",
-    "phone number": "+1 555-2468",
+    "phone number": "555-345-6789",
     "twitter": "ArtisticDreamer_Sophie"
   }
 },
@@ -329,7 +329,7 @@
   "profilePhotoFilename": "DIYQueen.jpg",
   "contactInformation": {
     "email": "lily_DIY@brown.edu",
-    "phone number": "+1 555-1357",
+    "phone number": "555-789-0123",
     "facebook": "Lily.Elizabeth.DIY"
   }
 },
@@ -453,7 +453,7 @@
   "profilePhotoFilename": "bookwormArtisan.png",
   "contactInformation": {
     "email": "aria_bookworm@brown.edu",
-    "phone number": "+1 555-3690",
+    "phone number": "555-456-7890",
     "facebook": "Aria.Harper.Bookworm"
   }
 },
@@ -479,7 +479,7 @@
   "profilePhotoFilename": "artisticSoul.jpg",
   "contactInformation": {
     "email": "passion_art@brown.edu",
-    "phone number": "+1 555-1234",
+    "phone number": "555-678-9012",
     "instagram": "artisticSoul_Emma"
   }
 }]
