@@ -8,6 +8,8 @@ import java.util.Map;
 
 public class Account {
   private String username;
+
+  private String fullname;
   private String email;
   private String bio;
   private List<Item> currentListings;

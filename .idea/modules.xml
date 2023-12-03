@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/code/backend/s0.iml" filepath="$PROJECT_DIR$/code/backend/s0.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/term-project-jtao12-dkyerema-mtam2-prlakshm.iml" filepath="$PROJECT_DIR$/.idea/term-project-jtao12-dkyerema-mtam2-prlakshm.iml" />
     </modules>
   </component>
