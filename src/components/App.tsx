@@ -21,11 +21,11 @@ function App() {
       </p>
       <div>
         <h2>Master Items</h2>
-        <p>{JSON.stringify(items[0], null, 2)}</p>
+        <p>{items[0] ? items[0].join(', ') : '...'}</p>
       </div>
       <div>
         <h2>Sold Items</h2>
-        <p>{JSON.stringify(items[1], null, 2)}</p>
+        <p>{items[1] ? items[1].join(', ') : '...'}</p>
       </div>
     </div>
   );
