@@ -10,11 +10,14 @@
   "category": "clothing",
   "subcategory": "second-hand",
   "price": 34.5,
-  "timestamp": "2023-11-05T15:30:00",
+  "timestamp": {
+    "$date": "2023-11-05T20:30:00.000Z"
+  },
   "photoFilenames": [
     "../data/photos/vintage_denim_1.jpg",
     "../data/photos/vintage_denim_2.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -28,10 +31,13 @@
   "category": "crafts",
   "subcategory": "crochet",
   "price": 20,
-  "timestamp": "2023-11-10T12:45:00",
+  "timestamp": {
+    "$date": "2023-11-10T17:45:00.000Z"
+  },
   "photoFilenames": [
     "../data/photos/crochet_fruit_keychains.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -45,12 +51,15 @@
   "category": "crafts",
   "subcategory": "pottery",
   "price": 28.75,
-  "timestamp": "2023-11-15T10:20:00",
+  "timestamp": {
+    "$date": "2023-11-15T15:20:00.000Z"
+  },
   "photoFilenames": [
     "../data/photos/ceramic_bowl_1.jpg",
     "../data/photos/ceramic_bowl_2.png",
     "../data/photos/ceramic_bowl_3.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -64,11 +73,14 @@
   "category": "accessories",
   "subcategory": "jewelry",
   "price": 15,
-  "timestamp": "2023-11-20T09:55:00",
+  "timestamp": {
+    "$date": "2023-11-20T14:55:00.000Z"
+  },
   "photoFilenames": [
     "../data/photos/blue_green_bow_necklace_1.jpg",
     "../data/photos/blue_green_bow_necklace_2.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -82,10 +94,13 @@
   "category": "accessories",
   "subcategory": "bags",
   "price": 17.99,
-  "timestamp": "2023-11-25T14:15:00",
+  "timestamp": {
+    "$date": "2023-11-25T19:15:00.000Z"
+  },
   "photoFilenames": [
     "../data/photos/frog_tote.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -99,10 +114,13 @@
   "category": "art",
   "subcategory": "prints",
   "price": 5.99,
-  "timestamp": "2023-12-01T16:40:00",
+  "timestamp": {
+    "$date": "2023-12-01T21:40:00.000Z"
+  },
   "photoFilenames": [
     "../data/photos/blueno_digital_art.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -116,11 +134,14 @@
   "category": "accessories",
   "subcategory": "jewelry",
   "price": 20,
-  "timestamp": "2023-12-06T11:25:00",
+  "timestamp": {
+    "$date": "2023-12-06T16:25:00.000Z"
+  },
   "photoFilenames": [
     "../data/photos/chunky_seashell_necklace_1.jpg",
     "../data/photos/chunky_seashell_necklace_2.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -134,10 +155,13 @@
   "category": "art",
   "subcategory": "crochet",
   "price": 14,
-  "timestamp": "2023-12-16T10:15:00",
+  "timestamp": {
+    "$date": "2023-12-16T15:15:00.000Z"
+  },
   "photoFilenames": [
     "../data/photos/crochet_black_and_white_cat_keychain.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -151,12 +175,15 @@
   "category": "crafts",
   "subcategory": "pottery",
   "price": 24.5,
-  "timestamp": "2023-12-21T17:30:00",
+  "timestamp": {
+    "$date": "2023-12-21T22:30:00.000Z"
+  },
   "photoFilenames": [
     "../data/photos/clay_mug_1.jpg",
     "../data/photos/clay_mug_2.jpg",
     "../data/photos/clay_mug_3.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -170,12 +197,15 @@
   "category": "crafts",
   "subcategory": "crochet",
   "price": 34.99,
-  "timestamp": "2023-12-26T14:20:00",
+  "timestamp": {
+    "$date": "2023-12-26T19:20:00.000Z"
+  },
   "photoFilenames": [
     "../data/photos/crochet_octopus_set.jpg",
     "../data/photos/crochet_pink_octopus.jpg",
     "../data/photos/crochet_blue_octopus.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -189,10 +219,13 @@
   "category": "crafts",
   "subcategory": "other",
   "price": 29.99,
-  "timestamp": "2024-01-11T18:45:00",
+  "timestamp": {
+    "$date": "2024-01-11T23:45:00.000Z"
+  },
   "photoFilenames": [
     "../data/photos/cozy_knit_blanket.jpg"
-  ]
+  ],
+  "ifSold": true
 },
 {
   "_id": {
@@ -206,10 +239,13 @@
   "category": "accessories",
   "subcategory": "other",
   "price": 26.5,
-  "timestamp": "2024-01-16T14:30:00",
+  "timestamp": {
+    "$date": "2024-01-16T19:30:00.000Z"
+  },
   "photoFilenames": [
     "../data/photos/cherry_mittens.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -223,11 +259,14 @@
   "category": "crafts",
   "subcategory": "crochet",
   "price": 18.99,
-  "timestamp": "2024-02-01T10:05:00",
+  "timestamp": {
+    "$date": "2024-02-01T15:05:00.000Z"
+  },
   "photoFilenames": [
     "../data/photos/crochet_ducks.jpg",
     "../data/photos/blue_crochet_duck.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -244,7 +283,8 @@
   "timestamp": "2024-02-06T16:50:00",
   "photoFilenames": [
     "../data/photos/crochet_green_coasters.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -258,12 +298,15 @@
   "category": "crafts",
   "subcategory": "other",
   "price": 31.99,
-  "timestamp": "2024-02-11T14:35:00",
+  "timestamp": {
+    "$date": "2024-02-11T19:35:00.000Z"
+  },
   "photoFilenames": [
     "../data/photos/moss_rug_1.jpg",
     "../data/photos/moss_rug_2.png",
     "../data/photos/moss_rug_3.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -277,10 +320,13 @@
   "category": "crafts",
   "subcategory": "crochet",
   "price": 25.5,
-  "timestamp": "2024-02-16T09:30:00",
+  "timestamp": {
+    "$date": "2024-02-16T14:30:00.000Z"
+  },
   "photoFilenames": [
     "../data/photos/crochet_lavender.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -294,10 +340,13 @@
   "category": "accessories",
   "subcategory": "jewelry",
   "price": 15.75,
-  "timestamp": "2024-06-06T09:35:00",
+  "timestamp": {
+    "$date": "2024-06-06T13:35:00.000Z"
+  },
   "photoFilenames": [
     "./data/photos/ribbon_bow_necklace_.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -311,10 +360,13 @@
   "category": "crafts",
   "subcategory": "other",
   "price": 17.5,
-  "timestamp": "2024-06-11T16:30:00",
+  "timestamp": {
+    "$date": "2024-06-11T20:30:00.000Z"
+  },
   "photoFilenames": [
     "./data/photos/eco_candle_1.jpg"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -328,10 +380,13 @@
   "category": "art",
   "subcategory": "painting",
   "price": 26.99,
-  "timestamp": "2024-06-16T14:25:00",
+  "timestamp": {
+    "$date": "2024-06-16T18:25:00.000Z"
+  },
   "photoFilenames": [
     "./data/photos/two_faced_painting.png"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -345,11 +400,14 @@
   "category": "crafts",
   "subcategory": "embroidery",
   "price": 21.75,
-  "timestamp": "2024-06-21T11:20:00",
+  "timestamp": {
+    "$date": "2024-06-21T15:20:00.000Z"
+  },
   "photoFilenames": [
     "./data/photos/embroidery_hoop_1.jpg",
     "./data/photos/embroidery_hoop_2.png"
-  ]
+  ],
+  "ifSold": false
 },
 {
   "_id": {
@@ -357,13 +415,18 @@
   },
   "title": "Vampire Red Heart Necklace",
   "description": "Cross and pearl necklace with red statement heart pendant.",
-  "seller": "Sophia_Cheng",
+  "seller": {
+    "$oid": "656bd988abfe68217e3eb968"
+  },
   "category": "crafts",
   "subcategory": "other",
   "price": 18.99,
-  "timestamp": "2024-06-26T10:15:00",
+  "timestamp": {
+    "$date": "2024-06-26T14:15:00.000Z"
+  },
   "photoFilenames": [
     "./data/photos/vampire_red_heart_necklace_1.jpg",
     "./data/photos/vampire_red_heart_necklace_2.jpg"
-  ]
+  ],
+  "ifSold": false
 }]
