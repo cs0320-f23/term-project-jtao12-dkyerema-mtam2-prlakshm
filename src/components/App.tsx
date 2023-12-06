@@ -1,10 +1,11 @@
-import React from "react";
-
-
+import { getAllItems } from "../mongo/test-read-types";
 /**
  * This is the highest level component!
  */
 function App() {
+
+  getAllItems();
+
   return (
     <div className="App">
       <p className="App-header">
