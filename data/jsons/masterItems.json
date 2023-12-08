@@ -4,9 +4,7 @@
   },
   "title": "Vintage Denim Jacket",
   "description": "Classic oversized denim jacket with assorted patches.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb964"
-  },
+  "seller": "vintageVibes",
   "category": "clothing",
   "subcategory": "second-hand",
   "price": 34.5,
@@ -25,9 +23,7 @@
   },
   "title": "Crochet Fruit Keychain Set of 4",
   "description": "Kiwi, watermelon, orange, and lemon crochet keychain set.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb96e"
-  },
+  "seller": "Emily_Wang",
   "category": "crafts",
   "subcategory": "crochet",
   "price": 20,
@@ -45,9 +41,7 @@
   },
   "title": "Artistic Ceramic Bowl",
   "description": "One-of-a-kind ceramic bowl with flower hand-painted details.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb967"
-  },
+  "seller": "PotteryPassion",
   "category": "crafts",
   "subcategory": "pottery",
   "price": 28.75,
@@ -67,9 +61,7 @@
   },
   "title": "Blue Green Beaded Bow Necklace",
   "description": "Necklace with blue and green circle beards and pearl bows.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb968"
-  },
+  "seller": "Sophia_Cheng",
   "category": "accessories",
   "subcategory": "jewelry",
   "price": 15,
@@ -88,9 +80,7 @@
   },
   "title": "Hand-Painted Frog Tote Bag",
   "description": "Unique tote bag hand-painted with cute frogs.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb96a"
-  },
+  "seller": "ArtsyTotes",
   "category": "accessories",
   "subcategory": "bags",
   "price": 17.99,
@@ -108,9 +98,7 @@
   },
   "title": "Blueno Abomination Digital Art Print",
   "description": "Digital art print of blueno resurrected as a Cthulhu style eldritch horror abomination.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb965"
-  },
+  "seller": "Jackie_Cohen",
   "category": "art",
   "subcategory": "prints",
   "price": 5.99,
@@ -128,9 +116,7 @@
   },
   "title": "Chunky Seashell Necklace",
   "description": "Porcelain and pearl beaded necklace with a big seashell pendant.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb968"
-  },
+  "seller": "Sophia_Cheng",
   "category": "accessories",
   "subcategory": "jewelry",
   "price": 20,
@@ -149,10 +135,8 @@
   },
   "title": "Crochet Black and White Cat Keychains",
   "description": "Crochet black and White cat keychain set with adorable faces.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb96e"
-  },
-  "category": "art",
+  "seller": "Emily_Wang",
+  "category": "crafts",
   "subcategory": "crochet",
   "price": 14,
   "timestamp": {
@@ -169,9 +153,7 @@
   },
   "title": "Handcrafted Clay Mug",
   "description": "Artisan-crafted clay mug for your favorite beverages.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb96b"
-  },
+  "seller": "ClayCraftsman",
   "category": "crafts",
   "subcategory": "pottery",
   "price": 24.5,
@@ -191,9 +173,7 @@
   },
   "title": "Crochet Octopus Set of 7",
   "description": "Set of 7 crochet octopi. Comes in blue, pink, purple, and mauve.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb96e"
-  },
+  "seller": "Emily_Wang",
   "category": "crafts",
   "subcategory": "crochet",
   "price": 34.99,
@@ -213,9 +193,7 @@
   },
   "title": "Cozy Chunky Knit Blanket",
   "description": "Soft and warm handmade chunky knit blanket for chilly evenings.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb96d"
-  },
+  "seller": "ThreadArtCraft",
   "category": "crafts",
   "subcategory": "other",
   "price": 29.99,
@@ -233,9 +211,7 @@
   },
   "title": "Cherry White Mittens",
   "description": "Hand knit winter mittens with cherry detail.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb96c"
-  },
+  "seller": "DIYQueen",
   "category": "accessories",
   "subcategory": "other",
   "price": 26.5,
@@ -253,9 +229,7 @@
   },
   "title": "Crochet Duck Set of 3",
   "description": "Set of 3 crochet ducks. Pink, yellow, and blue with beaded eyes and faces.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb96e"
-  },
+  "seller": "Emily_Wang",
   "category": "crafts",
   "subcategory": "crochet",
   "price": 18.99,
@@ -274,9 +248,7 @@
   },
   "title": "Crochet Green Coasters Set of 3",
   "description": "Crochet green coasters in random blob shapes.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb96e"
-  },
+  "seller": "Emily_Wang",
   "category": "crafts",
   "subcategory": "crochet",
   "price": 23.75,
@@ -292,9 +264,7 @@
   },
   "title": "Tufted Green Moss Rug",
   "description": "Green moss rug hand-tufted with vibrant greens and abstract patterns.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb963"
-  },
+  "seller": "Wire&TuftCrafts",
   "category": "crafts",
   "subcategory": "other",
   "price": 31.99,
@@ -314,9 +284,7 @@
   },
   "title": "Crochet Lavender Pot",
   "description": "Crochet lavender flowers in hand-painted ceramic pot.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb96e"
-  },
+  "seller": "Emily_Wang",
   "category": "crafts",
   "subcategory": "crochet",
   "price": 25.5,
@@ -334,9 +302,7 @@
   },
   "title": "Ribbon Bow Necklace",
   "description": "Rhinestone bow and pearl necklace with ribbon bow.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb968"
-  },
+  "seller": "Sophia_Cheng",
   "category": "accessories",
   "subcategory": "jewelry",
   "price": 15.75,
@@ -354,9 +320,7 @@
   },
   "title": "Eco-Friendly Plant-based Candle",
   "description": "Sustainable and eco-friendly plant-based candle for a cozy atmosphere. Lavender orange blossom and sandalwood scent. Purple and blue crystals inside.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb966"
-  },
+  "seller": "ecoFriendlySoul",
   "category": "crafts",
   "subcategory": "other",
   "price": 17.5,
@@ -374,9 +338,7 @@
   },
   "title": "Warm Toned Two-Faced Painting",
   "description": "Painting of two faces in reds, oranges, and yellows.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb965"
-  },
+  "seller": "Jackie_Cohen",
   "category": "art",
   "subcategory": "painting",
   "price": 26.99,
@@ -394,9 +356,7 @@
   },
   "title": "\"Punch Today in the Face\" Embroidery Hoop",
   "description": "Embroidery hoop for a personalized wall decoration.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb96d"
-  },
+  "seller": "ThreadArtCraft",
   "category": "crafts",
   "subcategory": "embroidery",
   "price": 21.75,
@@ -415,9 +375,7 @@
   },
   "title": "Vampire Red Heart Necklace",
   "description": "Cross and pearl necklace with red statement heart pendant.",
-  "seller": {
-    "$oid": "656bd988abfe68217e3eb968"
-  },
+  "seller": "Sophia_Cheng",
   "category": "crafts",
   "subcategory": "other",
   "price": 18.99,
