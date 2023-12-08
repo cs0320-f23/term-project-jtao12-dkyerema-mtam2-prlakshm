@@ -94,6 +94,10 @@ body {
   padding: 5rem 10rem 2rem 10rem;
 }
 
+.category-content {
+  padding: 2rem 8rem 2rem 10rem;
+}
+
 .hero {
   display: flex;
   align-items: center;
@@ -103,6 +107,27 @@ img {
   /* max-width: 100%; */
   max-height: 500px;
   object-fit: cover;
+}
+
+/* for making images full width of the screen, I used a code snippet from
+https://gomakethings.com/full-width-images-with-only-css/ */
+.full-width {
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: 100vw;
+  position: relative;
+  right: 50%;
+  width: 100vw;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0rem 6rem 2rem 6rem;
+  border-radius: 12px;
 }
 
 .selected-work {
@@ -222,11 +247,6 @@ img {
   margin: 0rem 10rem;
 }
 
-.card {
-  width: calc(50% - 1rem);
-  padding-bottom: 3rem;
-}
-
 .about {
   width: calc(50%);
   margin-left: 3rem;
@@ -237,7 +257,16 @@ a {
   font-size: 1.1rem;
 }
 
+.card {
+  width: 20rem;
+  margin: 0.5rem;
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
 .card-image {
+  width: 18rem;
   border-radius: 10px;
   transition: all 0.3s ease;
 }
@@ -249,6 +278,18 @@ a {
 
 .card-desc {
   padding-top: 10px;
+  width: 20rem;
+}
+@media (max-width: 768px) {
+  .card {
+    width: calc(50% - 2rem); /* two items per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: calc(100% - 2rem); /* one item per row on very small screens */
+  }
 }
 
 .footer-links {
