@@ -415,7 +415,7 @@
   "seller": {
     "$oid": "656bd988abfe68217e3eb96e"
   },
-  "category": "art",
+  "category": "crafts",
   "subcategory": "crochet",
   "price": 16,
   "timestamp": {
