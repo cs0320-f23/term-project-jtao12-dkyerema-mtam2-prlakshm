@@ -216,7 +216,7 @@ export async function searchItems(keywords: string): Promise<ItemTuple> {
     }
 
     const keywordRegex = { $regex: keywords, $options: "i" };
-    const dollarAmountRegex = {$regex: keywords.replace("$", ""), $options: "i"};
+    const dollarAmount = parseInt(keywords.replace(/\$([\d]+)(\.\d{1,2})?/, ''));
 
     const masterItemsCollection: RemoteMongoCollection<Item> =
       db.collection("master_items");
@@ -227,6 +227,7 @@ export async function searchItems(keywords: string): Promise<ItemTuple> {
         { category: keywordRegex },
         { subcategory: keywordRegex },
         { seller: keywordRegex },
+        { price: {$gt: dollarAmount-1, $lt:dollarAmount+1} },
       ],
     };
     const masterItemsCursor = masterItemsCollection.find(masterSearchQuery);
@@ -240,8 +241,8 @@ export async function searchItems(keywords: string): Promise<ItemTuple> {
         { description: keywordRegex },
         { category: keywordRegex },
         { subcategory: keywordRegex },
-        { seller: keywordRegex },
-        { price: dollarAmountRegex },
+        { seller: keywordRegex }, //update all sellers to link to username instead from json
+        { price: {$gt: dollarAmount-1, $lt:dollarAmount+1} }, 
       ],
     };
     const soldItemsCursor = soldItemsCollection.find(soldSearchQuery);
@@ -253,3 +254,13 @@ export async function searchItems(keywords: string): Promise<ItemTuple> {
     return [];
   }
 }
+
+/**
+ * Add functions for:
+ * filter by price, timestamp from [item[], item[]]
+ * accounts get by id, get by username
+ * item get by id
+ * if username already exists
+ * add item/add account
+ * remove item -- add to sold/remove account
+ */

@@ -15,7 +15,7 @@ function App() {
   initializeStitchClient();
 
   useEffect(() => {
-    searchItems("jacket")
+    searchItems("emily")
       .then(([masterItems, soldItems]) => {
         setItems([masterItems || [], soldItems || []]);
       })
