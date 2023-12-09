@@ -1,0 +1,9 @@
+{
+    "appId": "artists_corner_0-lcspi",
+    "appUrl": "https://realm.mongodb.com/groups/65675f96f8cff7338e942a2e/apps/657208eb053e6c2c2bec0261",
+    "baseUrl": "https://realm.mongodb.com",
+    "clientApiBaseUrl": "https://us-east-1.aws.realm.mongodb.com",
+    "dataApiBaseUrl": "https://us-east-1.aws.data.mongodb-api.com",
+    "dataExplorerLink": "https://cloud.mongodb.com/links/65675f96f8cff7338e942a2e/explorer/cs32term/database/collection/find",
+    "dataSourceName": "mongodb-atlas"
+}
