@@ -45,7 +45,7 @@ function App() {
       });
   }, []);
   useEffect(() => {
-    getAccountByUsername("vintageVibes")
+    getAccountByUsername("Sophia_Cheng")
       .then((account) => {
         setAccountById(account);
       })
@@ -55,7 +55,7 @@ function App() {
   }, []);
   useEffect(() => {
     if (accountById?.currentListing_ids) {
-      getItemListById(accountById.purchasedItems_ids)
+      getItemListById(accountById.currentListing_ids)
         .then((itemList) => {
           setCurrentListings(itemList);
         })
