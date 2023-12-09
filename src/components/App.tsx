@@ -7,9 +7,13 @@ import {
   sortLeastToMostRecent,
   sortMostToLeastRecent,
   initializeStitchClient,
+  getItemListById,
+  getAccountByUsername,
+
 } from "../mongo/Mongo-Functions";
 import Item from "../models/item";
 import { BSON } from "mongodb-stitch-browser-sdk";
+import Account from "../models/account";
 
 /**
  * This is the highest level component!
@@ -17,6 +21,8 @@ import { BSON } from "mongodb-stitch-browser-sdk";
 function App() {
   const [items, setItems] = useState<ItemTuple>([[], []]);
   const [itemById, setItemById] = useState<Item>();
+  const [accountById, setAccountById] = useState<Account>();
+  const [currentListings, setCurrentListings] = useState<Item[]>([]);
 
   initializeStitchClient();
 
@@ -38,6 +44,27 @@ function App() {
         console.error("Error:", error);
       });
   }, []);
+  useEffect(() => {
+    getAccountByUsername("vintageVibes")
+      .then((account) => {
+        setAccountById(account);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, []);
+  useEffect(() => {
+    if (accountById?.currentListing_ids) {
+      getItemListById(accountById.purchasedItems_ids)
+        .then((itemList) => {
+          setCurrentListings(itemList);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+  }, [accountById?.currentListing_ids]); //this is a dependency YOU MUST use--otherwise takes long to fetch
+
   return (
     <div className="App">
       <h1>Artist's Corner Pvd</h1>
@@ -47,6 +74,9 @@ function App() {
         <ul>
           <li>Item: {JSON.stringify(itemById)}</li>
         </ul>
+      </div>
+
+      <div>
         <h2>Master Items</h2>
         <ul>
           {items[0]?.map((item, index) => (
@@ -61,6 +91,21 @@ function App() {
         <ul>
           {items[1]?.map((item, index) => (
             <li key={index}>Item: {JSON.stringify(item)}</li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h2>Account By Id</h2>
+        <ul>
+          <li>Account: {JSON.stringify(accountById)}</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Account Current Listings</h2>
+        <ul>
+          {currentListings.map((listing, index) => (
+            <li key={index}>Item: {JSON.stringify(listing)}</li>
           ))}
         </ul>
       </div>
