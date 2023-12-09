@@ -4,12 +4,10 @@ import {
   ItemTuple,
   searchItems,
   getItemById,
-  sortLeastToMostRecent,
   sortMostToLeastRecent,
   initializeStitchClient,
   getItemListById,
   getAccountByUsername,
-
 } from "../mongo/Mongo-Functions";
 import Item from "../models/item";
 import { BSON } from "mongodb-stitch-browser-sdk";

@@ -286,17 +286,21 @@ export async function getItemById(
 
     const masterItemsCollection: RemoteMongoCollection<Item> =
       db.collection("master_items");
-    const masterItem: Item[] = await masterItemsCollection.find({
-      _id: id,
-    }).toArray();
+    const masterItem: Item[] = await masterItemsCollection
+      .find({
+        _id: id,
+      })
+      .toArray();
 
     const soldItemsCollection: RemoteMongoCollection<Item> =
       db.collection("sold_items");
-    const soldItem: Item[] = await soldItemsCollection.find({
-      _id: id,
-    }).toArray();
+    const soldItem: Item[] = await soldItemsCollection
+      .find({
+        _id: id,
+      })
+      .toArray();
 
-    if (masterItem.length == 0  && soldItem.length == 0) {
+    if (masterItem.length == 0 && soldItem.length == 0) {
       console.error("No item with Object ID");
       return undefined;
     } else if (masterItem.length == 1 && soldItem.length == 0) {
@@ -316,17 +320,17 @@ export async function getItemById(
 /**
  * Returns Item[] from BSON.ObjectId[] -- use for account fields
  * currentListing_ids, pastListing_ids, purchasedItems_ids,
- * LikedItem_ids
+ * likedItem_ids
  * @param itemIds list of BSON.ObjectIds want to return item values of
  * @returns item[] from object ids
  */
-export async function getItemListById(itemIds: BSON.ObjectId[]): Promise<Item[]> {
-    console.log("Item Ids: " + itemIds)
-    const itemPromises = itemIds.map(getItemById);
-    const itemList = await Promise.all(itemPromises);
-    console.log("ItemList: " + itemList)
-    return itemList.filter((item): item is Item => !!item);
-  }
+export async function getItemListById(
+  itemIds: BSON.ObjectId[]
+): Promise<Item[]> {
+  const itemPromises = itemIds.map(getItemById);
+  const itemList = await Promise.all(itemPromises);
+  return itemList.filter((item): item is Item => !!item);
+}
 
 /**
  * Helper for sorting prices from low to high
@@ -454,7 +458,6 @@ export function sortMostToLeastRecent(itemTuple: ItemTuple): ItemTuple {
   }
 }
 
-
 /**
  * Retrieves an account from database from its object id
  * @param id object id -- if have string of id use new BSON.ObjectId([string]) and make sure
@@ -466,85 +469,119 @@ export function sortMostToLeastRecent(itemTuple: ItemTuple): ItemTuple {
  * @returns Account with object id or undefined if error -- no or multiple accounts with id
  */
 export async function getAccountById(
-    id: BSON.ObjectId
-  ): Promise<Account | undefined> {
-    try {
-      await client?.auth.loginWithCredential(
-        new UserApiKeyCredential(
-          "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-        )
-      );
-  
-      const db = mongodb?.db("artists_corner_pvd");
-      if (!db) {
-        throw new Error("Database not available");
-      }
-  
-      const accountsCollection: RemoteMongoCollection<Account> =
-        db.collection("accounts");
-      const account: Account[] = await accountsCollection.find({
+  id: BSON.ObjectId
+): Promise<Account | undefined> {
+  try {
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(
+        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
+      )
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+
+    const accountsCollection: RemoteMongoCollection<Account> =
+      db.collection("accounts");
+    const account: Account[] = await accountsCollection
+      .find({
         _id: id,
-      }).toArray();
-  
-      if (account.length == 0) {
-        console.error("No account with Object ID");
-        return undefined;
-      } else if (account.length == 1) {
-        return account[0];
-      }
-      else {
-        console.error("Multiple accounts with Object ID");
-        return undefined;
-      }
-    } catch (error) {
-      console.error("Error fetching account by ID:", error);
+      })
+      .toArray();
+
+    if (account.length == 0) {
+      console.error("No account with Object ID");
+      return undefined;
+    } else if (account.length == 1) {
+      return account[0];
+    } else {
+      console.error("Multiple accounts with Object ID");
       return undefined;
     }
+  } catch (error) {
+    console.error("Error fetching account by ID:", error);
+    return undefined;
   }
+}
 
-  
 /**
  * Retrieves an account from database from its username
  * @param username account username/seller username
  * @returns Account with username or undefined if error -- no or multiple accounts with username
  */
 export async function getAccountByUsername(
-    username: string
-  ): Promise<Account | undefined> {
-    try {
-      await client?.auth.loginWithCredential(
-        new UserApiKeyCredential(
-          "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-        )
-      );
-  
-      const db = mongodb?.db("artists_corner_pvd");
-      if (!db) {
-        throw new Error("Database not available");
-      }
-  
-      const accountsCollection: RemoteMongoCollection<Account> =
-        db.collection("accounts");
-      const account: Account[] = await accountsCollection.find({
+  username: string
+): Promise<Account | undefined> {
+  try {
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(
+        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
+      )
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+
+    const accountsCollection: RemoteMongoCollection<Account> =
+      db.collection("accounts");
+    const account: Account[] = await accountsCollection
+      .find({
         username: username,
-      }).toArray();
-  
-      if (account.length == 0) {
-        console.error("No account with username");
-        return undefined;
-      } else if (account.length == 1) {
-        return account[0];
-      }
-      else {
-        console.error("Multiple accounts with username");
-        return undefined;
-      }
-    } catch (error) {
-      console.error("Error fetching account by username:", error);
+      })
+      .toArray();
+
+    if (account.length == 0) {
+      console.error("No account with username");
+      return undefined;
+    } else if (account.length == 1) {
+      return account[0];
+    } else {
+      console.error("Multiple accounts with username");
       return undefined;
     }
+  } catch (error) {
+    console.error("Error fetching account by username:", error);
+    return undefined;
   }
+}
 
+/**
+ * Returns is username already exists in database -- use when creating a new account,
+ * checking if username doesn't already exist
+ * @param username string want to check if already username of another account
+ * @returns boolean of if username already being used
+ */
+export async function ifUsernameAlreadyExists(
+  username: string
+): Promise<boolean> {
+  try {
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(
+        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
+      )
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+
+    const accountsCollection: RemoteMongoCollection<Account> =
+      db.collection("accounts");
+    const account: Account | null = await accountsCollection.findOne({
+      username: username,
+    });
+
+    return account != null;
+  } catch (error) {
+    console.error("Error fetching account by username:", error);
+    return false;
+  }
+}
 
 /**
  * Add functions for:
