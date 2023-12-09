@@ -11,6 +11,6 @@ export default class Item {
     public timestamp: Date,
     public photoFilenames: string[],
     public ifSold: boolean,
-    public id?: ObjectId
+    public _id?: ObjectId
   ) {}
 }

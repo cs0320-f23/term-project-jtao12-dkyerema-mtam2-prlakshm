@@ -8,6 +8,7 @@ import {
   RemoteFindOptions,
 } from "mongodb-stitch-browser-sdk";
 import Item from "../models/item";
+import { ObjectId } from "mongodb";
 
 export type ItemTuple = [Item[], Item[]] | [];
 
@@ -216,7 +217,9 @@ export async function searchItems(keywords: string): Promise<ItemTuple> {
     }
 
     const keywordRegex = { $regex: keywords, $options: "i" };
-    const dollarAmount = parseInt(keywords.replace(/\$([\d]+)(\.\d{1,2})?/, ''));
+    const dollarAmount = parseInt(
+      keywords.replace(/\$([\d]+)(\.\d{1,2})?/, "")
+    );
 
     const masterItemsCollection: RemoteMongoCollection<Item> =
       db.collection("master_items");
@@ -227,7 +230,7 @@ export async function searchItems(keywords: string): Promise<ItemTuple> {
         { category: keywordRegex },
         { subcategory: keywordRegex },
         { seller: keywordRegex },
-        { price: {$gt: dollarAmount-1, $lt:dollarAmount+1} },
+        { price: { $gt: dollarAmount - 1, $lt: dollarAmount + 1 } },
       ],
     };
     const masterItemsCursor = masterItemsCollection.find(masterSearchQuery);
@@ -241,8 +244,8 @@ export async function searchItems(keywords: string): Promise<ItemTuple> {
         { description: keywordRegex },
         { category: keywordRegex },
         { subcategory: keywordRegex },
-        { seller: keywordRegex }, //update all sellers to link to username instead from json
-        { price: {$gt: dollarAmount-1, $lt:dollarAmount+1} }, 
+        { seller: keywordRegex },
+        { price: { $gt: dollarAmount - 1, $lt: dollarAmount + 1 } },
       ],
     };
     const soldItemsCursor = soldItemsCollection.find(soldSearchQuery);
@@ -254,6 +257,125 @@ export async function searchItems(keywords: string): Promise<ItemTuple> {
     return [];
   }
 }
+
+/**
+ * Retrieves items from database from its object id
+ * @param id object id -- if have string of id use new ObjectId([string]) and make sure ObjectId
+ * is imported from mongodb
+ * @returns Item with object id or null if error -- no or multiple items with id
+ */
+export async function getItemById(id: ObjectId): Promise<Item | undefined> {
+  try {
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(
+        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
+      )
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+
+    const masterItemsCollection: RemoteMongoCollection<Item> =
+      db.collection("master_items");
+    const masterItem: Item | null = await masterItemsCollection.findOne({
+      _id: id,
+    });
+
+    const soldItemsCollection: RemoteMongoCollection<Item> =
+      db.collection("sold_items");
+    const soldItem: Item | null = await soldItemsCollection.findOne({
+      _id: id,
+    });
+
+    if (!masterItem && !soldItem) {
+      console.error("No item with Object ID");
+      return undefined;
+    } else if (masterItem && !soldItem) {
+      return masterItem;
+    } else if (soldItem && !masterItem) {
+      return soldItem;
+    } else {
+      console.error("Multiple items with Object ID");
+      return undefined;
+    }
+  } catch (error) {
+    console.error("Error fetching item by ID:", error);
+    return undefined;
+  }
+}
+
+function sortPriceLowToHighHelper(items: Item[]): Item[] {
+  return items.slice().sort((a, b) => a.price - b.price);
+}
+
+export function sortPriceLowToHigh(itemTuple: ItemTuple): ItemTuple {
+  if (itemTuple[0] && itemTuple[1]) {
+    return [
+        sortPriceLowToHighHelper(itemTuple[0]), // Master Items
+        sortPriceLowToHighHelper(itemTuple[1]), // Sold Items
+    ];
+  } else {
+    console.log("Invalid ItemTuple entered to sort");
+    return [[], []];
+  }
+}
+function sortByPriceHighToLowHelper(items: Item[]): Item[] {
+  return items.slice().sort((a, b) => b.price - a.price);
+}
+
+export function sortByPriceHighToLow(itemTuple: ItemTuple): ItemTuple {
+  if (itemTuple[0] && itemTuple[1]) {
+    return [
+        sortByPriceHighToLowHelper(itemTuple[0]), // Master Items
+        sortByPriceHighToLowHelper(itemTuple[1]), // Sold Items
+    ];
+  } else {
+    console.log("Invalid ItemTuple entered to sort");
+    return [[], []];
+  }
+}
+
+
+function sortLeastToMostRecentHelper(items: Item[]): Item[] {
+    return items.slice().sort((a, b) => {
+        const aTime = new Date(a.timestamp).getTime();
+        const bTime = new Date(b.timestamp).getTime();
+        return aTime - bTime;
+      });
+  }
+  
+  export function sortLeastToMostRecent(itemTuple: ItemTuple): ItemTuple {
+    if (itemTuple[0] && itemTuple[1]) {
+      return [
+        sortLeastToMostRecentHelper(itemTuple[0]), // Master Items
+        sortLeastToMostRecentHelper(itemTuple[1]), // Sold Items
+      ];
+    } else {
+      console.log("Invalid ItemTuple entered to sort");
+      return [[], []];
+    }
+  }
+  function sortMostToLeastRecentHelper(items: Item[]): Item[] {
+    return items.slice().sort((a, b) => {
+        const aTime = new Date(a.timestamp).getTime();
+        const bTime = new Date(b.timestamp).getTime();
+        return bTime - aTime;
+      });
+  }
+  
+  export function sortMostToLeastRecent(itemTuple: ItemTuple): ItemTuple {
+    if (itemTuple[0] && itemTuple[1]) {
+      return [
+        sortMostToLeastRecentHelper(itemTuple[0]), // Master Items
+        sortMostToLeastRecentHelper(itemTuple[1]), // Sold Items
+      ];
+    } else {
+      console.log("Invalid ItemTuple entered to sort");
+      return [[], []];
+    }
+  }
 
 /**
  * Add functions for:
