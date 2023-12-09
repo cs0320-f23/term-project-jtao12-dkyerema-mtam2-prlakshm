@@ -6,9 +6,10 @@ import {
   RemoteMongoCollection,
   StitchAppClient,
   RemoteFindOptions,
+  BSON
 } from "mongodb-stitch-browser-sdk";
 import Item from "../models/item";
-import { ObjectId } from "mongodb";
+
 
 export type ItemTuple = [Item[], Item[]] | [];
 
@@ -260,11 +261,15 @@ export async function searchItems(keywords: string): Promise<ItemTuple> {
 
 /**
  * Retrieves items from database from its object id
- * @param id object id -- if have string of id use new ObjectId([string]) and make sure ObjectId
- * is imported from mongodb
+ * @param id object id -- if have string of id use new BSON.ObjectId([string]) and make sure 
+ * BSON is imported from mongodb-stitch-browser-sdk
+ * 
+ * Obejct Id must be a 24 character hex string, 12 byte binary Buffer, or a number 
+ * or else it will error (for simplicity, we use a 24 character hex string).
+ * 
  * @returns Item with object id or null if error -- no or multiple items with id
  */
-export async function getItemById(id: ObjectId): Promise<Item | undefined> {
+export async function getItemById(id: BSON.ObjectId): Promise<Item | undefined> {
   try {
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(
@@ -306,10 +311,24 @@ export async function getItemById(id: ObjectId): Promise<Item | undefined> {
   }
 }
 
+
+/**
+ * Helper for sorting prices from low to high
+ * @param items an item[] to sort
+ * @returns items[] sorted with price low to high
+ */
 function sortPriceLowToHighHelper(items: Item[]): Item[] {
   return items.slice().sort((a, b) => a.price - b.price);
 }
 
+/**
+ * Sorts (master_items, sold_items) tuple price low to high using helper
+ * @param itemTuple a (item[], item[]) expressed in the format (master_items, sold_items)
+ * @returns a tuple, but with both item lists seperately sorted with price low to high 
+ * 
+ * If want to sort a Item[] seperately, make the helper an export function and use that.
+ * 
+ */
 export function sortPriceLowToHigh(itemTuple: ItemTuple): ItemTuple {
   if (itemTuple[0] && itemTuple[1]) {
     return [
@@ -321,10 +340,25 @@ export function sortPriceLowToHigh(itemTuple: ItemTuple): ItemTuple {
     return [[], []];
   }
 }
+
+/**
+ * Helper for sorting prices from high to low
+ * @param items an item[] to sort
+ * @returns items[] sorted with price high to low
+ */
 function sortByPriceHighToLowHelper(items: Item[]): Item[] {
   return items.slice().sort((a, b) => b.price - a.price);
 }
 
+
+/**
+ * Sorts (master_items, sold_items) tuple price high to low using helper
+ * @param itemTuple a (item[], item[]) expressed in the format (master_items, sold_items)
+ * @returns a tuple, but with both item lists seperately sorted with price high to low 
+ * 
+ * If want to sort a Item[] seperately, make the helper an export function and use that.
+ * 
+ */
 export function sortByPriceHighToLow(itemTuple: ItemTuple): ItemTuple {
   if (itemTuple[0] && itemTuple[1]) {
     return [
@@ -338,6 +372,11 @@ export function sortByPriceHighToLow(itemTuple: ItemTuple): ItemTuple {
 }
 
 
+/**
+ * Helper for sorting timstamps from least recent to most recent
+ * @param items an item[] to sort
+ * @returns items[] sorted with timstamps from least recent to most recent
+ */
 function sortLeastToMostRecentHelper(items: Item[]): Item[] {
     return items.slice().sort((a, b) => {
         const aTime = new Date(a.timestamp).getTime();
@@ -346,6 +385,16 @@ function sortLeastToMostRecentHelper(items: Item[]): Item[] {
       });
   }
   
+
+  /**
+ * Sorts (master_items, sold_items) tuple timstamps from least recent to most recent using helper
+ * @param itemTuple a (item[], item[]) expressed in the format (master_items, sold_items)
+ * @returns a tuple, but with both item lists seperately sorted with timstamps from least recent 
+ * to most recent
+ * 
+ * If want to sort a Item[] seperately, make the helper an export function and use that.
+ * 
+ */
   export function sortLeastToMostRecent(itemTuple: ItemTuple): ItemTuple {
     if (itemTuple[0] && itemTuple[1]) {
       return [
@@ -357,6 +406,13 @@ function sortLeastToMostRecentHelper(items: Item[]): Item[] {
       return [[], []];
     }
   }
+
+
+  /**
+ * Helper for sorting timstamps from most recent to least recent
+ * @param items an item[] to sort
+ * @returns items[] sorted with timstamps from most recent to least recent
+ */
   function sortMostToLeastRecentHelper(items: Item[]): Item[] {
     return items.slice().sort((a, b) => {
         const aTime = new Date(a.timestamp).getTime();
@@ -365,6 +421,16 @@ function sortLeastToMostRecentHelper(items: Item[]): Item[] {
       });
   }
   
+
+    /**
+ * Sorts (master_items, sold_items) tuple timstamps from most recent to least recent using helper
+ * @param itemTuple a (item[], item[]) expressed in the format (master_items, sold_items)
+ * @returns a tuple, but with both item lists seperately sorted with timstamps from most recent 
+ * to least recent
+ * 
+ * If want to sort a Item[] seperately, make the helper an export function and use that.
+ * 
+ */
   export function sortMostToLeastRecent(itemTuple: ItemTuple): ItemTuple {
     if (itemTuple[0] && itemTuple[1]) {
       return [
@@ -379,9 +445,7 @@ function sortLeastToMostRecentHelper(items: Item[]): Item[] {
 
 /**
  * Add functions for:
- * filter by price, timestamp from [item[], item[]]
  * accounts get by id, get by username
- * item get by id
  * if username already exists
  * add item/add account
  * remove item -- add to sold/remove account
