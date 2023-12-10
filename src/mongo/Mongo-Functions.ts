@@ -300,12 +300,12 @@ export async function getItemById(
       })
       .toArray();
 
-    if (masterItem.length == 0 && soldItem.length == 0) {
+    if (masterItem.length === 0 && soldItem.length === 0) {
       console.error("No item with Object ID");
       return undefined;
-    } else if (masterItem.length == 1 && soldItem.length == 0) {
+    } else if (masterItem.length === 1 && soldItem.length === 0) {
       return masterItem[0];
-    } else if (soldItem.length == 1 && masterItem.length == 0) {
+    } else if (soldItem.length === 1 && masterItem.length === 0) {
       return soldItem[0];
     } else {
       console.error("Multiple items with Object ID");
@@ -491,10 +491,10 @@ export async function getAccountById(
       })
       .toArray();
 
-    if (account.length == 0) {
+    if (account.length === 0) {
       console.error("No account with Object ID");
       return undefined;
-    } else if (account.length == 1) {
+    } else if (account.length === 1) {
       return account[0];
     } else {
       console.error("Multiple accounts with Object ID");
@@ -534,10 +534,10 @@ export async function getAccountByUsername(
       })
       .toArray();
 
-    if (account.length == 0) {
+    if (account.length === 0) {
       console.error("No account with username");
       return undefined;
-    } else if (account.length == 1) {
+    } else if (account.length === 1) {
       return account[0];
     } else {
       console.error("Multiple accounts with username");
@@ -584,8 +584,160 @@ export async function ifUsernameAlreadyExists(
 }
 
 /**
+ * Inserts new item into master_items collection
+ * @param title of new item
+ * @param description of new item
+ * @param seller username of new item
+ * @param category of new item
+ * @param subcategory of new item
+ * @param price of new item
+ * @param photoFilenames string[] of new item
+ *
+ * USE CAREFULLY WHEN TESTING, DELETE ALL ITEMS THAT YOU ADD
+ * TO KEEP MOCKING CONSISTENT
+ */
+export async function insertNewItem(
+  title: string,
+  description: string,
+  seller: string,
+  category: string,
+  subcategory: string,
+  price: number,
+  photoFilenames: string[]
+): Promise<void> {
+  try {
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(
+        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
+      )
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+
+    const itemsCollection: RemoteMongoCollection<Item> =
+      db.collection("master_items");
+
+    const newItem: Item = {
+      title: title,
+      description: description,
+      seller: seller,
+      category: category,
+      subcategory: subcategory,
+      price: price,
+      timestamp: new Date(), // Date returns current time
+      photoFilenames: photoFilenames,
+      ifSold: false,
+    };
+
+    const result = await itemsCollection.insertOne(newItem);
+    console.log(`Successfully inserted item with _id: ${result.insertedId}`);
+  } catch (error) {
+    console.error("Failed to insert item:", error);
+  }
+}
+
+/**
+ * Inserts new account into accounts collection
+ * @param username of new account -- first check if username already available 
+ * before call this function
+ * @param fullname of new account
+ * @param email of new account -- use brown email
+ * @param bio of new account
+ * @param profilePhotoFilename of new account
+ * @param contactInformation of new account -- ALWAYS INCLUDE "EMAIL":EMAIL   
+ * KEY:VALUE PAIR, IF USER DOES NOT INCLUDE ANY EXTRAS
+ * 
+ * Include multiple slots, for each drop down menu of options including instagram, 
+ * phone number, facebook, twitter, etc. but have email as already included and 
+ * non-modifiable
+ * 
+ * AGAIN, USE CAREFULLY WHEN TESTING, DELETE ALL AACOUNTS THAT YOU ADD
+ * TO KEEP MOCKING CONSISTENT
+ * 
+ */
+export async function insertNewAccount(
+  username: string,
+  fullname: string,
+  email: string,
+  bio: string,
+  profilePhotoFilename: string,
+  contactInformation: Map<String, String> 
+): Promise<void> {
+  try {
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(
+        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
+      )
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+
+    const accountsCollection: RemoteMongoCollection<Account> =
+      db.collection("accounts");
+
+    const newAccount: Account = {
+         username: username,
+         fullname: fullname,
+         email: email,
+         bio: bio,
+         currentListing_ids: [],
+         pastListing_ids: [],
+         purchasedItem_ids: [],
+         likedItem_ids: [],
+         profilePhotoFilename: profilePhotoFilename,
+         contactInformation: contactInformation,
+    };
+
+    const result = await accountsCollection.insertOne(newAccount);
+    console.log(`Successfully inserted account with _id: ${result.insertedId}`);
+  } catch (error) {
+    console.error("Failed to insert account:", error);
+  }
+}
+
+/**
+ * Removes an account from the collection based on its object ID
+ * @param accountId The object Id of the account to be removed
+ * @returns True if the removal is successful, false otherwise
+ */
+export async function deleteAccountById(accountId: BSON.ObjectId): Promise<void> {
+    try {
+      // Ensure the client is authenticated
+      await client?.auth.loginWithCredential(
+        new UserApiKeyCredential(
+          "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
+        )
+      );
+  
+      const db = mongodb?.db('artists_corner_pvd');
+      if (!db) {
+        throw new Error('Database not available');
+      }
+  
+      const accountsCollection: RemoteMongoCollection<Account> = db.collection('accounts');
+  
+      // Remove the account based on its object ID
+      const result = await accountsCollection.deleteOne({ _id: accountId });
+  
+      // Check if the deletion was successful
+      if (result.deletedCount === 1) {
+        console.log(`Account with Id ${accountId} removed from the collection.`);
+      } else {
+        console.error(`Failed to remove account with Id ${accountId} from the collection.`);
+      }
+    } catch (error) {
+      console.error('Error removing account:', error);
+    }
+  }
+
+/**
  * Add functions for:
- * if username already exists
  * add item/add account
  * remove item -- add to sold/remove account
  */

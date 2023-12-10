@@ -4,7 +4,7 @@ export default class Item {
   constructor(
     public title: string,
     public description: string,
-    public seller: BSON.ObjectId,
+    public seller: string,
     public category: string,
     public subcategory: string,
     public price: number,
