@@ -11,7 +11,8 @@ import {
   insertNewItem,
   insertNewAccount,
   addItemToLikedListings,
-  updateAccount
+  updateAccount, 
+  markItemAsSold
 } from "../mongo/Mongo-Functions";
 import Item from "../models/item";
 import { BSON } from "mongodb-stitch-browser-sdk";
@@ -27,7 +28,6 @@ function App() {
   const [currentListings, setCurrentListings] = useState<Item[]>([]);
 
   initializeStitchClient();
-
 
   // useEffect(() => {
   //   insertNewAccount(
@@ -52,6 +52,7 @@ function App() {
   //   );
   // }, []);
 
+  // useEffect(() => {markItemAsSold(new BSON.ObjectId("657644bc678b57b4cf5572d1"))}, []);
 
   useEffect(() => {
     getItemById(new BSON.ObjectId("656bb25aabfe68217e3eb93f"))

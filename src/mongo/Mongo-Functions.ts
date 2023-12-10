@@ -980,10 +980,70 @@ export async function updateAccount(
   }
 }
 
+export async function markItemAsSold(id: BSON.ObjectId) : Promise<void>{
+    try {
+        await client?.auth.loginWithCredential(
+          new UserApiKeyCredential(
+            "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
+          )
+        );
+    
+        const db = mongodb?.db("artists_corner_pvd");
+        if (!db) {
+          throw new Error("Database not available");
+        }
+    
+        const masterItemsCollection: RemoteMongoCollection<Item> =
+          db.collection("master_items");
+        const soldItemsCollection: RemoteMongoCollection<Item> =
+        db.collection("sold_items");
+        const accountsCollection: RemoteMongoCollection<Account> =
+          db.collection("accounts");
+
+              // Find the item in the master_items collection
+    const itemToUpdate: Item | null = await masterItemsCollection.findOne({ _id: id });
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    if (!itemToUpdate) {
+      console.error(`Item with id ${id} not found in master_items`);
+    }
+    else {
+    // Remove the item from master_items
+    await masterItemsCollection.deleteOne({ _id: id });
+
+
+    // Mark the item as sold and move it to sold_items
+    const updatedItem: Item = { ...itemToUpdate, ifSold: true };
+    await soldItemsCollection.insertOne(updatedItem);
+    console.log(`Sucessfully moved item with id ${id} to sold items collection`)
+
+    // Find the seller's account
+    const sellerAccount: Account | null = await accountsCollection.findOne({ username: updatedItem.seller });
+
+    if (!sellerAccount) {
+      console.log(`Account with seller's username ${updatedItem.seller} not found`);
+          }   
+    else {
+        await accountsCollection.updateOne(
+            { username: updatedItem.seller },
+            { $pull: {currentListing_ids: id}}
+          );
+          await accountsCollection.updateOne(
+            { username: updatedItem.seller },
+            { $push: {pastListing_ids: id}}
+          );
+        console.log(`Sucessfully updated seller's account to mark item with id ${id} as sold`)
+    }    
+    }
+}
+    catch(error) {
+        console.error(` Error marking item with id ${id.toString()} as sold:`, error)
+    }
+    
+}
+
 /**
  * Add functions for:
- *  *  update account -- all string fields, leave alone all [], again have to seperately
- *                    check if username already exists if want to change
  * remove item -- remove from master_items collection, add to sold_items
  *                find account from seller username, remove object Id from
  *                currentListings and add to pastListings, change boolean
