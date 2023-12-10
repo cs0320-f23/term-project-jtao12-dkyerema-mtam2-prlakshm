@@ -980,6 +980,15 @@ export async function updateAccount(
   }
 }
 
+
+/**
+ * Marks item as sold by: moving it from master_items to sold_items 
+ * and moving from seller's current listings to past listings
+ * @param id item want to mark as sold
+ * 
+ * USE CAREFULLY WHEN TESTING TO PRESERVE MOCKING
+ * 
+ */
 export async function markItemAsSold(id: BSON.ObjectId) : Promise<void>{
     try {
         await client?.auth.loginWithCredential(
@@ -1002,7 +1011,6 @@ export async function markItemAsSold(id: BSON.ObjectId) : Promise<void>{
 
               // Find the item in the master_items collection
     const itemToUpdate: Item | null = await masterItemsCollection.findOne({ _id: id });
-    await new Promise(resolve => setTimeout(resolve, 1000));
 
     if (!itemToUpdate) {
       console.error(`Item with id ${id} not found in master_items`);
@@ -1042,10 +1050,3 @@ export async function markItemAsSold(id: BSON.ObjectId) : Promise<void>{
     
 }
 
-/**
- * Add functions for:
- * remove item -- remove from master_items collection, add to sold_items
- *                find account from seller username, remove object Id from
- *                currentListings and add to pastListings, change boolean
- *               ifSold to true
- */
