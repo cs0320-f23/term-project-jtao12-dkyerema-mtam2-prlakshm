@@ -584,6 +584,36 @@ export async function ifUsernameAlreadyExists(
 }
 
 /**
+ * Helper for adding a new item, adds the item Object Id to seller's 
+ * current listings
+ * @param username seller's username
+ * @param itemId Object Id of new item that was added
+ * @param accountsCollection send in accounts collection so that don't 
+ * have to use API key again and access database again
+ */
+ async function addItemToCurrentListings(
+    username: string,
+    itemId: BSON.ObjectId,
+    accountsCollection: RemoteMongoCollection<Account>
+  ): Promise<void> {
+    try {
+        // Update the account in the collection
+        const result = await accountsCollection.updateOne(
+          { username: username },
+          { $push: { currentListing_ids: itemId } }
+        );
+        if(result.matchedCount === 1 && result.modifiedCount === 1) {
+        console.log(`Item added to currentListings_ids for seller ${username}`);
+        }
+        else {
+            console.log(`Could not find username ${username} for seller`);  
+        }
+    } catch (error) {
+      console.error("Error adding item to seller's current listings:", error);
+    }
+  }
+
+/**
  * Inserts new item into master_items collection
  * @param title of new item
  * @param description of new item
@@ -619,6 +649,8 @@ export async function insertNewItem(
 
     const itemsCollection: RemoteMongoCollection<Item> =
       db.collection("master_items");
+    const accountsCollection: RemoteMongoCollection<Account> =
+    db.collection("accounts");
 
     const newItem: Item = {
       title: title,
@@ -634,6 +666,8 @@ export async function insertNewItem(
 
     const result = await itemsCollection.insertOne(newItem);
     console.log(`Successfully inserted item with _id: ${result.insertedId}`);
+
+    await addItemToCurrentListings(seller, result.insertedId, accountsCollection)
   } catch (error) {
     console.error("Failed to insert item:", error);
   }
@@ -738,6 +772,12 @@ export async function deleteAccountById(accountId: BSON.ObjectId): Promise<void>
 
 /**
  * Add functions for:
- * add item/add account
- * remove item -- add to sold/remove account
+ *  update item -- all fields except objectId, timestamp, and ifSold
+ *  update account -- all string fields, leave alone all [], again have to seperately
+ *                    check if username already exists if want to change
+ *  add likedListing with account Id and item Id
+ * remove item -- remove from master_items collection, add to sold_items
+ *                find account from seller username, remove object Id from
+ *                currentListings and add to pastListings, change boolean
+ *               ifSold to true
  */
