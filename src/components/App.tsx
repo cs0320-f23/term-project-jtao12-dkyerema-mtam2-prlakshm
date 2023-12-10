@@ -9,7 +9,9 @@ import {
   getItemListById,
   getAccountByUsername,
   insertNewItem,
-  insertNewAccount
+  insertNewAccount,
+  addItemToLikedListings,
+  updateAccount
 } from "../mongo/Mongo-Functions";
 import Item from "../models/item";
 import { BSON } from "mongodb-stitch-browser-sdk";
@@ -27,28 +29,28 @@ function App() {
   initializeStitchClient();
 
 
-  useEffect(() => {
-    insertNewAccount(
-      'Barbara',
-      'Account Full Name',
-      "Account Email",
-      "Account Bio",
-      "photo1.png",
-      new Map([["email","Account Email"]])
-     );
-  }, []);
+  // useEffect(() => {
+  //   insertNewAccount(
+  //     'Barbara',
+  //     'Account Full Name',
+  //     "Account Email",
+  //     "Account Bio",
+  //     "photo1.png",
+  //     new Map([["email","Account Email"]])
+  //    );
+  // }, []);
 
-  useEffect(() => {
-    insertNewItem(
-      'Item Title',
-      'Item Description',
-      "Barbara",
-      "Item Category",
-      "Item Subcategory",
-      19.00,
-      ["photo1.png", "photo2.jpeg"]
-    );
-  }, []);
+  // useEffect(() => {
+  //   insertNewItem(
+  //     'Item Title',
+  //     'Item Description',
+  //     "Barbara",
+  //     "Item Category",
+  //     "Item Subcategory",
+  //     19.00,
+  //     ["photo1.png", "photo2.jpeg"]
+  //   );
+  // }, []);
 
 
   useEffect(() => {

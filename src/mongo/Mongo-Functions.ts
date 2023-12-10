@@ -584,34 +584,33 @@ export async function ifUsernameAlreadyExists(
 }
 
 /**
- * Helper for adding a new item, adds the item Object Id to seller's 
+ * Helper for adding a new item, adds the item Object Id to seller's
  * current listings
  * @param username seller's username
  * @param itemId Object Id of new item that was added
- * @param accountsCollection send in accounts collection so that don't 
+ * @param accountsCollection send in accounts collection so that don't
  * have to use API key again and access database again
  */
- async function addItemToCurrentListings(
-    username: string,
-    itemId: BSON.ObjectId,
-    accountsCollection: RemoteMongoCollection<Account>
-  ): Promise<void> {
-    try {
-        // Update the account in the collection
-        const result = await accountsCollection.updateOne(
-          { username: username },
-          { $push: { currentListing_ids: itemId } }
-        );
-        if(result.matchedCount === 1 && result.modifiedCount === 1) {
-        console.log(`Item added to currentListings_ids for seller ${username}`);
-        }
-        else {
-            console.log(`Could not find username ${username} for seller`);  
-        }
-    } catch (error) {
-      console.error("Error adding item to seller's current listings:", error);
+async function addItemToCurrentListings(
+  username: string,
+  itemId: BSON.ObjectId,
+  accountsCollection: RemoteMongoCollection<Account>
+): Promise<void> {
+  try {
+    // Update the account in the collection
+    const result = await accountsCollection.updateOne(
+      { username: username },
+      { $push: { currentListing_ids: itemId } }
+    );
+    if (result.matchedCount === 1 && result.modifiedCount === 1) {
+      console.log(`Item added to current listings for seller ${username}`);
+    } else {
+      console.log(`Could not find username ${username} for seller`);
     }
+  } catch (error) {
+    console.error("Error adding item to seller's current listings:", error);
   }
+}
 
 /**
  * Inserts new item into master_items collection
@@ -650,7 +649,7 @@ export async function insertNewItem(
     const itemsCollection: RemoteMongoCollection<Item> =
       db.collection("master_items");
     const accountsCollection: RemoteMongoCollection<Account> =
-    db.collection("accounts");
+      db.collection("accounts");
 
     const newItem: Item = {
       title: title,
@@ -665,9 +664,13 @@ export async function insertNewItem(
     };
 
     const result = await itemsCollection.insertOne(newItem);
-    console.log(`Successfully inserted item with _id: ${result.insertedId}`);
+    console.log(`Successfully inserted item with id: ${result.insertedId}`);
 
-    await addItemToCurrentListings(seller, result.insertedId, accountsCollection)
+    await addItemToCurrentListings(
+      seller,
+      result.insertedId,
+      accountsCollection
+    );
   } catch (error) {
     console.error("Failed to insert item:", error);
   }
@@ -675,22 +678,22 @@ export async function insertNewItem(
 
 /**
  * Inserts new account into accounts collection
- * @param username of new account -- first check if username already available 
+ * @param username of new account -- first check if username already available
  * before call this function
  * @param fullname of new account
  * @param email of new account -- use brown email
  * @param bio of new account
  * @param profilePhotoFilename of new account
- * @param contactInformation of new account -- ALWAYS INCLUDE "EMAIL":EMAIL   
+ * @param contactInformation of new account -- ALWAYS INCLUDE "EMAIL":EMAIL
  * KEY:VALUE PAIR, IF USER DOES NOT INCLUDE ANY EXTRAS
- * 
- * Include multiple slots, for each drop down menu of options including instagram, 
- * phone number, facebook, twitter, etc. but have email as already included and 
+ *
+ * Include multiple slots, for each drop down menu of options including instagram,
+ * phone number, facebook, twitter, etc. but have email as already included and
  * non-modifiable
- * 
+ *
  * AGAIN, USE CAREFULLY WHEN TESTING, DELETE ALL AACOUNTS THAT YOU ADD
  * TO KEEP MOCKING CONSISTENT
- * 
+ *
  */
 export async function insertNewAccount(
   username: string,
@@ -698,7 +701,7 @@ export async function insertNewAccount(
   email: string,
   bio: string,
   profilePhotoFilename: string,
-  contactInformation: Map<String, String> 
+  contactInformation: Map<String, String>
 ): Promise<void> {
   try {
     await client?.auth.loginWithCredential(
@@ -716,16 +719,16 @@ export async function insertNewAccount(
       db.collection("accounts");
 
     const newAccount: Account = {
-         username: username,
-         fullname: fullname,
-         email: email,
-         bio: bio,
-         currentListing_ids: [],
-         pastListing_ids: [],
-         purchasedItem_ids: [],
-         likedItem_ids: [],
-         profilePhotoFilename: profilePhotoFilename,
-         contactInformation: contactInformation,
+      username: username,
+      fullname: fullname,
+      email: email,
+      bio: bio,
+      currentListing_ids: [],
+      pastListing_ids: [],
+      purchasedItem_ids: [],
+      likedItem_ids: [],
+      profilePhotoFilename: profilePhotoFilename,
+      contactInformation: contactInformation,
     };
 
     const result = await accountsCollection.insertOne(newAccount);
@@ -740,42 +743,247 @@ export async function insertNewAccount(
  * @param accountId The object Id of the account to be removed
  * @returns True if the removal is successful, false otherwise
  */
-export async function deleteAccountById(accountId: BSON.ObjectId): Promise<void> {
-    try {
-      // Ensure the client is authenticated
-      await client?.auth.loginWithCredential(
-        new UserApiKeyCredential(
-          "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-        )
-      );
-  
-      const db = mongodb?.db('artists_corner_pvd');
-      if (!db) {
-        throw new Error('Database not available');
-      }
-  
-      const accountsCollection: RemoteMongoCollection<Account> = db.collection('accounts');
-  
-      // Remove the account based on its object ID
-      const result = await accountsCollection.deleteOne({ _id: accountId });
-  
-      // Check if the deletion was successful
-      if (result.deletedCount === 1) {
-        console.log(`Account with Id ${accountId} removed from the collection.`);
-      } else {
-        console.error(`Failed to remove account with Id ${accountId} from the collection.`);
-      }
-    } catch (error) {
-      console.error('Error removing account:', error);
+export async function deleteAccountById(
+  accountId: BSON.ObjectId
+): Promise<void> {
+  try {
+    // Ensure the client is authenticated
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(
+        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
+      )
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
     }
+
+    const accountsCollection: RemoteMongoCollection<Account> =
+      db.collection("accounts");
+
+    // Remove the account based on its object ID
+    const result = await accountsCollection.deleteOne({ _id: accountId });
+
+    // Check if the deletion was successful
+    if (result.deletedCount === 1) {
+      console.log(`Account with Id ${accountId} removed from the collection.`);
+    } else {
+      console.error(
+        `Failed to remove account with Id ${accountId} from the collection.`
+      );
+    }
+  } catch (error) {
+    console.error("Error removing account:", error);
   }
+}
+
+/**
+ * Adds item to account's liked items by username
+ * @param username of account
+ * @param itemId liked item's Object Id
+ */
+export async function addItemToLikedListings(
+  username: string,
+  itemId: BSON.ObjectId
+): Promise<void> {
+  try {
+    // Ensure the client is authenticated
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(
+        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
+      )
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+    const accountsCollection: RemoteMongoCollection<Account> =
+      db.collection("accounts");
+
+    // Update the account in the collection
+    const result = await accountsCollection.updateOne(
+      { username: username },
+      { $push: { likedItem_ids: itemId } }
+    );
+    if (result.matchedCount === 1 && result.modifiedCount === 1) {
+      console.log(`Item added to liked items for ${username}`);
+    } else {
+      console.log(`Could not find username ${username}`);
+    }
+  } catch (error) {
+    console.error("Error adding item to user's liked items:", error);
+  }
+}
+
+/**
+ * Update item info
+ * @param id BSON.ObjectId of item want to update
+ * @param newTitle of item
+ * @param newDescription of item
+ * @param newSeller of item
+ * IF USER CHANGES USERNAME, USE THIS FUNCTION TO UPDATE ALL ITEMS WITH
+ * NEW USERNAME
+ * @param newCategory of item
+ * @param newSubcategory of item
+ * @param newPrice of item
+ * @param newPhotoFilenames of item -- use when want to add a new photo or remove
+ *
+ * When want to only change one field, send in old feilds + the new field.
+ */
+export async function updateItem(
+  id: BSON.ObjectId,
+  newTitle: string,
+  newDescription: string,
+  newSeller: string,
+  newCategory: string,
+  newSubcategory: string,
+  newPrice: number,
+  newPhotoFilenames: string[]
+) {
+  try {
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(
+        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
+      )
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+
+    const masterItemsCollection: RemoteMongoCollection<Item> =
+      db.collection("master_items");
+    const masterItem: Item | null = await masterItemsCollection.findOne({
+      _id: id,
+    });
+
+    const soldItemsCollection: RemoteMongoCollection<Item> =
+      db.collection("sold_items");
+    const soldItem: Item | null = await soldItemsCollection.findOne({
+      _id: id,
+    });
+    if (masterItem != null && soldItem == null) {
+      const result = await masterItemsCollection.updateOne(
+        { _id: id },
+        {
+          $set: {
+            title: newTitle,
+            description: newDescription,
+            seller: newSeller,
+            category: newCategory,
+            subcategory: newSubcategory,
+            price: newPrice,
+            photoFilenames: newPhotoFilenames,
+          },
+        }
+      );
+      if (result.matchedCount === 1 && result.modifiedCount === 1) {
+        console.log(`Item successfully updated`);
+      } else {
+        console.log("Could not update item with id " + id.toString());
+      }
+    } else if (soldItem != null && masterItem == null) {
+      const result2 = await soldItemsCollection.updateOne(
+        { _id: id },
+        {
+          $set: {
+            title: newTitle,
+            description: newDescription,
+            seller: newSeller,
+            category: newCategory,
+            subcategory: newSubcategory,
+            price: newPrice,
+            photoFilenames: newPhotoFilenames,
+          },
+        }
+      );
+      if (result2.matchedCount === 1 && result2.modifiedCount === 1) {
+        console.log(`Item successfully updated`);
+      } else {
+        console.log("Could not update item with id " + id.toString());
+      }
+    } else {
+      console.log("No item with id " + id.toString());
+    }
+  } catch (error) {
+    console.error("Error in updating item:", error);
+  }
+}
+
+/**
+ * Update account information
+ * @param id account BSON.ObjectId
+ * @param newUsername of account 
+ * IF CHANGING USERNAME OF ACCOUNT, CHECK SEPERATELY IF USERNAME ALREADY EXISTS.
+ * @param newFullname of account
+ * @param newEmail of account
+ * @param newBio of account
+ * @param newProfilePhotoFilename of account
+ * @param newContactInformation of account
+ * IF ADDING NEW CONTACT, GET EXISTING MAP AND ADD, THEN SEND IN AS INPUT
+ * 
+ */
+export async function updateAccount(
+  id: BSON.ObjectId,
+  newUsername: string,
+  newFullname: string,
+  newEmail: string,
+  newBio: string,
+  newProfilePhotoFilename: string,
+  newContactInformation: Map<String, String>
+) {
+  try {
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(
+        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
+      )
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+
+    const accountsCollection: RemoteMongoCollection<Account> =
+      db.collection("accounts");
+    const account: Account | null = await accountsCollection.findOne({
+      _id: id,
+    });
+
+    if (account != null) {
+      const result = await accountsCollection.updateOne(
+        { _id: id },
+        {
+          $set: {
+            username: newUsername,
+            fullname: newFullname,
+            email: newEmail,
+            bio: newBio,
+            profilePhotoFilename: newProfilePhotoFilename,
+            contactInformation: newContactInformation,
+          },
+        }
+      );
+      if (result.matchedCount === 1 && result.modifiedCount === 1) {
+        console.log(`Account successfully updated`);
+      } else {
+        console.log("Could not update item with id " + id.toString());
+      }
+    } else {
+      console.log("No account with id " + id.toString());
+    }
+  } catch (error) {
+    console.error("Error in updating account:", error);
+  }
+}
 
 /**
  * Add functions for:
- *  update item -- all fields except objectId, timestamp, and ifSold
- *  update account -- all string fields, leave alone all [], again have to seperately
+ *  *  update account -- all string fields, leave alone all [], again have to seperately
  *                    check if username already exists if want to change
- *  add likedListing with account Id and item Id
  * remove item -- remove from master_items collection, add to sold_items
  *                find account from seller username, remove object Id from
  *                currentListings and add to pastListings, change boolean
