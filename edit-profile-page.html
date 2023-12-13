@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Profile Page</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <meta name="description" content="category page" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space%20Grotesk:wght@400;700&display=swap:"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/7a616d3413.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <a style="color: #303030" href="home.html">Artist's Corner PVD</a>
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search..." name="search" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="topnav">
+      <div class="right-links">
+        <a href="accessories.html">Accessories</a>
+        <a href="apparel.html">Apparel</a>
+        <a href="artwork.html">Artwork</a>
+        <a href="crafts.html">Crafts</a>
+        <a href="misc.html">Misc.</a>
+        <a href="events.html">Events</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+
+    <!-- how to change the height of the pic? -->
+    <div class="edit-profile-container"> 
+      <img
+        class="full-width"
+        src="mock-images/background.png"
+        alt="cats-in-grass"
+      />
+      <div style="background: rgba(255, 255, 255, 0.3)" class="left">
+        <h1>Edit Profile</h1>
+      </div>
+    </div>
+    <hr>
+
+    <div class="search-container">
+      <p>Indicate whether you would like the following information publically available!</p>
+      <form action="/action_page.php">
+        <p>Name</p>
+        <input type="text" name="name" />
+
+        <p>Shop Name</p>
+        <input type="text" name="shop-name" />
+        <p>Email</p>
+        <input type="text" name="email" />
+        <label>
+          <input type="checkbox" name="privacy-checkbox">
+        </label>
+
+        <p>Phone Number</p>
+        <input type="text" name="phone-number" />
+        <label>
+          <input type="checkbox" name="privacy-checkbox"> 
+        </label>
+
+        <p>Instagram</p>
+        <input type="text" name="instagram" />
+        <label>
+          <input type="checkbox" name="privacy-checkbox">
+        </label>
+
+      </form>
+    </div>
+
+    <div class="footer">
+      <p style="font-size: 0.9rem">
+        Copyright © 2023 Artist's Corner PVD.&nbsp; Made with ❤️ in Providence.
+      </p>
+    </div>
+  </body>
+</html>
