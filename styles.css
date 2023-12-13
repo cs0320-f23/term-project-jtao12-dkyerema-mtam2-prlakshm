@@ -387,3 +387,37 @@ a {
   border: none;
   cursor: pointer;
 }
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.edit-profile-container {
+    margin: 20px; /* Add a margin to the body for left justification */
+    max-width: 400px; /* Adjust the width as needed */
+}
+
+.edit-profile-label {
+    margin-bottom: 5px; /* Add some space between labels */
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.2rem;
+    margin: 5px 0px;
+    color: #606367;
+
+    max-width: 600px; /* Adjust the width as needed */
+    margin-left: 10rem; /* Center the container */
+    margin-right: auto; /*Center the container*/
+}
+
+.edit-profile-label input[type="text"] { /* repeated technically */
+  font-family: "Space Grotesk";
+  padding: 6px 6px 6px 12px;
+  margin-top: 8px;
+  margin-right: 6px;
+  font-size: 0.9rem;
+  border: 0.5px solid #424141;
+  border-radius: 8px;
+}

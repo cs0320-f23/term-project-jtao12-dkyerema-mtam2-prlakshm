@@ -38,7 +38,7 @@
     </div>
 
     <!-- how to change the height of the pic? -->
-    <div class="edit-profile-container"> 
+    <div class="profile-container"> 
       <img
         class="full-width"
         src="mock-images/background.png"
@@ -46,38 +46,75 @@
       />
       <div style="background: rgba(255, 255, 255, 0.3)" class="left">
         <h1>Edit Profile</h1>
+        <h3>Make yourself known.</h3>
       </div>
     </div>
     <hr>
 
-    <div class="search-container">
-      <p>Indicate whether you would like the following information publically available!</p>
-      <form action="/action_page.php">
-        <p>Name</p>
-        <input type="text" name="name" />
+<!---->
+<!---->
+<!---->
 
-        <p>Shop Name</p>
-        <input type="text" name="shop-name" />
-        <p>Email</p>
-        <input type="text" name="email" />
-        <label>
-          <input type="checkbox" name="privacy-checkbox">
-        </label>
+    </head>
+    <body>
+        <div class="edit-profile-label">
+          <style> /* i dont like that this is here lmao how do i fix it in css */
+            label {
+              display: block;
+              margin-top: 15px;
+              }
+          </style>
+            <form action="/action_page.php">
+              <label for="profile-image">Upload Image Here</label>
+              <input type="file" id="profile-image" name="profile-image" accept="image/*" onchange="displayImage(this)" />
+              <img id="uploaded-image" alt="Uploaded Image">
 
-        <p>Phone Number</p>
-        <input type="text" name="phone-number" />
-        <label>
-          <input type="checkbox" name="privacy-checkbox"> 
-        </label>
-
-        <p>Instagram</p>
-        <input type="text" name="instagram" />
-        <label>
-          <input type="checkbox" name="privacy-checkbox">
-        </label>
-
-      </form>
-    </div>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" />
+    
+                <label for="shop-name">Shop Name</label>
+                <input type="text" id="shop-name" name="shop-name" />
+    
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" />
+                <label>
+                    <input type="checkbox" name="privacy-checkbox">
+                    Make Email Public
+                </label>
+    
+                <label for="phone-number">Phone Number</label>
+                <input type="text" id="phone-number" name="phone-number" />
+                <label>
+                    <input type="checkbox" name="privacy-checkbox">
+                    Make Phone Number Public
+                </label>
+    
+                <label for="instagram">Instagram</label>
+                <input type="text" id="instagram" name="instagram" />
+                <label>
+                    <input type="checkbox" name="privacy-checkbox">
+                    Make Instagram Public
+                </label>
+            </form>
+        </div>
+        <script>
+          function displayImage(input) {
+              var file = input.files[0];
+              if (file) {
+                  var reader = new FileReader();
+  
+                  reader.onload = function(e) {
+                      var imageElement = document.getElementById('uploaded-image');
+                      imageElement.src = e.target.result;
+                      imageElement.style.display = 'block'; // Show the image
+                  };
+  
+                  reader.readAsDataURL(file);
+              }
+          }
+      </script>
+    </body>
+    </html>
 
     <div class="footer">
       <p style="font-size: 0.9rem">
