@@ -1,0 +1,169 @@
+<!-- might not need a separate edit page, just make the switch depending on whether its your page 
+or another users, but how do we track that? -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <meta name="description" content="item page" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space%20Grotesk:wght@400;700&display=swap:"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/7a616d3413.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <a style="color: #303030" href="home.html">Artist's Corner PVD</a>
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search..." name="search" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="topnav">
+      <div class="right-links">
+        <a href="accessories.html">Accessories</a>
+        <a href="apparel.html">Apparel</a>
+        <a href="artwork.html">Artwork</a>
+        <a href="crafts.html">Crafts</a>
+        <a href="misc.html">Misc.</a>
+        <a href="events.html">Events</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="animated">
+        <section
+          style="
+            text-underline-position: under;
+            display: flex;
+            margin-bottom: 7rem;
+            margin-left: 5rem;
+          "
+        >
+          <img
+            class="card-image"
+            src="mock-images/pearl earrings 4.png"
+            alt="headshot"
+          />
+          <div
+            style="
+              max-width: 26rem;
+              background-color: #f8f8f8;
+              padding: 2rem;
+              border-radius: 10px;
+            "
+            class="about"
+          >
+
+            <div class="profile-container">
+              <img
+                src="mock-images/test-headshot.png"
+                alt="Profile Photo"
+                class="profile-photo"
+              />
+              <a href="item-page.html">Marissa Tam</a>
+            </div>
+
+            <div class="editable" onclick="makeEditable(this)">
+            <h2 style="margin: 0rem">
+              Handcrafted Pearl Earrings on Gold Hoops
+            </h2>
+            <h3 style="margin: 0rem">$20.00</h3>
+            <p style="margin-bottom: 0.8rem">
+              These pearl earrings are handcrafted, combining the simplicity of
+              gold hoops with the elegance of pearls. The design is minimalist,
+              focusing on the natural beauty of the materials. Ideal for adding
+              a touch of elegance to any outfit, these earrings are versatile
+              and suitable for various occasions.
+            </p>
+            </div>
+            <div>
+                <textarea id="profileContent" rows="5" cols="50"></textarea>
+                <br>
+                <button onclick="updateContent()">Update Description</button>
+            </div>
+            <hr />
+            <p><b>Contact</b></p>
+            <p>
+              💌 &nbsp;<a href="mailto:marissa_tam@brown.edu"
+                >marissa_tam@brown.edu</a
+              >
+            </p>
+            <p>📞 &nbsp;<a href="tel:+123-456-7890">123-456-7890</a></p>
+            <p>
+              IG: &nbsp;<a href="https://www.instagram.com/">@marissa_tam</a>
+            </p>
+          </div>
+        </section>
+        </div>
+      </div>
+    </div>
+
+    <body>
+        <div class="editable" onclick="makeEditable(this)">
+            <p>Edit me! Click to edit</p>
+        </div>
+    
+        <script>
+            async function updateContent() {
+                // need update pic, title, description, price, sale status
+                // map of functions? separate functions entirely?
+                const content = document.getElementById('profileContent').value;
+                await fetch('/api/profile', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ content }),
+                });
+    
+                alert('Profile updated successfully!');
+            }
+    
+            async function fetchProfile() {
+                const response = await fetch('/api/profile');
+                const data = await response.json();
+                document.getElementById('profileContent').value = data.content;
+            }
+    
+            fetchProfile();
+        </script>
+
+        <!-- <script>
+            function makeEditable(element) {
+                var content = element.innerHTML.trim(); // Get the current content
+                var textarea = document.createElement('textarea'); // Create a textarea element
+                textarea.value = content;
+                element.innerHTML = ''; // Clear the content
+                element.appendChild(textarea); // Append the textarea to the element
+                textarea.focus(); // Focus on the textarea
+    
+                // Add event listener for when the user finishes editing
+                textarea.addEventListener('blur', function () {
+                    element.innerHTML = textarea.value; // Set the content to the edited value
+                    element.onclick = function () { makeEditable(element); }; // Make it editable again on click
+                });
+    
+                // Remove the click event to prevent further editing until blur
+                element.onclick = null;
+            }
+        </script> -->
+    </body>
+
+    <div class="footer">
+      <p style="font-size: 0.9rem">
+        Copyright © 2023 Artist's Corner PVD.&nbsp; Made with ❤️ in Providence.
+      </p>
+    </div>
+  </body>
+</html>
