@@ -17,6 +17,54 @@ export type ItemTuple = [Item[], Item[]] | [];
 let client: StitchAppClient | undefined;
 let mongodb: RemoteMongoClient | undefined;
 
+
+/**
+ * This file contains all the functions that interact with the MongoDB database. 
+ * The following functions are (not including helpers):
+ * 
+ * Initialize connection:
+ * initializeStitchClient()
+ * 
+ * 
+ * Access database:
+ * Items:
+ * getAllItems() => ItemTuple
+ * getItemsByCategory(category: string) => ItemTuple
+ * getItemsByCategoryAndSubcategory(category: string, subcategory: string) => ItemTuple
+ * getItemsBySubcategory(subcategory: string) => ItemTuple
+ * searchItems(keywords: string) => ItemTuple
+ * getItemById(id: BSON.ObjectId) => Item
+ * getItemListById(itemIds: BSON.ObjectId[]) => Item[]
+ * sortPriceLowToHigh(itemTuple: ItemTuple) => ItemTuple
+ * sortPriceHighToLow(itemTuple: ItemTuple) => ItemTuple
+ * sortLeastToMostRecent(itemTuple: ItemTuple) => ItemTuple
+ * sortMostToLeastRecent(itemTuple: ItemTuple) => ItemTuple
+ * 
+ * Accounts:
+ * getAccountById(id: BSON.ObjectId) => Account
+ * getAccountByUsername(username: string) => Account
+ * ifUsernameAlreadyExists(username: string) => boolean
+ * 
+ * 
+ * Modify database:
+ * addItemToCurrentListings(username: string, itemId: BSON.ObjectId, 
+ *    accountsCollection: RemoteMongoCollection<Account>) => void
+ * insertNewItem(title: string, description: string, seller: string, category: string, 
+ *    subcategory: string, price: number, photoFilenames: string[]) => void
+ * insertNewAccount(username: string, fullname: string, email: string, bio: string,
+      profilePhotoFilename: string, contactInformation: Map<String, String>) => void
+ * deleteAccountById(accountId: BSON.ObjectId) => void
+ * addItemToLikedListings(username: string, itemId: BSON.ObjectId) => void
+ * updateItem(id: BSON.ObjectId, newTitle: string, newDescription: string, newSeller: string,
+ *    newCategory: string, newSubcategory: string, newPrice: number, 
+ *    newPhotoFilenames: string[]) => void
+ * updateAccount(id: BSON.ObjectId, newUsername: string, newFullname: string, 
+ *    newEmail: string, newBio: string, newProfilePhotoFilename: string, 
+ *    newContactInformation: Map<String, String>) => void
+ * markItemAsSold(id: BSON.ObjectId)
+ */
+
+
 /**
  * Call this function ONCE at the begginging of a .tsx file to connect to the client.
  * Will error if run this method multiple times (cannot connect to client multiple times).
