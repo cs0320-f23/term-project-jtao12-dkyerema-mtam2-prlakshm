@@ -10,6 +10,7 @@ import {
 } from "mongodb-stitch-browser-sdk";
 import Item from "../models/item";
 import Account from "../models/account";
+import { ACCESS_TOKEN } from "../private/api";
 
 export type ItemTuple = [Item[], Item[]] | [];
 
@@ -41,9 +42,7 @@ export const initializeStitchClient = () => {
 export async function getAllItems(): Promise<ItemTuple> {
   try {
     await client?.auth.loginWithCredential(
-      new UserApiKeyCredential(
-        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-      )
+      new UserApiKeyCredential(ACCESS_TOKEN)
     );
 
     const db = mongodb?.db("artists_corner_pvd");
@@ -76,9 +75,7 @@ export async function getAllItems(): Promise<ItemTuple> {
 export async function getItemsByCategory(category: string): Promise<ItemTuple> {
   try {
     await client?.auth.loginWithCredential(
-      new UserApiKeyCredential(
-        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-      )
+      new UserApiKeyCredential(ACCESS_TOKEN)
     );
 
     const db = mongodb?.db("artists_corner_pvd");
@@ -121,9 +118,7 @@ export async function getItemsByCategoryAndSubcategory(
 ): Promise<ItemTuple> {
   try {
     await client?.auth.loginWithCredential(
-      new UserApiKeyCredential(
-        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-      )
+      new UserApiKeyCredential(ACCESS_TOKEN)
     );
 
     const db = mongodb?.db("artists_corner_pvd");
@@ -166,9 +161,7 @@ export async function getItemsBySubcategory(
 ): Promise<ItemTuple> {
   try {
     await client?.auth.loginWithCredential(
-      new UserApiKeyCredential(
-        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-      )
+      new UserApiKeyCredential(ACCESS_TOKEN)
     );
 
     const db = mongodb?.db("artists_corner_pvd");
@@ -207,9 +200,7 @@ export async function getItemsBySubcategory(
 export async function searchItems(keywords: string): Promise<ItemTuple> {
   try {
     await client?.auth.loginWithCredential(
-      new UserApiKeyCredential(
-        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-      )
+      new UserApiKeyCredential(ACCESS_TOKEN)
     );
 
     const db = mongodb?.db("artists_corner_pvd");
@@ -274,9 +265,7 @@ export async function getItemById(
 ): Promise<Item | undefined> {
   try {
     await client?.auth.loginWithCredential(
-      new UserApiKeyCredential(
-        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-      )
+      new UserApiKeyCredential(ACCESS_TOKEN)
     );
 
     const db = mongodb?.db("artists_corner_pvd");
@@ -473,9 +462,7 @@ export async function getAccountById(
 ): Promise<Account | undefined> {
   try {
     await client?.auth.loginWithCredential(
-      new UserApiKeyCredential(
-        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-      )
+      new UserApiKeyCredential(ACCESS_TOKEN)
     );
 
     const db = mongodb?.db("artists_corner_pvd");
@@ -516,9 +503,7 @@ export async function getAccountByUsername(
 ): Promise<Account | undefined> {
   try {
     await client?.auth.loginWithCredential(
-      new UserApiKeyCredential(
-        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-      )
+      new UserApiKeyCredential(ACCESS_TOKEN)
     );
 
     const db = mongodb?.db("artists_corner_pvd");
@@ -560,9 +545,7 @@ export async function ifUsernameAlreadyExists(
 ): Promise<boolean> {
   try {
     await client?.auth.loginWithCredential(
-      new UserApiKeyCredential(
-        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-      )
+      new UserApiKeyCredential(ACCESS_TOKEN)
     );
 
     const db = mongodb?.db("artists_corner_pvd");
@@ -636,9 +619,7 @@ export async function insertNewItem(
 ): Promise<void> {
   try {
     await client?.auth.loginWithCredential(
-      new UserApiKeyCredential(
-        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-      )
+      new UserApiKeyCredential(ACCESS_TOKEN)
     );
 
     const db = mongodb?.db("artists_corner_pvd");
@@ -705,9 +686,7 @@ export async function insertNewAccount(
 ): Promise<void> {
   try {
     await client?.auth.loginWithCredential(
-      new UserApiKeyCredential(
-        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-      )
+      new UserApiKeyCredential(ACCESS_TOKEN)
     );
 
     const db = mongodb?.db("artists_corner_pvd");
@@ -749,9 +728,7 @@ export async function deleteAccountById(
   try {
     // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
-      new UserApiKeyCredential(
-        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-      )
+      new UserApiKeyCredential(ACCESS_TOKEN)
     );
 
     const db = mongodb?.db("artists_corner_pvd");
@@ -790,9 +767,7 @@ export async function addItemToLikedListings(
   try {
     // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
-      new UserApiKeyCredential(
-        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-      )
+      new UserApiKeyCredential(ACCESS_TOKEN)
     );
 
     const db = mongodb?.db("artists_corner_pvd");
@@ -844,9 +819,7 @@ export async function updateItem(
 ) {
   try {
     await client?.auth.loginWithCredential(
-      new UserApiKeyCredential(
-        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-      )
+      new UserApiKeyCredential(ACCESS_TOKEN)
     );
 
     const db = mongodb?.db("artists_corner_pvd");
@@ -916,7 +889,7 @@ export async function updateItem(
 /**
  * Update account information
  * @param id account BSON.ObjectId
- * @param newUsername of account 
+ * @param newUsername of account
  * IF CHANGING USERNAME OF ACCOUNT, CHECK SEPERATELY IF USERNAME ALREADY EXISTS.
  * @param newFullname of account
  * @param newEmail of account
@@ -924,7 +897,7 @@ export async function updateItem(
  * @param newProfilePhotoFilename of account
  * @param newContactInformation of account
  * IF ADDING NEW CONTACT, GET EXISTING MAP AND ADD, THEN SEND IN AS INPUT
- * 
+ *
  */
 export async function updateAccount(
   id: BSON.ObjectId,
@@ -937,9 +910,7 @@ export async function updateAccount(
 ) {
   try {
     await client?.auth.loginWithCredential(
-      new UserApiKeyCredential(
-        "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-      )
+      new UserApiKeyCredential(ACCESS_TOKEN)
     );
 
     const db = mongodb?.db("artists_corner_pvd");
@@ -980,73 +951,77 @@ export async function updateAccount(
   }
 }
 
-
 /**
- * Marks item as sold by: moving it from master_items to sold_items 
+ * Marks item as sold by: moving it from master_items to sold_items
  * and moving from seller's current listings to past listings
  * @param id item want to mark as sold
- * 
+ *
  * USE CAREFULLY WHEN TESTING TO PRESERVE MOCKING
- * 
+ *
  */
-export async function markItemAsSold(id: BSON.ObjectId) : Promise<void>{
-    try {
-        await client?.auth.loginWithCredential(
-          new UserApiKeyCredential(
-            "iHXM2LKmwUIPYiBQqQvNOAnAm9QRTV4Qma04bxVp0c4rsszVNTpedtz2j9KIzkYN"
-          )
-        );
-    
-        const db = mongodb?.db("artists_corner_pvd");
-        if (!db) {
-          throw new Error("Database not available");
-        }
-    
-        const masterItemsCollection: RemoteMongoCollection<Item> =
-          db.collection("master_items");
-        const soldItemsCollection: RemoteMongoCollection<Item> =
-        db.collection("sold_items");
-        const accountsCollection: RemoteMongoCollection<Account> =
-          db.collection("accounts");
+export async function markItemAsSold(id: BSON.ObjectId): Promise<void> {
+  try {
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(ACCESS_TOKEN)
+    );
 
-              // Find the item in the master_items collection
-    const itemToUpdate: Item | null = await masterItemsCollection.findOne({ _id: id });
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+
+    const masterItemsCollection: RemoteMongoCollection<Item> =
+      db.collection("master_items");
+    const soldItemsCollection: RemoteMongoCollection<Item> =
+      db.collection("sold_items");
+    const accountsCollection: RemoteMongoCollection<Account> =
+      db.collection("accounts");
+
+    // Find the item in the master_items collection
+    const itemToUpdate: Item | null = await masterItemsCollection.findOne({
+      _id: id,
+    });
 
     if (!itemToUpdate) {
       console.error(`Item with id ${id} not found in master_items`);
-    }
-    else {
-    // Remove the item from master_items
-    await masterItemsCollection.deleteOne({ _id: id });
+    } else {
+      // Remove the item from master_items
+      await masterItemsCollection.deleteOne({ _id: id });
 
+      // Mark the item as sold and move it to sold_items
+      const updatedItem: Item = { ...itemToUpdate, ifSold: true };
+      await soldItemsCollection.insertOne(updatedItem);
+      console.log(
+        `Sucessfully moved item with id ${id} to sold items collection`
+      );
 
-    // Mark the item as sold and move it to sold_items
-    const updatedItem: Item = { ...itemToUpdate, ifSold: true };
-    await soldItemsCollection.insertOne(updatedItem);
-    console.log(`Sucessfully moved item with id ${id} to sold items collection`)
+      // Find the seller's account
+      const sellerAccount: Account | null = await accountsCollection.findOne({
+        username: updatedItem.seller,
+      });
 
-    // Find the seller's account
-    const sellerAccount: Account | null = await accountsCollection.findOne({ username: updatedItem.seller });
-
-    if (!sellerAccount) {
-      console.log(`Account with seller's username ${updatedItem.seller} not found`);
-          }   
-    else {
+      if (!sellerAccount) {
+        console.log(
+          `Account with seller's username ${updatedItem.seller} not found`
+        );
+      } else {
         await accountsCollection.updateOne(
-            { username: updatedItem.seller },
-            { $pull: {currentListing_ids: id}}
-          );
-          await accountsCollection.updateOne(
-            { username: updatedItem.seller },
-            { $push: {pastListing_ids: id}}
-          );
-        console.log(`Sucessfully updated seller's account to mark item with id ${id} as sold`)
-    }    
+          { username: updatedItem.seller },
+          { $pull: { currentListing_ids: id } }
+        );
+        await accountsCollection.updateOne(
+          { username: updatedItem.seller },
+          { $push: { pastListing_ids: id } }
+        );
+        console.log(
+          `Sucessfully updated seller's account to mark item with id ${id} as sold`
+        );
+      }
     }
+  } catch (error) {
+    console.error(
+      ` Error marking item with id ${id.toString()} as sold:`,
+      error
+    );
+  }
 }
-    catch(error) {
-        console.error(` Error marking item with id ${id.toString()} as sold:`, error)
-    }
-    
-}
-
