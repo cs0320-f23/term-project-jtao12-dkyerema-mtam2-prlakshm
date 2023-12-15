@@ -71,6 +71,7 @@ let mongodb: RemoteMongoClient | undefined;
  */
 export const initializeStitchClient = () => {
   if (!client) {
+    //connects to Stitch app that hosts database
     const appId = "artists_corner_0-lcspi";
     client = Stitch.hasAppClient(appId)
       ? Stitch.getAppClient(appId)
@@ -89,6 +90,7 @@ export const initializeStitchClient = () => {
  */
 export async function getAllItems(): Promise<ItemTuple> {
   try {
+    // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
@@ -98,16 +100,19 @@ export async function getAllItems(): Promise<ItemTuple> {
       throw new Error("Database not available");
     }
 
+    // Retrieves master_items collection 
     const masterItemsCollection: RemoteMongoCollection<Item> =
       db.collection("master_items");
     const masterItemsCursor = masterItemsCollection.find();
     const master_Items: Item[] = await masterItemsCursor.toArray();
 
+    // Retrieves sold_items collection 
     const soldItemsCollection: RemoteMongoCollection<Item> =
       db.collection("sold_items");
     const soldItemsCursor = soldItemsCollection.find();
     const sold_Items: Item[] = await soldItemsCursor.toArray();
 
+    // Returns item collections as tuple
     return [master_Items, sold_Items];
   } catch (error) {
     console.error("Error fetching items:", error);
@@ -122,6 +127,7 @@ export async function getAllItems(): Promise<ItemTuple> {
  */
 export async function getItemsByCategory(category: string): Promise<ItemTuple> {
   try {
+    // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
@@ -131,14 +137,16 @@ export async function getItemsByCategory(category: string): Promise<ItemTuple> {
       throw new Error("Database not available");
     }
 
+    // Searches for items that match category in master_items
     const masterItemsCollection: RemoteMongoCollection<Item> =
       db.collection("master_items");
     const masterCategoryItemsCursor = masterItemsCollection.find({
-      category: { $regex: category, $options: "i" },
+      category: { $regex: category, $options: "i" }, // "i" is for case insensitive
     } as RemoteFindOptions);
     const masterCategoryItems: Item[] =
       await masterCategoryItemsCursor.toArray();
 
+    // Searches for items that match category in sold_items
     const soldItemsCollection: RemoteMongoCollection<Item> =
       db.collection("sold_items");
     const soldCategoryItemsCursor = soldItemsCollection.find({
@@ -165,6 +173,7 @@ export async function getItemsByCategoryAndSubcategory(
   subcategory: string
 ): Promise<ItemTuple> {
   try {
+    // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
@@ -174,6 +183,7 @@ export async function getItemsByCategoryAndSubcategory(
       throw new Error("Database not available");
     }
 
+    // Searches for items that match both category and subcategory in master_items
     const masterItemsCollection: RemoteMongoCollection<Item> =
       db.collection("master_items");
     const masterCategoryAndSubcategoryItemsCursor = masterItemsCollection.find({
@@ -183,6 +193,7 @@ export async function getItemsByCategoryAndSubcategory(
     const masterCategoryAndSubcategoryItems: Item[] =
       await masterCategoryAndSubcategoryItemsCursor.toArray();
 
+    // Searches for items that match both category and subcategory in sold_items
     const soldItemsCollection: RemoteMongoCollection<Item> =
       db.collection("sold_items");
     const soldCategoryAndSubcategoryItemsCursor = soldItemsCollection.find({
@@ -208,6 +219,7 @@ export async function getItemsBySubcategory(
   subcategory: string
 ): Promise<ItemTuple> {
   try {
+    // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
@@ -217,6 +229,7 @@ export async function getItemsBySubcategory(
       throw new Error("Database not available");
     }
 
+    // Searches for items with same subcategory in master_items
     const masterItemsCollection: RemoteMongoCollection<Item> =
       db.collection("master_items");
     const masterSubcategoryItemsCursor = masterItemsCollection.find({
@@ -225,6 +238,7 @@ export async function getItemsBySubcategory(
     const masterSubcategoryItems: Item[] =
       await masterSubcategoryItemsCursor.toArray();
 
+    // Searches for items with same subcategory in sold_items
     const soldItemsCollection: RemoteMongoCollection<Item> =
       db.collection("sold_items");
     const soldSubcategoryItemsCursor = soldItemsCollection.find({
@@ -247,6 +261,7 @@ export async function getItemsBySubcategory(
  */
 export async function searchItems(keywords: string): Promise<ItemTuple> {
   try {
+    // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
@@ -256,11 +271,14 @@ export async function searchItems(keywords: string): Promise<ItemTuple> {
       throw new Error("Database not available");
     }
 
+    // if words, store regex as case insensitive
     const keywordRegex = { $regex: keywords, $options: "i" };
+    // if dollar amount, remove $ and cents digits to return whole dollar amount
     const dollarAmount = parseInt(
       keywords.replace(/\$([\d]+)(\.\d{1,2})?/, "")
     );
 
+    // Searches for items in master_items
     const masterItemsCollection: RemoteMongoCollection<Item> =
       db.collection("master_items");
     const masterSearchQuery = {
@@ -270,12 +288,13 @@ export async function searchItems(keywords: string): Promise<ItemTuple> {
         { category: keywordRegex },
         { subcategory: keywordRegex },
         { seller: keywordRegex },
-        { price: { $gt: dollarAmount - 1, $lt: dollarAmount + 1 } },
+        { price: { $gt: dollarAmount - 1, $lt: dollarAmount + 1 } }, //search for any items within $2 of input
       ],
     };
     const masterItemsCursor = masterItemsCollection.find(masterSearchQuery);
     const masterSearchResults: Item[] = await masterItemsCursor.toArray();
 
+    // Searches for items in sold_items
     const soldItemsCollection: RemoteMongoCollection<Item> =
       db.collection("sold_items");
     const soldSearchQuery = {
@@ -312,6 +331,7 @@ export async function getItemById(
   id: BSON.ObjectId
 ): Promise<Item | undefined> {
   try {
+    // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
@@ -321,6 +341,7 @@ export async function getItemById(
       throw new Error("Database not available");
     }
 
+    // Searches for item with id in master_items
     const masterItemsCollection: RemoteMongoCollection<Item> =
       db.collection("master_items");
     const masterItem: Item[] = await masterItemsCollection
@@ -329,6 +350,7 @@ export async function getItemById(
       })
       .toArray();
 
+    // Searches for item with id in sold_items
     const soldItemsCollection: RemoteMongoCollection<Item> =
       db.collection("sold_items");
     const soldItem: Item[] = await soldItemsCollection
@@ -337,6 +359,7 @@ export async function getItemById(
       })
       .toArray();
 
+    // return item or appropriate errors if no item found/multiple found
     if (masterItem.length === 0 && soldItem.length === 0) {
       console.error("No item with Object ID");
       return undefined;
@@ -364,6 +387,7 @@ export async function getItemById(
 export async function getItemListById(
   itemIds: BSON.ObjectId[]
 ): Promise<Item[]> {
+  //map helper of finding id to each item in list
   const itemPromises = itemIds.map(getItemById);
   const itemList = await Promise.all(itemPromises);
   return itemList.filter((item): item is Item => !!item);
@@ -434,7 +458,8 @@ export function sortByPriceHighToLow(itemTuple: ItemTuple): ItemTuple {
  */
 function sortLeastToMostRecentHelper(items: Item[]): Item[] {
   return items.slice().sort((a, b) => {
-    const aTime = new Date(a.timestamp).getTime();
+    // Convert timestamps into dates and compare
+    const aTime = new Date(a.timestamp).getTime(); 
     const bTime = new Date(b.timestamp).getTime();
     return aTime - bTime;
   });
@@ -468,6 +493,7 @@ export function sortLeastToMostRecent(itemTuple: ItemTuple): ItemTuple {
  */
 function sortMostToLeastRecentHelper(items: Item[]): Item[] {
   return items.slice().sort((a, b) => {
+    // Convert timestamps into dates and compare
     const aTime = new Date(a.timestamp).getTime();
     const bTime = new Date(b.timestamp).getTime();
     return bTime - aTime;
@@ -509,6 +535,7 @@ export async function getAccountById(
   id: BSON.ObjectId
 ): Promise<Account | undefined> {
   try {
+    // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
@@ -518,6 +545,7 @@ export async function getAccountById(
       throw new Error("Database not available");
     }
 
+    // Access accounts collection and find account by id
     const accountsCollection: RemoteMongoCollection<Account> =
       db.collection("accounts");
     const account: Account[] = await accountsCollection
@@ -526,6 +554,7 @@ export async function getAccountById(
       })
       .toArray();
 
+    // Return account if found or appropiate error if none found/multiple found
     if (account.length === 0) {
       console.error("No account with Object ID");
       return undefined;
@@ -550,6 +579,7 @@ export async function getAccountByUsername(
   username: string
 ): Promise<Account | undefined> {
   try {
+    // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
@@ -559,6 +589,7 @@ export async function getAccountByUsername(
       throw new Error("Database not available");
     }
 
+    // Access accounts collection and find account by username
     const accountsCollection: RemoteMongoCollection<Account> =
       db.collection("accounts");
     const account: Account[] = await accountsCollection
@@ -567,6 +598,7 @@ export async function getAccountByUsername(
       })
       .toArray();
 
+    // Return account if found or appropiate error if none found/multiple found
     if (account.length === 0) {
       console.error("No account with username");
       return undefined;
@@ -592,6 +624,7 @@ export async function ifUsernameAlreadyExists(
   username: string
 ): Promise<boolean> {
   try {
+    // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
@@ -601,6 +634,7 @@ export async function ifUsernameAlreadyExists(
       throw new Error("Database not available");
     }
 
+    // Find if any account with username exists
     const accountsCollection: RemoteMongoCollection<Account> =
       db.collection("accounts");
     const account: Account | null = await accountsCollection.findOne({
@@ -628,11 +662,13 @@ async function addItemToCurrentListings(
   accountsCollection: RemoteMongoCollection<Account>
 ): Promise<void> {
   try {
-    // Update the account in the collection
+    // Update the account in the collection to include object id of item
     const result = await accountsCollection.updateOne(
       { username: username },
       { $push: { currentListing_ids: itemId } }
     );
+
+    // Check if insertion successful
     if (result.matchedCount === 1 && result.modifiedCount === 1) {
       console.log(`Item added to current listings for seller ${username}`);
     } else {
@@ -666,6 +702,7 @@ export async function insertNewItem(
   photoFilenames: string[]
 ): Promise<void> {
   try {
+    // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
@@ -675,6 +712,7 @@ export async function insertNewItem(
       throw new Error("Database not available");
     }
 
+    // Access collections
     const itemsCollection: RemoteMongoCollection<Item> =
       db.collection("master_items");
     const accountsCollection: RemoteMongoCollection<Account> =
@@ -692,9 +730,11 @@ export async function insertNewItem(
       ifSold: false,
     };
 
+    // Add new item to master_items
     const result = await itemsCollection.insertOne(newItem);
     console.log(`Successfully inserted item with id: ${result.insertedId}`);
 
+    // Add item to seller's current listings
     await addItemToCurrentListings(
       seller,
       result.insertedId,
@@ -733,6 +773,7 @@ export async function insertNewAccount(
   contactInformation: Map<String, String>
 ): Promise<void> {
   try {
+    // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
@@ -758,6 +799,7 @@ export async function insertNewAccount(
       contactInformation: contactInformation,
     };
 
+    // Add new account to collection
     const result = await accountsCollection.insertOne(newAccount);
     console.log(`Successfully inserted account with _id: ${result.insertedId}`);
   } catch (error) {
@@ -787,7 +829,7 @@ export async function deleteAccountById(
     const accountsCollection: RemoteMongoCollection<Account> =
       db.collection("accounts");
 
-    // Remove the account based on its object ID
+    // Remove the account from collaction based on its object ID
     const result = await accountsCollection.deleteOne({ _id: accountId });
 
     // Check if the deletion was successful
@@ -825,11 +867,13 @@ export async function addItemToLikedListings(
     const accountsCollection: RemoteMongoCollection<Account> =
       db.collection("accounts");
 
-    // Update the account in the collection
+    // Update the account's liked items list to include object id of new item
     const result = await accountsCollection.updateOne(
       { username: username },
       { $push: { likedItem_ids: itemId } }
     );
+
+    // Check if update successful
     if (result.matchedCount === 1 && result.modifiedCount === 1) {
       console.log(`Item added to liked items for ${username}`);
     } else {
@@ -866,6 +910,7 @@ export async function updateItem(
   newPhotoFilenames: string[]
 ) {
   try {
+    // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
@@ -875,17 +920,21 @@ export async function updateItem(
       throw new Error("Database not available");
     }
 
+    // Try to find item with object id in master_items
     const masterItemsCollection: RemoteMongoCollection<Item> =
       db.collection("master_items");
     const masterItem: Item | null = await masterItemsCollection.findOne({
       _id: id,
     });
 
+    // Try to find item with object id in sold_items
     const soldItemsCollection: RemoteMongoCollection<Item> =
       db.collection("sold_items");
     const soldItem: Item | null = await soldItemsCollection.findOne({
       _id: id,
     });
+
+    // Update item in respective collection, error if none found
     if (masterItem != null && soldItem == null) {
       const result = await masterItemsCollection.updateOne(
         { _id: id },
@@ -957,6 +1006,7 @@ export async function updateAccount(
   newContactInformation: Map<String, String>
 ) {
   try {
+    // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
@@ -966,12 +1016,14 @@ export async function updateAccount(
       throw new Error("Database not available");
     }
 
+    // Find account from abject id
     const accountsCollection: RemoteMongoCollection<Account> =
       db.collection("accounts");
     const account: Account | null = await accountsCollection.findOne({
       _id: id,
     });
 
+    // Update account if found or error if none found
     if (account != null) {
       const result = await accountsCollection.updateOne(
         { _id: id },
@@ -1009,6 +1061,7 @@ export async function updateAccount(
  */
 export async function markItemAsSold(id: BSON.ObjectId): Promise<void> {
   try {
+    // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
@@ -1053,10 +1106,12 @@ export async function markItemAsSold(id: BSON.ObjectId): Promise<void> {
           `Account with seller's username ${updatedItem.seller} not found`
         );
       } else {
+        // Remove item from seller's current listings
         await accountsCollection.updateOne(
           { username: updatedItem.seller },
           { $pull: { currentListing_ids: id } }
         );
+        // Add item to seller's past listings
         await accountsCollection.updateOne(
           { username: updatedItem.seller },
           { $push: { pastListing_ids: id } }
