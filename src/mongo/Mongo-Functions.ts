@@ -17,7 +17,6 @@ export type ItemTuple = [Item[], Item[]] | [];
 let client: StitchAppClient | undefined;
 let mongodb: RemoteMongoClient | undefined;
 
-
 /**
  * This file contains all the functions that interact with the MongoDB database. 
  * The following functions are (not including helpers):
@@ -64,7 +63,6 @@ let mongodb: RemoteMongoClient | undefined;
  * markItemAsSold(id: BSON.ObjectId)
  */
 
-
 /**
  * Call this function ONCE at the begginging of a .tsx file to connect to the client.
  * Will error if run this method multiple times (cannot connect to client multiple times).
@@ -100,13 +98,13 @@ export async function getAllItems(): Promise<ItemTuple> {
       throw new Error("Database not available");
     }
 
-    // Retrieves master_items collection 
+    // Retrieves master_items collection
     const masterItemsCollection: RemoteMongoCollection<Item> =
       db.collection("master_items");
     const masterItemsCursor = masterItemsCollection.find();
     const master_Items: Item[] = await masterItemsCursor.toArray();
 
-    // Retrieves sold_items collection 
+    // Retrieves sold_items collection
     const soldItemsCollection: RemoteMongoCollection<Item> =
       db.collection("sold_items");
     const soldItemsCursor = soldItemsCollection.find();
@@ -142,7 +140,7 @@ export async function getItemsByCategory(category: string): Promise<ItemTuple> {
       db.collection("master_items");
     const masterCategoryItemsCursor = masterItemsCollection.find({
       category: { $regex: category, $options: "i" }, // "i" is for case insensitive
-    } as RemoteFindOptions);
+    });
     const masterCategoryItems: Item[] =
       await masterCategoryItemsCursor.toArray();
 
@@ -151,7 +149,7 @@ export async function getItemsByCategory(category: string): Promise<ItemTuple> {
       db.collection("sold_items");
     const soldCategoryItemsCursor = soldItemsCollection.find({
       category: { $regex: category, $options: "i" },
-    } as RemoteFindOptions);
+    });
     const soldCategoryItems: Item[] = await soldCategoryItemsCursor.toArray();
 
     return [masterCategoryItems, soldCategoryItems];
@@ -189,7 +187,7 @@ export async function getItemsByCategoryAndSubcategory(
     const masterCategoryAndSubcategoryItemsCursor = masterItemsCollection.find({
       category: { $regex: category, $options: "i" },
       subcategory: { $regex: subcategory, $options: "i" },
-    } as RemoteFindOptions);
+    });
     const masterCategoryAndSubcategoryItems: Item[] =
       await masterCategoryAndSubcategoryItemsCursor.toArray();
 
@@ -199,7 +197,7 @@ export async function getItemsByCategoryAndSubcategory(
     const soldCategoryAndSubcategoryItemsCursor = soldItemsCollection.find({
       category: { $regex: category, $options: "i" },
       subcategory: { $regex: subcategory, $options: "i" },
-    } as RemoteFindOptions);
+    });
     const soldCategoryAndSubcategoryItems: Item[] =
       await soldCategoryAndSubcategoryItemsCursor.toArray();
 
@@ -234,7 +232,7 @@ export async function getItemsBySubcategory(
       db.collection("master_items");
     const masterSubcategoryItemsCursor = masterItemsCollection.find({
       subcategory: { $regex: subcategory, $options: "i" },
-    } as RemoteFindOptions);
+    });
     const masterSubcategoryItems: Item[] =
       await masterSubcategoryItemsCursor.toArray();
 
@@ -243,7 +241,7 @@ export async function getItemsBySubcategory(
       db.collection("sold_items");
     const soldSubcategoryItemsCursor = soldItemsCollection.find({
       subcategory: { $regex: subcategory, $options: "i" },
-    } as RemoteFindOptions);
+    });
     const soldSubcategoryItems: Item[] =
       await soldSubcategoryItemsCursor.toArray();
 
@@ -459,7 +457,7 @@ export function sortByPriceHighToLow(itemTuple: ItemTuple): ItemTuple {
 function sortLeastToMostRecentHelper(items: Item[]): Item[] {
   return items.slice().sort((a, b) => {
     // Convert timestamps into dates and compare
-    const aTime = new Date(a.timestamp).getTime(); 
+    const aTime = new Date(a.timestamp).getTime();
     const bTime = new Date(b.timestamp).getTime();
     return aTime - bTime;
   });
