@@ -272,9 +272,7 @@ export async function searchItems(keywords: string): Promise<ItemTuple> {
     // if words, store regex as case insensitive
     const keywordRegex = { $regex: keywords, $options: "i" };
     // if dollar amount, remove $ and cents digits to return whole dollar amount
-    const dollarAmount = parseInt(
-      keywords.replace(/\$([\d]+)(\.\d{1,2})?/, "")
-    );
+    const dollarAmount = parseInt(keywords.replace(/\$([\d]+)(\.\d{1,2})?/, "$1"));
 
     // Searches for items in master_items
     const masterItemsCollection: RemoteMongoCollection<Item> =
@@ -425,7 +423,7 @@ export function sortPriceLowToHigh(itemTuple: ItemTuple): ItemTuple {
  * @param items an item[] to sort
  * @returns items[] sorted with price high to low
  */
-function sortByPriceHighToLowHelper(items: Item[]): Item[] {
+function sortPriceHighToLowHelper(items: Item[]): Item[] {
   return items.slice().sort((a, b) => b.price - a.price);
 }
 
@@ -437,11 +435,11 @@ function sortByPriceHighToLowHelper(items: Item[]): Item[] {
  * If want to sort a Item[] seperately, make the helper an export function and use that.
  *
  */
-export function sortByPriceHighToLow(itemTuple: ItemTuple): ItemTuple {
+export function sortPriceHighToLow(itemTuple: ItemTuple): ItemTuple {
   if (itemTuple[0] && itemTuple[1]) {
     return [
-      sortByPriceHighToLowHelper(itemTuple[0]), // Master Items
-      sortByPriceHighToLowHelper(itemTuple[1]), // Sold Items
+      sortPriceHighToLowHelper(itemTuple[0]), // Master Items
+      sortPriceHighToLowHelper(itemTuple[1]), // Sold Items
     ];
   } else {
     console.log("Invalid ItemTuple entered to sort");
