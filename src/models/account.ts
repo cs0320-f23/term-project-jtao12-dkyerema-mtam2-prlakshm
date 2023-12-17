@@ -4,7 +4,7 @@ export default class Account {
   constructor(
     public username: string,
     public fullname: string,
-    public email: BSON.ObjectId,
+    public email: string,
     public bio: string,
     public currentListing_ids: BSON.ObjectId[],
     public pastListing_ids: BSON.ObjectId[],
