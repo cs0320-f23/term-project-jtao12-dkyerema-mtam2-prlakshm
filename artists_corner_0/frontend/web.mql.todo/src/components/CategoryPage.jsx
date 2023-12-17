@@ -1,30 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getItemsByCategory } from "../mongo/Mongo-Functions"; // Adjust the import path
+// import { getItemsByCategory } from "../mongo/Mongo-Functions";
+import ItemComponent from "./ItemComponent";
 
 const CategoryPage = () => {
-  const { categoryName } = useParams();
+  const { categoryName } = useParams(); // Access the category from the URL
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        const fetchedItems = await getItemsByCategory(categoryName);
+    getItemsByCategory(categoryName)
+      .then((fetchedItems) => {
         setItems(fetchedItems);
-      } catch (error) {
-        console.error("Error fetching items:", error);
-      }
-    };
-
-    fetchItems();
-  }, [categoryName]);
+      })
+      .catch(console.error);
+  }, [categoryName]); // Rerun when categoryName changes
 
   return (
-    <div className="main-content">
-      <h2>{categoryName}</h2>
-      {/* Render items here */}
-      {items.map((item, index) => (
-        <div key={index}>{/* Render each item */}</div>
+    <div>
+      <h1>{categoryName}</h1>
+      {items.map((item) => (
+        <ItemComponent key={item._id} item={item} />
       ))}
     </div>
   );
