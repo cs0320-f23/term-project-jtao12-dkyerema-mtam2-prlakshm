@@ -1,7 +1,7 @@
 // Import React, ReactDOM, your main App component, and styles.
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import App from "./App.jsx";
 //import "/styles.css";
 
 // Use ReactDOM.createRoot to render your app into the root element in "index.html".
