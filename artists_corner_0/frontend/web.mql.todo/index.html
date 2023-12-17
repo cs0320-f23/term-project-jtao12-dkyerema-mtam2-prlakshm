@@ -16,6 +16,11 @@
     -->
     <link rel="manifest" href="/manifest.json" />
     <title>React App</title>
+    <script>
+      if (global === undefined) {
+        var global = window;
+      }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

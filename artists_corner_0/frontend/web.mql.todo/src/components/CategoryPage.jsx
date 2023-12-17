@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-// import { getItemsByCategory } from "../mongo/Mongo-Functions";
+import { getItemsByCategory } from "../mongo/Mongo-Functions";
 import ItemComponent from "./ItemComponent";
 
 const CategoryPage = () => {
-  const { categoryName } = useParams(); // Access the category from the URL
+  const { categoryName } = useParams();
   const [items, setItems] = useState([]);
 
   useEffect(() => {
     getItemsByCategory(categoryName)
-      .then((fetchedItems) => {
-        setItems(fetchedItems);
+      .then(([masterItems, soldItems]) => {
+        const combinedItems = [...masterItems, ...soldItems];
+        console.log("Items:", combinedItems); // Check the structure of items
+        setItems(combinedItems);
       })
       .catch(console.error);
-  }, [categoryName]); // Rerun when categoryName changes
+  }, [categoryName]);
 
   return (
     <div>

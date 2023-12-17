@@ -6,13 +6,14 @@ import HomePage from "./HomePage";
 import AboutPage from "./AboutPage";
 import CategoryPage from "./CategoryPage";
 import "../styles/home.css";
-import { getItemsByCategory } from "../mongo/Mongo-Functions";
+
 import Item from "../models/item";
-// import { BSON } from "mongodb-stitch-browser-sdk";
+import { BSON } from "mongodb-stitch-browser-sdk";
 import Account from "../models/account";
+import { initializeStitchClient } from "../mongo/Mongo-Functions";
 
 function App() {
-  // initializeStitchClient();
+  initializeStitchClient();
   return (
     <Router>
       <div className="header">
@@ -30,11 +31,11 @@ function App() {
       </div>
       <div className="topnav">
         <div className="right-links">
-          <Link to="/category/accessories">Accessories</Link>
-          <Link to="/category/apparel">Apparel</Link>
-          <Link to="/category/artwork">Artwork</Link>
-          <Link to="/category/crafts">Crafts</Link>
-          <Link to="/category/misc">Misc.</Link>
+          <Link to="/category/Accessories">Accessories</Link>
+          <Link to="/category/Apparel">Apparel</Link>
+          <Link to="/category/Artwork">Artwork</Link>
+          <Link to="/category/Crafts">Crafts</Link>
+          <Link to="/category/Miscellaneous">Misc.</Link>
           <Link to="/events">Events</Link>
           <Link to="/about">About</Link>
         </div>
