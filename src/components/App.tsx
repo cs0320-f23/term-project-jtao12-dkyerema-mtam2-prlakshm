@@ -1,14 +1,62 @@
 //App.tsx
 import { useEffect, useState } from "react";
+// import React from "react";
 import {
   ItemTuple,
   searchItems,
   initializeStitchClient,
 } from "../mongo/Mongo-Functions";
+// import ItemCard from '../../item-card';
+
 
 /**
  * This is the highest level component!
  */
+
+// function App() {
+//   const [items, setItems] = useState<ItemTuple>([[], []]);
+
+//   initializeStitchClient();
+
+//   useEffect(() => {
+//     searchItems("emily")
+//       .then(([masterItems, soldItems]) => {
+//         setItems([masterItems || [], soldItems || []]);
+//       })
+//       .catch((error) => {
+//         console.error("Error:", error);
+//       });
+//   }, []);
+
+//   return (
+//     <div className="App">
+//       <h1>Artist's Corner Pvd</h1>
+
+//       {/* Add dynamic rendering of item cards for master items */}
+//       <div>
+//         <h2>Master Items</h2>
+//         <div className="card-container">
+//           {items[0]?.map((item, index) => (
+//             <ItemCard key={index} item={item} />
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* Add dynamic rendering of item cards for sold items */}
+//       <div>
+//         <h2>Sold Items</h2>
+//         <div className="card-container">
+//           {items[1]?.map((item, index) => (
+//             <ItemCard key={index} item={item} />
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
+
 function App() {
   const [items, setItems] = useState<ItemTuple>([[], []]);
 
