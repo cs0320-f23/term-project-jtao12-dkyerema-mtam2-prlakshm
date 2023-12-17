@@ -647,6 +647,39 @@ export async function ifUsernameAlreadyExists(
 }
 
 /**
+ * Retrieves all usernames from database
+ * @returns a string[] of all available usernames in database
+ */
+export async function getAllUsernames(): Promise<string[]> {
+  try {
+    // Ensure the client is authenticated
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(ACCESS_TOKEN)
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+
+    // Retrieves accounts collection
+    const accountsCollection: RemoteMongoCollection<any> =
+      db.collection("accounts");
+
+    // Find all documents in the accounts collection, projecting only the "username" field
+    const accountsCursor = accountsCollection.find({}, { projection: { username: 1 } });
+    
+    // Extract usernames from the accounts
+    const usernames: string[] = await accountsCursor.toArray();
+
+    return usernames;
+  } catch (error) {
+    console.error("Error fetching usernames:", error);
+    return [];
+  }
+}
+
+/**
  * Helper for adding a new item, adds the item Object Id to seller's
  * current listings
  * @param username seller's username
@@ -1063,7 +1096,7 @@ export async function markItemAsSold(id: BSON.ObjectId): Promise<void> {
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
-
+0
     const db = mongodb?.db("artists_corner_pvd");
     if (!db) {
       throw new Error("Database not available");
