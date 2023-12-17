@@ -11,8 +11,8 @@ import {
   insertNewItem,
   insertNewAccount,
   addItemToLikedListings,
-  updateAccount, 
-  markItemAsSold
+  updateAccount,
+  markItemAsSold,
 } from "../mongo/Mongo-Functions";
 import Item from "../models/item";
 import { BSON } from "mongodb-stitch-browser-sdk";

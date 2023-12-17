@@ -1,0 +1,23 @@
+.mySlides {
+  position: relative;
+  width: 100%;
+}
+
+@font-face {
+  font-family: "Recoleta";
+  src: url(fonts/recoleta-regulardemo.otf);
+}
+
+.text {
+  font-family: "Recoleta", serif;
+  font-size: 3.3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+}
