@@ -1,44 +1,28 @@
-import { getAllItems } from '../../src/mongo/Mongo-Functions'
-import { MongoClient } from 'mongodb';
-import { MongoMemoryServer } from 'mongodb-memory-server';
+import * as MongoFunctions from '../../src/mongo/Mongo-Functions';
 
-describe('getAllItems', () => {
-  let mongoServer: MongoMemoryServer;
-  let mongoClient: MongoClient;
+beforeAll(async () => {
+  // Call the function to initialize the Stitch client
+  await MongoFunctions.initializeStitchClient();
+});
 
-  beforeAll(async () => {
-    mongoServer = new MongoMemoryServer();
-    const mongoUri = await mongoServer.getUri();
-    mongoClient = new MongoClient(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
-    await mongoClient.connect();
-  });
+describe("getAllItems", () => {
+  it("fetches all master and sold items from the database", async () => {
+    // Calling function
+    const [master_items, sold_items] = await MongoFunctions.getAllItems();
 
-  afterAll(async () => {
-    await mongoClient.close();
-    await mongoServer.stop();
-  });
+    // Assert master_items and sold_items is defined
+    expect(master_items).toBeDefined();
+    expect(sold_items).toBeDefined();
 
-  it('fetches master and sold items from the database', async () => {
-    // Insert test data into the in-memory database
-    const db = mongoClient.db('artists_corner_pvd');
-    await db.collection('master_items').insertMany([{ /* your test data */ }]);
-    await db.collection('sold_items').insertMany([{ /* your test data */ }]);
+    // Assert item[] have of all items in database
+    expect(master_items).toHaveLength(21);
+    expect(sold_items).toHaveLength(21);
 
-    // Call your function
-    const result = await getAllItems(mongoClient);
+     // Assert that all values in master_items are defined
+     expect(master_items?.every(item => item !== undefined)).toBe(true);
 
-    // Assertions
-    expect(result).toBeDefined();
-    // Add more specific assertions based on your test data
-  });
+     // Assert that all values in sold_items are defined
+     expect(sold_items?.every(item => item !== undefined)).toBe(true);
 
-  it('handles errors and returns an empty array', async () => {
-    // Handle errors as needed in your function
-    // Mock external dependencies if necessary
-    // Call your function
-    const result = await getAllItems(/* pass mocked dependencies as needed */);
-
-    // Assertions
-    expect(result).toEqual([]);
   });
 });
