@@ -1096,7 +1096,7 @@ export async function markItemAsSold(id: BSON.ObjectId): Promise<void> {
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
-0
+    
     const db = mongodb?.db("artists_corner_pvd");
     if (!db) {
       throw new Error("Database not available");
