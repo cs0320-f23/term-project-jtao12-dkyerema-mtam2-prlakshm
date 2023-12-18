@@ -448,9 +448,9 @@ export function sortPriceHighToLow(itemTuple: ItemTuple): ItemTuple {
 }
 
 /**
- * Helper for sorting timstamps from least recent to most recent
+ * Helper for sorting timestamps from least recent to most recent
  * @param items an item[] to sort
- * @returns items[] sorted with timstamps from least recent to most recent
+ * @returns items[] sorted with timestamps from least recent to most recent
  */
 function sortLeastToMostRecentHelper(items: Item[]): Item[] {
   return items.slice().sort((a, b) => {
@@ -462,9 +462,9 @@ function sortLeastToMostRecentHelper(items: Item[]): Item[] {
 }
 
 /**
- * Sorts (master_items, sold_items) tuple timstamps from least recent to most recent using helper
+ * Sorts (master_items, sold_items) tuple timestamps from least recent to most recent using helper
  * @param itemTuple a (item[], item[]) expressed in the format (master_items, sold_items)
- * @returns a tuple, but with both item lists seperately sorted with timstamps from least recent
+ * @returns a tuple, but with both item lists seperately sorted with timestamps from least recent
  * to most recent
  *
  * If want to sort a Item[] seperately, make the helper an export function and use that.
@@ -483,9 +483,9 @@ export function sortLeastToMostRecent(itemTuple: ItemTuple): ItemTuple {
 }
 
 /**
- * Helper for sorting timstamps from most recent to least recent
+ * Helper for sorting timestamps from most recent to least recent
  * @param items an item[] to sort
- * @returns items[] sorted with timstamps from most recent to least recent
+ * @returns items[] sorted with timestamps from most recent to least recent
  */
 function sortMostToLeastRecentHelper(items: Item[]): Item[] {
   return items.slice().sort((a, b) => {
@@ -497,9 +497,9 @@ function sortMostToLeastRecentHelper(items: Item[]): Item[] {
 }
 
 /**
- * Sorts (master_items, sold_items) tuple timstamps from most recent to least recent using helper
+ * Sorts (master_items, sold_items) tuple timestamps from most recent to least recent using helper
  * @param itemTuple a (item[], item[]) expressed in the format (master_items, sold_items)
- * @returns a tuple, but with both item lists seperately sorted with timstamps from most recent
+ * @returns a tuple, but with both item lists seperately sorted with timestamps from most recent
  * to least recent
  *
  * If want to sort a Item[] seperately, make the helper an export function and use that.
@@ -729,7 +729,7 @@ export async function insertNewItem(
   subcategory: string,
   price: number,
   photoFilenames: string[]
-): Promise<void> {
+): Promise<BSON.ObjectId | undefined> {
   try {
     // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
@@ -763,12 +763,15 @@ export async function insertNewItem(
     const result = await itemsCollection.insertOne(newItem);
     console.log(`Successfully inserted item with id: ${result.insertedId}`);
 
+
     // Add item to seller's current listings
     await addItemToCurrentListings(
       seller,
       result.insertedId,
       accountsCollection
     );
+
+    return result.insertedId;
   } catch (error) {
     console.error("Failed to insert item:", error);
   }
@@ -800,7 +803,7 @@ export async function insertNewAccount(
   bio: string,
   profilePhotoFilename: string,
   contactInformation: Map<String, String>
-): Promise<void> {
+): Promise<BSON.ObjectId | undefined> {
   try {
     // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
@@ -831,6 +834,8 @@ export async function insertNewAccount(
     // Add new account to collection
     const result = await accountsCollection.insertOne(newAccount);
     console.log(`Successfully inserted account with _id: ${result.insertedId}`);
+    
+    return result.insertedId;
   } catch (error) {
     console.error("Failed to insert account:", error);
   }
@@ -937,7 +942,7 @@ export async function updateItem(
   newSubcategory: string,
   newPrice: number,
   newPhotoFilenames: string[]
-) {
+): Promise<void> {
   try {
     // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
@@ -1033,7 +1038,7 @@ export async function updateAccount(
   newBio: string,
   newProfilePhotoFilename: string,
   newContactInformation: Map<String, String>
-) {
+): Promise<void> {
   try {
     // Ensure the client is authenticated
     await client?.auth.loginWithCredential(

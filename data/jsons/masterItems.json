@@ -244,7 +244,7 @@
     "subcategory": "crochet",
     "price": 23.75,
     "timestamp": "2024-02-06T16:50:00",
-    "photoFilenames": ["../data/photos/crochet_green_coasters.jpg"],
+    "photoFilenames": ["../data/photos/crochet_green_coasters.png"],
     "ifSold": false
   },
   {
@@ -296,7 +296,7 @@
     "timestamp": {
       "$date": "2024-06-06T13:35:00.000Z"
     },
-    "photoFilenames": ["./data/photos/ribbon_bow_necklace_.jpg"],
+    "photoFilenames": ["../data/photos/ribbon_bow_necklace_.jpg"],
     "ifSold": false
   },
   {
@@ -312,7 +312,7 @@
     "timestamp": {
       "$date": "2024-06-11T20:30:00.000Z"
     },
-    "photoFilenames": ["./data/photos/eco_candle_1.jpg"],
+    "photoFilenames": ["../data/photos/eco_candle_1.jpg"],
     "ifSold": false
   },
   {
@@ -328,7 +328,7 @@
     "timestamp": {
       "$date": "2024-06-16T18:25:00.000Z"
     },
-    "photoFilenames": ["./data/photos/two_faced_painting.png"],
+    "photoFilenames": ["../data/photos/two_faced_painting.png"],
     "ifSold": false
   },
   {
@@ -345,8 +345,8 @@
       "$date": "2024-06-21T15:20:00.000Z"
     },
     "photoFilenames": [
-      "./data/photos/embroidery_hoop_1.jpg",
-      "./data/photos/embroidery_hoop_2.png"
+      "../data/photos/embroidery_hoop_1.jpg",
+      "../data/photos/embroidery_hoop_2.png"
     ],
     "ifSold": false
   },
@@ -364,8 +364,8 @@
       "$date": "2024-06-26T14:15:00.000Z"
     },
     "photoFilenames": [
-      "./data/photos/vampire_red_heart_necklace_1.jpg",
-      "./data/photos/vampire_red_heart_necklace_2.jpg"
+      "../data/photos/vampire_red_heart_necklace_1.jpg",
+      "../data/photos/vampire_red_heart_necklace_2.jpg"
     ],
     "ifSold": false
   }
