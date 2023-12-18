@@ -1186,7 +1186,7 @@ export async function updateAccount(
             email: newEmail,
             bio: newBio,
             profilePhotoFilename: newProfilePhotoFilename,
-            contactInformation: newContactInformation,
+            contactInformation: Object.fromEntries(newContactInformation),
           },
         }
       );
