@@ -1,6 +1,6 @@
 window.global = window;
 
-import React from "react";
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import HomePage from "./HomePage";
 import AboutPage from "./AboutPage";
@@ -13,6 +13,21 @@ import { initializeStitchClient } from "../mongo/Mongo-Functions";
 
 function App() {
   initializeStitchClient();
+  const [searchString, setSearchString] = useState('');
+  const [searchClicked, setSearchClicked] = useState(false);
+
+  const handleSearchInputChange = (event) => {
+    setSearchString(event.target.value);
+  };
+
+  // const handleSearchButtonClick = () => {
+  //   console.log("yooo")
+  //   setSearchClicked(true);
+  // };
+
+  console.log("search clickeddd? " + searchClicked)
+  console.log("1:" + searchString);
+
   return (
     <Router>
       <div className="header">
@@ -22,9 +37,18 @@ function App() {
         
         <div className="search-container">
           <form action="/search">
-            <input type="text" placeholder="Search..." name="keyword" />
+            <input
+            type="text"
+            placeholder="Search..."
+            name="keyword"
+            value={searchString}
+            onChange={handleSearchInputChange}
+          />
             <button type="submit">
-              <Link to="/search" element={<SearchPage />} />
+              {/* <Link to="/search" element={<SearchPage 
+                searchString={searchString} 
+                searchClicked={false}
+                />} /> */}
               <i className="fa fa-search">Search</i>
             </button>
           </form>
@@ -47,7 +71,10 @@ function App() {
         <Route path="/category/:categoryName" element={<CategoryPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/item/:itemId" element={<ItemDetailPage />} />
-        <Route path="/search" element={<SearchPage />} />
+        <Route path="/search" element={<SearchPage
+          searchString={searchString}
+          searchClicked={false}
+          />} />
       </Routes>
 
       <div className="footer">

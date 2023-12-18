@@ -6,16 +6,18 @@ import ItemComponent from "./ItemComponent";
 import "../styles/category.css";
 
 
-const SearchPage = () => {
-  const [searchString, setSearchString] = useState('');
+const SearchPage = ({ searchString, searchClicked }) => {
   const { categoryName } = useParams();
   const [items, setItems] = useState([]);
   const [subcategories, setSubcategories] = useState(new Set());
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
+  // const [searchString, setSearchString] = useState('');
+  // const [searchClicked, setSearchClicked] = useState(false);
+
+  console.log("2:" + searchString);
 
   const fetchItems = async () => {
     try {
-      // setSearchKeyword(encodeURIComponent(keyword))
       const [masterItems, soldItems] = await searchItems(searchString);
       const combinedItems = [...masterItems, ...soldItems];
       setItems(combinedItems);
@@ -30,13 +32,9 @@ const SearchPage = () => {
     }
   };
 
-  const handleInputChange = (event) => {
-    setSearchString(event.target.value);
+  const handleSearchClick = () => {
+    setSearchClicked(true);
   };
-
-  useEffect(() => {
-    fetchItems();
-  }, [searchString]);
 
   const handleSubcategoryClick = async (subcategory) => {
     setSelectedSubcategory(subcategory);
@@ -48,22 +46,27 @@ const SearchPage = () => {
     }
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    // Navigate to the search page with the provided keyword
-    navigate(`/search?keyword=${encodeURIComponent(keyword)}`);
-  };
+  useEffect(() => {
+    // if (searchClicked) {
+      // console.log("puppies")
+      fetchItems();
+      // setSearchClicked(false);
+      // setSearchString("")
+    // }
+  }, [searchString]);
 
+  console.log("search clicked? " + searchClicked)
 
   return (
     <div>
-      <input
+      {/* <input
         type="text"
         placeholder="Search..."
         value={searchString}
+        setValue={setSearchString}
         onChange={handleInputChange}
       />
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={handleSearchClick}>Search</button> */}
     
     <div className="category-page-container">
       <h1>{categoryName}</h1>
