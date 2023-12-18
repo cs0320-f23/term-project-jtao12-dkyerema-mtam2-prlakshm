@@ -17,7 +17,6 @@ export type ItemTuple = [Item[], Item[]] | [];
 let client: StitchAppClient | undefined;
 let mongodb: RemoteMongoClient | undefined;
 
-
 /**
  * This file contains all the functions that interact with the MongoDB database. 
  * The following functions are (not including helpers):
@@ -63,7 +62,6 @@ let mongodb: RemoteMongoClient | undefined;
  *    newContactInformation: Map<String, String>) => void
  * markItemAsSold(id: BSON.ObjectId)
  */
-
 
 /**
  * Call this function ONCE at the begginging of a .tsx file to connect to the client.
@@ -236,6 +234,41 @@ export async function getItemsBySubcategory(
     return [masterSubcategoryItems, soldSubcategoryItems];
   } catch (error) {
     console.error("Error fetching items:", error);
+    return [];
+  }
+}
+
+/**
+ * Retrieves items from the database associated with a specific seller by username
+ * @param username string (username of the seller)
+ * @returns tuple of [masterItems, soldItems] of items associated with that seller
+ */
+export async function getItemsBySellerUsername(
+  username: string
+): Promise<ItemTuple> {
+  try {
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(ACCESS_TOKEN)
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+
+    const masterItemsCollection: RemoteMongoCollection<Item> =
+      db.collection("master_items");
+    const masterItemsCursor = masterItemsCollection.find({ seller: username });
+    const master_Items: Item[] = await masterItemsCursor.toArray();
+
+    const soldItemsCollection: RemoteMongoCollection<Item> =
+      db.collection("sold_items");
+    const soldItemsCursor = soldItemsCollection.find({ seller: username });
+    const sold_Items: Item[] = await soldItemsCursor.toArray();
+
+    return [master_Items, sold_Items];
+  } catch (error) {
+    console.error("Error fetching items by seller username:", error);
     return [];
   }
 }

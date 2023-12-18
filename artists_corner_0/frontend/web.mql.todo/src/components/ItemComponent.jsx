@@ -14,8 +14,10 @@ const ItemComponent = ({ item }) => {
           <b>{item.title}</b>
         </p>
         <p>${item.price}</p>
-        <p>by {item.seller}</p>
       </Link>
+      <p>
+        by <Link to={`/user/${item.seller}`}>{item.seller}</Link>
+      </p>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getItemsByCategory } from "../mongo/Mongo-Functions";
 import ItemComponent from "./ItemComponent";
 import "../styles/category.css";
+import { Link } from "react-router-dom";
 
 const CategoryPage = () => {
   const { categoryName } = useParams();
