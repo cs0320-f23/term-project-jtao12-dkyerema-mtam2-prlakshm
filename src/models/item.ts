@@ -14,6 +14,11 @@ export default class Item {
     public _id?: BSON.ObjectId
   ) {}
 
+  /**
+   * Converts object return from MongoDB to item
+   * @param itemData object from MongoDB database
+   * @returns object as an item
+   */
   static fromObject(itemData: Record<string, any>): Item | undefined {
     if (itemData) {
       return new Item(
