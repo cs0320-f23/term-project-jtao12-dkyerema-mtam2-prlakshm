@@ -1,372 +1,392 @@
-[
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb927"
-    },
-    "title": "Vintage Denim Jacket",
-    "description": "Classic oversized denim jacket with assorted patches.",
-    "seller": "vintageVibes",
-    "category": "clothing",
-    "subcategory": "second-hand",
-    "price": 34.5,
-    "timestamp": {
-      "$date": "2023-11-05T20:30:00.000Z"
-    },
-    "photoFilenames": [
-      "../data/photos/vintage_denim_1.jpg",
-      "../data/photos/vintage_denim_2.jpg"
-    ],
-    "ifSold": false
+[{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb927"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb928"
-    },
-    "title": "Crochet Fruit Keychain Set of 4",
-    "description": "Kiwi, watermelon, orange, and lemon crochet keychain set.",
-    "seller": "Emily_Wang",
-    "category": "crafts",
-    "subcategory": "crochet",
-    "price": 20,
-    "timestamp": {
-      "$date": "2023-11-10T17:45:00.000Z"
-    },
-    "photoFilenames": ["../data/photos/crochet_fruit_keychains.jpg"],
-    "ifSold": false
+  "title": "Vintage Denim Jacket",
+  "description": "Classic oversized denim jacket with assorted patches.",
+  "seller": "vintageVibes",
+  "category": "clothing",
+  "subcategory": "second-hand",
+  "price": 34.5,
+  "timestamp": {
+    "$date": "2023-11-05T20:30:00.000Z"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb929"
-    },
-    "title": "Artistic Ceramic Bowl",
-    "description": "One-of-a-kind ceramic bowl with flower hand-painted details.",
-    "seller": "PotteryPassion",
-    "category": "crafts",
-    "subcategory": "pottery",
-    "price": 28.75,
-    "timestamp": {
-      "$date": "2023-11-15T15:20:00.000Z"
-    },
-    "photoFilenames": [
-      "../data/photos/ceramic_bowl_1.jpg",
-      "../data/photos/ceramic_bowl_2.png",
-      "../data/photos/ceramic_bowl_3.jpg"
-    ],
-    "ifSold": false
+  "photoFilenames": [
+    "../data/photos/vintage_denim_1.jpg",
+    "../data/photos/vintage_denim_2.jpg"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb928"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb92a"
-    },
-    "title": "Blue Green Beaded Bow Necklace",
-    "description": "Necklace with blue and green circle beards and pearl bows.",
-    "seller": "Sophia_Cheng",
-    "category": "accessories",
-    "subcategory": "jewelry",
-    "price": 15,
-    "timestamp": {
-      "$date": "2023-11-20T14:55:00.000Z"
-    },
-    "photoFilenames": [
-      "../data/photos/blue_green_bow_necklace_1.jpg",
-      "../data/photos/blue_green_bow_necklace_2.jpg"
-    ],
-    "ifSold": false
+  "title": "Crochet Fruit Keychain Set of 4",
+  "description": "Kiwi, watermelon, orange, and lemon crochet keychain set.",
+  "seller": "Emily_Wang",
+  "category": "crafts",
+  "subcategory": "crochet",
+  "price": 20,
+  "timestamp": {
+    "$date": "2023-11-10T17:45:00.000Z"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb92b"
-    },
-    "title": "Hand-Painted Frog Tote Bag",
-    "description": "Unique tote bag hand-painted with cute frogs.",
-    "seller": "ArtsyTotes",
-    "category": "accessories",
-    "subcategory": "bags",
-    "price": 17.99,
-    "timestamp": {
-      "$date": "2023-11-25T19:15:00.000Z"
-    },
-    "photoFilenames": ["../data/photos/frog_tote.jpg"],
-    "ifSold": false
+  "photoFilenames": [
+    "../data/photos/crochet_fruit_keychains.jpg"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb929"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb92c"
-    },
-    "title": "Blueno Abomination Digital Art Print",
-    "description": "Digital art print of blueno resurrected as a Cthulhu style eldritch horror abomination.",
-    "seller": "Jackie_Cohen",
-    "category": "art",
-    "subcategory": "prints",
-    "price": 5.99,
-    "timestamp": {
-      "$date": "2023-12-01T21:40:00.000Z"
-    },
-    "photoFilenames": ["../data/photos/blueno_digital_art.jpg"],
-    "ifSold": false
+  "title": "Artistic Ceramic Bowl",
+  "description": "One-of-a-kind ceramic bowl with flower hand-painted details.",
+  "seller": "PotteryPassion",
+  "category": "crafts",
+  "subcategory": "pottery",
+  "price": 28.75,
+  "timestamp": {
+    "$date": "2023-11-15T15:20:00.000Z"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb92d"
-    },
-    "title": "Chunky Seashell Necklace",
-    "description": "Porcelain and pearl beaded necklace with a big seashell pendant.",
-    "seller": "Sophia_Cheng",
-    "category": "accessories",
-    "subcategory": "jewelry",
-    "price": 20,
-    "timestamp": {
-      "$date": "2023-12-06T16:25:00.000Z"
-    },
-    "photoFilenames": [
-      "../data/photos/chunky_seashell_necklace_1.jpg",
-      "../data/photos/chunky_seashell_necklace_2.jpg"
-    ],
-    "ifSold": false
+  "photoFilenames": [
+    "../data/photos/ceramic_bowl_1.jpg",
+    "../data/photos/ceramic_bowl_2.png",
+    "../data/photos/ceramic_bowl_3.jpg"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb92a"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb92e"
-    },
-    "title": "Crochet Black and White Cat Keychains",
-    "description": "Crochet black and White cat keychain set with adorable faces.",
-    "seller": "Emily_Wang",
-    "category": "crafts",
-    "subcategory": "crochet",
-    "price": 14,
-    "timestamp": {
-      "$date": "2023-12-16T15:15:00.000Z"
-    },
-    "photoFilenames": [
-      "../data/photos/crochet_black_and_white_cat_keychain.jpg"
-    ],
-    "ifSold": false
+  "title": "Blue Green Beaded Bow Necklace",
+  "description": "Necklace with blue and green circle beards and pearl bows.",
+  "seller": "Sophia_Cheng",
+  "category": "accessories",
+  "subcategory": "jewelry",
+  "price": 15,
+  "timestamp": {
+    "$date": "2023-11-20T14:55:00.000Z"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb92f"
-    },
-    "title": "Handcrafted Clay Mug",
-    "description": "Artisan-crafted clay mug for your favorite beverages.",
-    "seller": "ClayCraftsman",
-    "category": "crafts",
-    "subcategory": "pottery",
-    "price": 24.5,
-    "timestamp": {
-      "$date": "2023-12-21T22:30:00.000Z"
-    },
-    "photoFilenames": [
-      "../data/photos/clay_mug_1.jpg",
-      "../data/photos/clay_mug_2.jpg",
-      "../data/photos/clay_mug_3.jpg"
-    ],
-    "ifSold": false
+  "photoFilenames": [
+    "../data/photos/blue_green_bow_necklace_1.jpg",
+    "../data/photos/blue_green_bow_necklace_2.jpg"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb92b"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb930"
-    },
-    "title": "Crochet Octopus Set of 7",
-    "description": "Set of 7 crochet octopi. Comes in blue, pink, purple, and mauve.",
-    "seller": "Emily_Wang",
-    "category": "crafts",
-    "subcategory": "crochet",
-    "price": 34.99,
-    "timestamp": {
-      "$date": "2023-12-26T19:20:00.000Z"
-    },
-    "photoFilenames": [
-      "../data/photos/crochet_octopus_set.jpg",
-      "../data/photos/crochet_pink_octopus.jpg",
-      "../data/photos/crochet_blue_octopus.jpg"
-    ],
-    "ifSold": false
+  "title": "Hand-Painted Frog Tote Bag",
+  "description": "Unique tote bag hand-painted with cute frogs.",
+  "seller": "ArtsyTotes",
+  "category": "accessories",
+  "subcategory": "bags",
+  "price": 17.99,
+  "timestamp": {
+    "$date": "2023-11-25T19:15:00.000Z"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb931"
-    },
-    "title": "Cozy Chunky Knit Blanket",
-    "description": "Soft and warm handmade chunky knit blanket for chilly evenings.",
-    "seller": "ThreadArtCraft",
-    "category": "crafts",
-    "subcategory": "other",
-    "price": 29.99,
-    "timestamp": {
-      "$date": "2024-01-11T23:45:00.000Z"
-    },
-    "photoFilenames": ["../data/photos/cozy_knit_blanket.jpg"],
-    "ifSold": true
+  "photoFilenames": [
+    "../data/photos/frog_tote.jpg"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb92c"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb932"
-    },
-    "title": "Cherry White Mittens",
-    "description": "Hand knit winter mittens with cherry detail.",
-    "seller": "DIYQueen",
-    "category": "accessories",
-    "subcategory": "other",
-    "price": 26.5,
-    "timestamp": {
-      "$date": "2024-01-16T19:30:00.000Z"
-    },
-    "photoFilenames": ["../data/photos/cherry_mittens.jpg"],
-    "ifSold": false
+  "title": "Blueno Abomination Digital Art Print",
+  "description": "Digital art print of blueno resurrected as a Cthulhu style eldritch horror abomination.",
+  "seller": "Jackie_Cohen",
+  "category": "art",
+  "subcategory": "prints",
+  "price": 5.99,
+  "timestamp": {
+    "$date": "2023-12-01T21:40:00.000Z"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb933"
-    },
-    "title": "Crochet Duck Set of 3",
-    "description": "Set of 3 crochet ducks. Pink, yellow, and blue with beaded eyes and faces.",
-    "seller": "Emily_Wang",
-    "category": "crafts",
-    "subcategory": "crochet",
-    "price": 18.99,
-    "timestamp": {
-      "$date": "2024-02-01T15:05:00.000Z"
-    },
-    "photoFilenames": [
-      "../data/photos/crochet_ducks.jpg",
-      "../data/photos/blue_crochet_duck.jpg"
-    ],
-    "ifSold": false
+  "photoFilenames": [
+    "../data/photos/blueno_digital_art.jpg"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb92d"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb934"
-    },
-    "title": "Crochet Green Coasters Set of 3",
-    "description": "Crochet green coasters in random blob shapes.",
-    "seller": "Emily_Wang",
-    "category": "crafts",
-    "subcategory": "crochet",
-    "price": 23.75,
-    "timestamp": "2024-02-06T16:50:00",
-    "photoFilenames": ["../data/photos/crochet_green_coasters.png"],
-    "ifSold": false
+  "title": "Chunky Seashell Necklace",
+  "description": "Porcelain and pearl beaded necklace with a big seashell pendant.",
+  "seller": "Sophia_Cheng",
+  "category": "accessories",
+  "subcategory": "jewelry",
+  "price": 20,
+  "timestamp": {
+    "$date": "2023-12-06T16:25:00.000Z"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb935"
-    },
-    "title": "Tufted Green Moss Rug",
-    "description": "Green moss rug hand-tufted with vibrant greens and abstract patterns.",
-    "seller": "Wire&TuftCrafts",
-    "category": "crafts",
-    "subcategory": "other",
-    "price": 31.99,
-    "timestamp": {
-      "$date": "2024-02-11T19:35:00.000Z"
-    },
-    "photoFilenames": [
-      "../data/photos/moss_rug_1.jpg",
-      "../data/photos/moss_rug_2.png",
-      "../data/photos/moss_rug_3.jpg"
-    ],
-    "ifSold": false
+  "photoFilenames": [
+    "../data/photos/chunky_seashell_necklace_1.jpg",
+    "../data/photos/chunky_seashell_necklace_2.jpg"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb92e"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb936"
-    },
-    "title": "Crochet Lavender Pot",
-    "description": "Crochet lavender flowers in hand-painted ceramic pot.",
-    "seller": "Emily_Wang",
-    "category": "crafts",
-    "subcategory": "crochet",
-    "price": 25.5,
-    "timestamp": {
-      "$date": "2024-02-16T14:30:00.000Z"
-    },
-    "photoFilenames": ["../data/photos/crochet_lavender.jpg"],
-    "ifSold": false
+  "title": "Crochet Black and White Cat Keychains",
+  "description": "Crochet black and White cat keychain set with adorable faces.",
+  "seller": "Emily_Wang",
+  "category": "crafts",
+  "subcategory": "crochet",
+  "price": 14,
+  "timestamp": {
+    "$date": "2023-12-16T15:15:00.000Z"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb937"
-    },
-    "title": "Ribbon Bow Necklace",
-    "description": "Rhinestone bow and pearl necklace with ribbon bow.",
-    "seller": "Sophia_Cheng",
-    "category": "accessories",
-    "subcategory": "jewelry",
-    "price": 15.75,
-    "timestamp": {
-      "$date": "2024-06-06T13:35:00.000Z"
-    },
-    "photoFilenames": ["../data/photos/ribbon_bow_necklace_.jpg"],
-    "ifSold": false
+  "photoFilenames": [
+    "../data/photos/crochet_black_and_white_cat_keychain.jpg"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb92f"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb938"
-    },
-    "title": "Eco-Friendly Plant-based Candle",
-    "description": "Sustainable and eco-friendly plant-based candle for a cozy atmosphere. Lavender orange blossom and sandalwood scent. Purple and blue crystals inside.",
-    "seller": "ecoFriendlySoul",
-    "category": "crafts",
-    "subcategory": "other",
-    "price": 17.5,
-    "timestamp": {
-      "$date": "2024-06-11T20:30:00.000Z"
-    },
-    "photoFilenames": ["../data/photos/eco_candle_1.jpg"],
-    "ifSold": false
+  "title": "Handcrafted Clay Mug",
+  "description": "Artisan-crafted clay mug for your favorite beverages.",
+  "seller": "ClayCraftsman",
+  "category": "crafts",
+  "subcategory": "pottery",
+  "price": 24.5,
+  "timestamp": {
+    "$date": "2023-12-21T22:30:00.000Z"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb939"
-    },
-    "title": "Warm Toned Two-Faced Painting",
-    "description": "Painting of two faces in reds, oranges, and yellows.",
-    "seller": "Jackie_Cohen",
-    "category": "art",
-    "subcategory": "painting",
-    "price": 26.99,
-    "timestamp": {
-      "$date": "2024-06-16T18:25:00.000Z"
-    },
-    "photoFilenames": ["../data/photos/two_faced_painting.png"],
-    "ifSold": false
+  "photoFilenames": [
+    "../data/photos/clay_mug_1.jpg",
+    "../data/photos/clay_mug_2.jpg",
+    "../data/photos/clay_mug_3.jpg"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb930"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb93a"
-    },
-    "title": "\"Punch Today in the Face\" Embroidery Hoop",
-    "description": "Embroidery hoop for a personalized wall decoration.",
-    "seller": "ThreadArtCraft",
-    "category": "crafts",
-    "subcategory": "embroidery",
-    "price": 21.75,
-    "timestamp": {
-      "$date": "2024-06-21T15:20:00.000Z"
-    },
-    "photoFilenames": [
-      "../data/photos/embroidery_hoop_1.jpg",
-      "../data/photos/embroidery_hoop_2.png"
-    ],
-    "ifSold": false
+  "title": "Crochet Octopus Set of 7",
+  "description": "Set of 7 crochet octopi. Comes in blue, pink, purple, and mauve.",
+  "seller": "Emily_Wang",
+  "category": "crafts",
+  "subcategory": "crochet",
+  "price": 34.99,
+  "timestamp": {
+    "$date": "2023-12-26T19:20:00.000Z"
   },
-  {
-    "_id": {
-      "$oid": "656bb24eabfe68217e3eb93b"
-    },
-    "title": "Vampire Red Heart Necklace",
-    "description": "Cross and pearl necklace with red statement heart pendant.",
-    "seller": "Sophia_Cheng",
-    "category": "crafts",
-    "subcategory": "other",
-    "price": 18.99,
-    "timestamp": {
-      "$date": "2024-06-26T14:15:00.000Z"
-    },
-    "photoFilenames": [
-      "../data/photos/vampire_red_heart_necklace_1.jpg",
-      "../data/photos/vampire_red_heart_necklace_2.jpg"
-    ],
-    "ifSold": false
-  }
-]
+  "photoFilenames": [
+    "../data/photos/crochet_octopus_set.jpg",
+    "../data/photos/crochet_pink_octopus.jpg",
+    "../data/photos/crochet_blue_octopus.jpg"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb931"
+  },
+  "title": "Cozy Chunky Knit Blanket",
+  "description": "Soft and warm handmade chunky knit blanket for chilly evenings.",
+  "seller": "ThreadArtCraft",
+  "category": "crafts",
+  "subcategory": "other",
+  "price": 29.99,
+  "timestamp": {
+    "$date": "2024-01-11T23:45:00.000Z"
+  },
+  "photoFilenames": [
+    "../data/photos/cozy_knit_blanket.jpg"
+  ],
+  "ifSold": true
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb932"
+  },
+  "title": "Cherry White Mittens",
+  "description": "Hand knit winter mittens with cherry detail.",
+  "seller": "DIYQueen",
+  "category": "accessories",
+  "subcategory": "other",
+  "price": 26.5,
+  "timestamp": {
+    "$date": "2024-01-16T19:30:00.000Z"
+  },
+  "photoFilenames": [
+    "../data/photos/cherry_mittens.jpg"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb933"
+  },
+  "title": "Crochet Duck Set of 3",
+  "description": "Set of 3 crochet ducks. Pink, yellow, and blue with beaded eyes and faces.",
+  "seller": "Emily_Wang",
+  "category": "crafts",
+  "subcategory": "crochet",
+  "price": 18.99,
+  "timestamp": {
+    "$date": "2024-02-01T15:05:00.000Z"
+  },
+  "photoFilenames": [
+    "../data/photos/crochet_ducks.jpg",
+    "../data/photos/blue_crochet_duck.jpg"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb934"
+  },
+  "title": "Crochet Green Coasters Set of 3",
+  "description": "Crochet green coasters in random blob shapes.",
+  "seller": "Emily_Wang",
+  "category": "crafts",
+  "subcategory": "crochet",
+  "price": 23.75,
+  "timestamp": {
+    "$date": "2024-02-06T21:50:00.000Z"
+  },
+  "photoFilenames": [
+    "../data/photos/green_crochet_coasters.png"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb935"
+  },
+  "title": "Tufted Green Moss Rug",
+  "description": "Green moss rug hand-tufted with vibrant greens and abstract patterns.",
+  "seller": "Wire&TuftCrafts",
+  "category": "crafts",
+  "subcategory": "other",
+  "price": 31.99,
+  "timestamp": {
+    "$date": "2024-02-11T19:35:00.000Z"
+  },
+  "photoFilenames": [
+    "../data/photos/moss_rug_1.jpg",
+    "../data/photos/moss_rug_2.png",
+    "../data/photos/moss_rug_3.jpg"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb936"
+  },
+  "title": "Crochet Lavender Pot",
+  "description": "Crochet lavender flowers in hand-painted ceramic pot.",
+  "seller": "Emily_Wang",
+  "category": "crafts",
+  "subcategory": "crochet",
+  "price": 25.5,
+  "timestamp": {
+    "$date": "2024-02-16T14:30:00.000Z"
+  },
+  "photoFilenames": [
+    "../data/photos/crochet_lavender.jpg"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb937"
+  },
+  "title": "Ribbon Bow Necklace",
+  "description": "Rhinestone bow and pearl necklace with ribbon bow.",
+  "seller": "Sophia_Cheng",
+  "category": "accessories",
+  "subcategory": "jewelry",
+  "price": 15.75,
+  "timestamp": {
+    "$date": "2024-06-06T13:35:00.000Z"
+  },
+  "photoFilenames": [
+    "../data/photos/ribbon_bow_necklace_.jpg"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb938"
+  },
+  "title": "Eco-Friendly Plant-based Candle",
+  "description": "Sustainable and eco-friendly plant-based candle for a cozy atmosphere. Lavender orange blossom and sandalwood scent. Purple and blue crystals inside.",
+  "seller": "ecoFriendlySoul",
+  "category": "crafts",
+  "subcategory": "other",
+  "price": 17.5,
+  "timestamp": {
+    "$date": "2024-06-11T20:30:00.000Z"
+  },
+  "photoFilenames": [
+    "../data/photos/eco_candle_1.jpg"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb939"
+  },
+  "title": "Warm Toned Two-Faced Painting",
+  "description": "Painting of two faces in reds, oranges, and yellows.",
+  "seller": "Jackie_Cohen",
+  "category": "art",
+  "subcategory": "painting",
+  "price": 26.99,
+  "timestamp": {
+    "$date": "2024-06-16T18:25:00.000Z"
+  },
+  "photoFilenames": [
+    "../data/photos/two_faced_painting.png"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb93a"
+  },
+  "title": "\"Punch Today in the Face\" Embroidery Hoop",
+  "description": "Embroidery hoop for a personalized wall decoration.",
+  "seller": "ThreadArtCraft",
+  "category": "crafts",
+  "subcategory": "embroidery",
+  "price": 21.75,
+  "timestamp": {
+    "$date": "2024-06-21T15:20:00.000Z"
+  },
+  "photoFilenames": [
+    "../data/photos/embroidery_hoop_1.jpg",
+    "../data/photos/embroidery_hoop_2.png"
+  ],
+  "ifSold": false
+},
+{
+  "_id": {
+    "$oid": "656bb24eabfe68217e3eb93b"
+  },
+  "title": "Vampire Red Heart Necklace",
+  "description": "Cross and pearl necklace with red statement heart pendant.",
+  "seller": "Sophia_Cheng",
+  "category": "crafts",
+  "subcategory": "other",
+  "price": 18.99,
+  "timestamp": {
+    "$date": "2024-06-26T14:15:00.000Z"
+  },
+  "photoFilenames": [
+    "../data/photos/vampire_red_heart_necklace_1.jpg",
+    "../data/photos/vampire_red_heart_necklace_2.jpg"
+  ],
+  "ifSold": false
+}]

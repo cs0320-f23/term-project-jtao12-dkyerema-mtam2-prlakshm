@@ -162,7 +162,7 @@ export async function getItemsByCategory(category: string): Promise<ItemTuple> {
 /**
  * Retrieves items from database from a specific category and subcategory
  * @param category string (insensitive) of category want to search for
- * @param subcategory string (insensitive) of subcatefory want to search for -- must be INSIDE
+ * @param subcategory string (insensitive) of subcatefory want to search for -- must be INSIdE
  * category, or list will be empty, because searches for both category and subcategory match
  * @returns tuple of [masterItems, soldItems] of items in that category
  */
@@ -272,7 +272,9 @@ export async function searchItems(keywords: string): Promise<ItemTuple> {
     // if words, store regex as case insensitive
     const keywordRegex = { $regex: keywords, $options: "i" };
     // if dollar amount, remove $ and cents digits to return whole dollar amount
-    const dollarAmount = parseInt(keywords.replace(/\$([\d]+)(\.\d{1,2})?/, "$1"));
+    const dollarAmount = parseInt(
+      keywords.replace(/\$([\d]+)(\.\d{1,2})?/, "$1")
+    );
 
     // Searches for items in master_items
     const masterItemsCollection: RemoteMongoCollection<Item> =
@@ -357,18 +359,18 @@ export async function getItemById(
 
     // return item or appropriate errors if no item found/multiple found
     if (masterItem.length === 0 && soldItem.length === 0) {
-      console.error("No item with Object ID");
+      console.error("No item with Object Id");
       return undefined;
     } else if (masterItem.length === 1 && soldItem.length === 0) {
       return masterItem[0];
     } else if (soldItem.length === 1 && masterItem.length === 0) {
       return soldItem[0];
     } else {
-      console.error("Multiple items with Object ID");
+      console.error("Multiple items with Object Id");
       return undefined;
     }
   } catch (error) {
-    console.error("Error fetching item by ID:", error);
+    console.error("Error fetching item by Id:", error);
     return undefined;
   }
 }
@@ -552,16 +554,16 @@ export async function getAccountById(
 
     // Return account if found or appropiate error if none found/multiple found
     if (account.length === 0) {
-      console.error("No account with Object ID");
+      console.error("No account with Object Id");
       return undefined;
     } else if (account.length === 1) {
       return account[0];
     } else {
-      console.error("Multiple accounts with Object ID");
+      console.error("Multiple accounts with Object Id");
       return undefined;
     }
   } catch (error) {
-    console.error("Error fetching account by ID:", error);
+    console.error("Error fetching account by Id:", error);
     return undefined;
   }
 }
@@ -678,6 +680,49 @@ export async function getAllUsernames(): Promise<string[]> {
 }
 
 /**
+
+ * Retrieves the profile photo filename for an account from the database based on its username
+ * @param username Account username
+ * @returns Profile photo filename or undefined if error -- no or multiple accounts with username
+ */
+export async function getProfilePhotoByUsername(
+  username: string
+): Promise<string | undefined> {
+  try {
+    // Ensure the client is authenticated
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(ACCESS_TOKEN)
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+
+    // Access accounts collection and find account by username with projection
+    const accountsCollection: RemoteMongoCollection<Account> =
+      db.collection("accounts");
+
+    const result: Account | null = await accountsCollection.findOne({
+      username: username,
+    });
+
+    // Return profile photo filename if found or appropriate error if none found/multiple found
+    if (result && result.profilePhotoFilename) {
+      return result.profilePhotoFilename;
+    } else {
+      console.error(
+        "No account with username or missing profile photo filename"
+      );
+      return undefined;
+    }
+  } catch (error) {
+    console.error("Error fetching profile photo by username:", error);
+    return undefined;
+  }
+}
+
+/**
  * Helper for adding a new item, adds the item Object Id to seller's
  * current listings
  * @param username seller's username
@@ -761,8 +806,12 @@ export async function insertNewItem(
 
     // Add new item to master_items
     const result = await itemsCollection.insertOne(newItem);
-    console.log(`Successfully inserted item with id: ${result.insertedId}`);
 
+    if (!result.insertedId) {
+      throw new Error("Failed to insert item. Inserted Id is undefined.");
+    }
+
+    console.log(`Successfully inserted item with id: ${result.insertedId}`);
 
     // Add item to seller's current listings
     await addItemToCurrentListings(
@@ -774,6 +823,7 @@ export async function insertNewItem(
     return result.insertedId;
   } catch (error) {
     console.error("Failed to insert item:", error);
+    return undefined;
   }
 }
 
@@ -828,23 +878,89 @@ export async function insertNewAccount(
       purchasedItem_ids: [],
       likedItem_ids: [],
       profilePhotoFilename: profilePhotoFilename,
-      contactInformation: contactInformation,
+      contactInformation: Object.fromEntries(contactInformation),
     };
 
     // Add new account to collection
     const result = await accountsCollection.insertOne(newAccount);
+
+    if (!result.insertedId) {
+      throw new Error("Failed to insert account. Inserted Id is undefined.");
+    }
+
     console.log(`Successfully inserted account with _id: ${result.insertedId}`);
-    
+
     return result.insertedId;
   } catch (error) {
     console.error("Failed to insert account:", error);
+    return undefined;
   }
 }
 
 /**
- * Removes an account from the collection based on its object ID
+ * Removes an item from the collection based on its object Id
+ * @param accountId The object Id of the item to be removed
+ */
+export async function deleteItemById(id: BSON.ObjectId): Promise<void> {
+  try {
+    // Ensure the client is authenticated
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(ACCESS_TOKEN)
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+
+    // Searches for item with id in master_items
+    const masterItemsCollection: RemoteMongoCollection<Item> =
+      db.collection("master_items");
+    const masterItem: Item | null = await masterItemsCollection.findOne({
+      _id: id,
+    });
+
+    // Searches for item with id in sold_items
+    const soldItemsCollection: RemoteMongoCollection<Item> =
+      db.collection("sold_items");
+    const soldItem: Item | null = await soldItemsCollection.findOne({
+      _id: id,
+    });
+
+    // Access accounts collection
+    const accountsCollection: RemoteMongoCollection<Account> =
+      db.collection("accounts");
+
+    // delete item or appropriate errors if no item found/multiple found
+    if (!masterItem && !soldItem) {
+      console.error("No item with Object Id");
+    } else if (masterItem && !soldItem) {
+      await masterItemsCollection.deleteOne({ _id: id });
+      console.log("Successfully deleted item");
+      await accountsCollection.updateOne(
+        { username: masterItem.seller },
+        { $pull: { currentListing_ids: id } }
+      );
+      console.log("Successfully removed item from seller's current listings");
+    } else if (soldItem && !masterItem) {
+      await soldItemsCollection.deleteOne({ _id: id });
+      console.log("Successfully deleted item");
+      await accountsCollection.updateOne(
+        { username: soldItem.seller },
+        { $pull: { pastListing_ids: id } }
+      );
+      console.log("Successfully removed item from seller's current listings");
+    } else {
+      console.error("Multiple items with Object Id");
+    }
+  } catch (error) {
+    console.error("Error deleting item by Id:", error);
+  }
+}
+
+/**
+ * Removes an account from the collection based on its object Id
  * @param accountId The object Id of the account to be removed
- * @returns True if the removal is successful, false otherwise
  */
 export async function deleteAccountById(
   accountId: BSON.ObjectId
@@ -863,7 +979,7 @@ export async function deleteAccountById(
     const accountsCollection: RemoteMongoCollection<Account> =
       db.collection("accounts");
 
-    // Remove the account from collaction based on its object ID
+    // Remove the account from collaction based on its object Id
     const result = await accountsCollection.deleteOne({ _id: accountId });
 
     // Check if the deletion was successful
