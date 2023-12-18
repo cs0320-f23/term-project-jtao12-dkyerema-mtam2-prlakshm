@@ -1,0 +1,13 @@
+.item {
+  max-width: 26rem;
+  background-color: #f8f8f8;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.item-image {
+    /* Styles for the image */
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 5px; /* Add rounded corners if desired */
+  }
