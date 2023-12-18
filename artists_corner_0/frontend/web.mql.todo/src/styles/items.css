@@ -25,7 +25,7 @@
 }
 
 .item-card a {
-  text-decoration: none; /* Removes underline */
+  text-decoration: none;
 }
 
 .item-card:hover {
