@@ -32,10 +32,10 @@ function App() {
       <div className="topnav">
         <div className="right-links">
           <Link to="/category/Accessories">Accessories</Link>
-          <Link to="/category/Apparel">Apparel</Link>
-          <Link to="/category/Artwork">Artwork</Link>
+          <Link to="/category/Clothing">Apparel</Link>
+          <Link to="/category/Art">Artwork</Link>
           <Link to="/category/Crafts">Crafts</Link>
-          <Link to="/category/Miscellaneous">Misc.</Link>
+          {/* <Link to="/category/Miscellaneous">Misc.</Link> */}
           <Link to="/events">Events</Link>
           <Link to="/about">About</Link>
         </div>

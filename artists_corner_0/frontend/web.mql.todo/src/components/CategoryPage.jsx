@@ -11,7 +11,7 @@ const CategoryPage = () => {
     getItemsByCategory(categoryName)
       .then(([masterItems, soldItems]) => {
         const combinedItems = [...masterItems, ...soldItems];
-        console.log("Items:", combinedItems); // Check the structure of items
+        console.log("Items:", combinedItems);
         setItems(combinedItems);
       })
       .catch(console.error);
