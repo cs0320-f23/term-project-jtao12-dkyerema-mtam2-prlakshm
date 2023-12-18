@@ -5,7 +5,6 @@ import {
   UserApiKeyCredential,
   RemoteMongoCollection,
   StitchAppClient,
-  RemoteFindOptions,
   BSON,
 } from "mongodb-stitch-browser-sdk";
 import Item from "../models/item";
@@ -641,7 +640,7 @@ export async function ifUsernameAlreadyExists(
 
     return account != null;
   } catch (error) {
-    console.error("Error fetching account by username:", error);
+    console.log("Error fetching account by username:", error);
     return false;
   }
 }
@@ -668,9 +667,10 @@ export async function getAllUsernames(): Promise<string[]> {
 
     // Find all documents in the accounts collection, projecting only the "username" field
     const accountsCursor = accountsCollection.find({}, { projection: { username: 1 } });
-    
+
     // Extract usernames from the accounts
-    const usernames: string[] = await accountsCursor.toArray();
+    const usernamesArray = await accountsCursor.toArray();
+    const usernames: string[] = usernamesArray.map((user) => user.username);
 
     return usernames;
   } catch (error) {
@@ -678,6 +678,7 @@ export async function getAllUsernames(): Promise<string[]> {
     return [];
   }
 }
+
 
 /**
 
@@ -1184,7 +1185,7 @@ export async function updateAccount(
             email: newEmail,
             bio: newBio,
             profilePhotoFilename: newProfilePhotoFilename,
-            contactInformation: newContactInformation,
+            contactInformation: Object.fromEntries(newContactInformation),
           },
         }
       );
