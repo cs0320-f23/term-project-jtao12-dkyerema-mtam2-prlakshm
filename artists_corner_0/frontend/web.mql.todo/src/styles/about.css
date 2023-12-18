@@ -1,0 +1,56 @@
+.about-page-container {
+  margin-left: 6rem;
+  margin-right: 6rem;
+  margin-bottom: 8rem;
+  padding: 1rem;
+}
+
+.about-us {
+  margin: 1rem;
+}
+
+.about-us h1 {
+  margin-bottom: 1.5rem;
+}
+
+.about-us p {
+  margin-bottom: 0.9rem;
+}
+
+.team {
+  margin-top: 2rem;
+}
+
+.team h2 {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.team-member {
+  margin: 1rem;
+  text-align: center;
+}
+
+.team-member img {
+  width: 250px;
+  height: 300px;
+  border-radius: 16px;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.team-member img:hover {
+  transform: rotate(2deg);
+}
+
+@media (max-width: 768px) {
+  .team-members {
+    flex-direction: column;
+  }
+}
