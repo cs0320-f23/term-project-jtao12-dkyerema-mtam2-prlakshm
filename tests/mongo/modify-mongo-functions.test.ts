@@ -1,5 +1,4 @@
 import { BSON } from "bson";
-import Item from "../../src/models/item";
 import * as MongoFunctions from "../../src/mongo/Mongo-Functions";
 
 beforeAll(async () => {
@@ -281,7 +280,61 @@ describe("updateItem", () => {
     });
   });
   
+  describe("markItemAsSold", () => {
+    it("marks an item as sold and updates seller's account", async () => {
+      const newItemTitle = "Test Item";
+      const newItemDescription = "Description for test item"
+      const newItemSeller = "bookwormArtisan";
+      const newItemCategory = "TestCategory"
+      const newItemSubcategory = "TestSubcategory"
+      const newItemPrice = 10
+      const newItemPhotoFilenames = ["photo1.jpg", "photo2.jpg"]
+      const newItemId = await MongoFunctions.insertNewItem(
+        newItemTitle,
+        newItemDescription,
+        newItemSeller,
+        newItemCategory,
+        newItemSubcategory,
+        newItemPrice,
+        newItemPhotoFilenames
+      );
   
-// udate item, update account, mark as sold
+      // Ensure the item has been inserted successfully
+      expect(newItemId).toBeDefined();
+  
+      if(newItemId){
+      // Fetch the item by ID to check its initial state
+      const initialItem = await MongoFunctions.getItemById(newItemId);
+      expect(initialItem).toBeDefined();
+      expect(initialItem?.ifSold).toBeFalsy(); // Check ifSold is initially false
+  
+      // Fetch the seller's account to check initial state
+      const sellerAccountBefore = await MongoFunctions.getAccountByUsername(newItemSeller);
+      expect(sellerAccountBefore).toBeDefined();
+      expect(sellerAccountBefore?.currentListing_ids).toContainEqual(newItemId); // Check if the item is in the current listings
+  
+      // Mark the item as sold
+      await MongoFunctions.markItemAsSold(newItemId);
+  
+      // Fetch the item again to check its updated state
+      const soldItem = await MongoFunctions.getItemById(newItemId);
+      expect(soldItem).toBeDefined();
+      expect(soldItem?.ifSold).toBeTruthy(); // Check ifSold is now true
+  
+      // Fetch the seller's account again to check updated state
+      const sellerAccountAfter = await MongoFunctions.getAccountByUsername(newItemSeller);
+      expect(sellerAccountAfter).toBeDefined();
+      expect(sellerAccountAfter?.currentListing_ids).not.toContain(newItemId); // Check if the item is removed from current listings
+      expect(sellerAccountAfter?.pastListing_ids).toContainEqual(newItemId); // Check if the item is added to past listings
+  
+      // Delete the item
+      await MongoFunctions.deleteItemById(newItemId);
+      }
+      else{
+        fail("markItemAsSold failed to change item to sold")
+      }
+    });
+  });
+  
 
-//miscelaneous test: get Item[] from Id[], if username exists, get list usernames
+

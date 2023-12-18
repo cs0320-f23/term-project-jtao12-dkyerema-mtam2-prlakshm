@@ -1,4 +1,3 @@
-import item from "../../src/models/item";
 import * as MongoFunctions from "../../src/mongo/Mongo-Functions";
 
 beforeAll(async () => {
