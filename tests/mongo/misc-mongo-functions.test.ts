@@ -7,6 +7,7 @@ beforeAll(async () => {
   await MongoFunctions.initializeStitchClient();
 });
 
+// Tests getItemListById function
 describe("getItemListById", () => {
   it("returns an array of items for the given item ids from seller's listing feilds", async () => {
     // Assuming there are existing items and accounts in the database
@@ -82,6 +83,11 @@ describe("getItemListById", () => {
   });
 });
 
+/**
+ * Generates a random string for fuzz testing
+ * @param length length of string
+ * @returns random string of length
+ */
 function generateRandomString(length: number): string {
   let result = "";
   const characters =
@@ -95,10 +101,17 @@ function generateRandomString(length: number): string {
   return result;
 }
 
+/**
+ * Generates random number between min and max
+ * @param min smallest number inclusive
+ * @param max largest number inclusive
+ * @returns random number between min and max
+ */
 function getRandomInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// Tests ifUsernameAlreadyExists function
 describe("ifUsernameAlreadyExists", () => {
   it("returns true for existing usernames", async () => {
     const existingUsernames = ["bookwormArtisan", "DIYQueen", "Sophia_Cheng"];
@@ -134,6 +147,7 @@ describe("ifUsernameAlreadyExists", () => {
   });
 });
 
+// Tests getAllUsernames function
 describe("getAllUsernames", () => {
   it("fuzz test returns the correct list of usernames all 10 times", async () => {
     // Your sample data
@@ -163,6 +177,7 @@ describe("getAllUsernames", () => {
   });
 });
 
+// Tests getProfilePhotoByUsername function
 describe("getProfilePhotoByUsername", () => {
   it("returns correct profile photo filename for existing usernames", async () => {
     // Array of existing usernames and profile photo filenames
