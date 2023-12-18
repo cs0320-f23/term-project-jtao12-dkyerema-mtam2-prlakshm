@@ -7,17 +7,16 @@ import "../styles/category.css";
 
 
 const SearchPage = () => {
-  const [searchKeyword, setSearchKeyword] = useState('');
-  const navigate = useNavigate();
-    // const [commandString, setCommandString] = useState<string>("");
-    const { categoryName } = useParams();
+  const [searchString, setSearchString] = useState('');
+  const { categoryName } = useParams();
   const [items, setItems] = useState([]);
   const [subcategories, setSubcategories] = useState(new Set());
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
 
   const fetchItems = async () => {
     try {
-      const [masterItems, soldItems] = await searchItems(commandString);
+      // setSearchKeyword(encodeURIComponent(keyword))
+      const [masterItems, soldItems] = await searchItems(searchString);
       const combinedItems = [...masterItems, ...soldItems];
       setItems(combinedItems);
 
@@ -31,9 +30,13 @@ const SearchPage = () => {
     }
   };
 
+  const handleInputChange = (event) => {
+    setSearchString(event.target.value);
+  };
+
   useEffect(() => {
     fetchItems();
-  }, [categoryName]);
+  }, [searchString]);
 
   const handleSubcategoryClick = async (subcategory) => {
     setSelectedSubcategory(subcategory);
@@ -53,18 +56,14 @@ const SearchPage = () => {
 
 
   return (
-     <div className="search-container">
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          placeholder="Search..."
-          name="keyword"
-          onChange={(e) => setKeyword(e.target.value)}
-        />
-        <button type="submit">
-          <i className="fa fa-search">Search</i>
-        </button>
-      </form>
+    <div>
+      <input
+        type="text"
+        placeholder="Search..."
+        value={searchString}
+        onChange={handleInputChange}
+      />
+      <button onClick={handleSearch}>Search</button>
     
     <div className="category-page-container">
       <h1>{categoryName}</h1>

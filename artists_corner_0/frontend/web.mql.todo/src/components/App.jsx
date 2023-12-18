@@ -31,10 +31,10 @@ function App() {
 
       <div className="topnav">
         <div className="right-links">
-          <Link to="/category/accessories">Accessories</Link>
-          <Link to="/category/clothing">Clothing</Link>
-          <Link to="/category/art">Art</Link>
-          <Link to="/category/crafts">Crafts</Link>
+          <Link to="/category/Accessories">Accessories</Link>
+          <Link to="/category/Clothing">Clothing</Link>
+          <Link to="/category/Art">Art</Link>
+          <Link to="/category/Crafts">Crafts</Link>
           <Link to="/events">Events</Link>
           <Link to="/about">About</Link>
         </div>
