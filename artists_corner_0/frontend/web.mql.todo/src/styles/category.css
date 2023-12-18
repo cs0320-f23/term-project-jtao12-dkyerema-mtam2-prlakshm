@@ -17,6 +17,18 @@
   transition: all 0.3s ease;
 }
 
+.filter-tag {
+  font-family: "Space Grotesk";
+  font-size: medium;
+  background-color: rgb(223, 227, 255);
+  border-radius: 15px;
+  padding: 6px 14px;
+  margin: 10px 8px 24px 0rem;
+  border: 0;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
 .reset-filter {
   font-family: "Space Grotesk";
   font-size: medium;
@@ -33,6 +45,12 @@
   cursor: pointer;
   transform: translateY(-5px);
 }
+
+.filter-tag:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+}
+
 
 .reset-filter:hover {
   cursor: pointer;
