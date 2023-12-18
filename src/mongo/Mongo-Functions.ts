@@ -647,6 +647,84 @@ export async function ifUsernameAlreadyExists(
 }
 
 /**
+ * Retrieves all usernames from database
+ * @returns a string[] of all available usernames in database
+ */
+export async function getAllUsernames(): Promise<string[]> {
+  try {
+    // Ensure the client is authenticated
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(ACCESS_TOKEN)
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+
+    // Retrieves accounts collection
+    const accountsCollection: RemoteMongoCollection<any> =
+      db.collection("accounts");
+
+    // Find all documents in the accounts collection, projecting only the "username" field
+    const accountsCursor = accountsCollection.find(
+      {},
+      { projection: { username: 1 } }
+    );
+
+    // Extract usernames from the accounts
+    const usernames: string[] = await accountsCursor.toArray();
+
+    return usernames;
+  } catch (error) {
+    console.error("Error fetching usernames:", error);
+    return [];
+  }
+}
+
+/**
+ * Retrieves the profile photo filename for an account from the database based on its username
+ * @param username Account username
+ * @returns Profile photo filename or undefined if error -- no or multiple accounts with username
+ */
+export async function getProfilePhotoByUsername(
+  username: string
+): Promise<string | undefined> {
+  try {
+    // Ensure the client is authenticated
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(ACCESS_TOKEN)
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+
+    // Access accounts collection and find account by username with projection
+    const accountsCollection: RemoteMongoCollection<Account> =
+      db.collection("accounts");
+
+    const result: Account | null = await accountsCollection.findOne({
+      username: username,
+    });
+
+    // Return profile photo filename if found or appropriate error if none found/multiple found
+    if (result && result.profilePhotoFilename) {
+      return result.profilePhotoFilename;
+    } else {
+      console.error(
+        "No account with username or missing profile photo filename"
+      );
+      return undefined;
+    }
+  } catch (error) {
+    console.error("Error fetching profile photo by username:", error);
+    return undefined;
+  }
+}
+
+/**
  * Helper for adding a new item, adds the item Object Id to seller's
  * current listings
  * @param username seller's username
@@ -792,7 +870,6 @@ export async function insertNewAccount(
     const accountsCollection: RemoteMongoCollection<Account> =
       db.collection("accounts");
 
-
     const newAccount: Account = {
       username: username,
       fullname: fullname,
@@ -826,9 +903,7 @@ export async function insertNewAccount(
  * Removes an item from the collection based on its object Id
  * @param accountId The object Id of the item to be removed
  */
-export async function deleteItemById(
-  id: BSON.ObjectId
-): Promise<void> {
+export async function deleteItemById(id: BSON.ObjectId): Promise<void> {
   try {
     // Ensure the client is authenticated
     await client?.auth.loginWithCredential(
@@ -843,21 +918,19 @@ export async function deleteItemById(
     // Searches for item with id in master_items
     const masterItemsCollection: RemoteMongoCollection<Item> =
       db.collection("master_items");
-    const masterItem: Item | null = await masterItemsCollection
-      .findOne({
-        _id: id,
-      });
+    const masterItem: Item | null = await masterItemsCollection.findOne({
+      _id: id,
+    });
 
     // Searches for item with id in sold_items
     const soldItemsCollection: RemoteMongoCollection<Item> =
       db.collection("sold_items");
-    const soldItem: Item | null = await soldItemsCollection
-      .findOne({
-        _id: id,
-      });
+    const soldItem: Item | null = await soldItemsCollection.findOne({
+      _id: id,
+    });
 
-      // Access accounts collection
-      const accountsCollection: RemoteMongoCollection<Account> =
+    // Access accounts collection
+    const accountsCollection: RemoteMongoCollection<Account> =
       db.collection("accounts");
 
     // delete item or appropriate errors if no item found/multiple found
@@ -865,29 +938,27 @@ export async function deleteItemById(
       console.error("No item with Object Id");
     } else if (masterItem && !soldItem) {
       await masterItemsCollection.deleteOne({ _id: id });
-      console.log("Successfully deleted item")
+      console.log("Successfully deleted item");
       await accountsCollection.updateOne(
         { username: masterItem.seller },
         { $pull: { currentListing_ids: id } }
       );
-      console.log("Successfully removed item from seller's current listings")
+      console.log("Successfully removed item from seller's current listings");
     } else if (soldItem && !masterItem) {
       await soldItemsCollection.deleteOne({ _id: id });
-      console.log("Successfully deleted item")
+      console.log("Successfully deleted item");
       await accountsCollection.updateOne(
         { username: soldItem.seller },
         { $pull: { pastListing_ids: id } }
       );
-      console.log("Successfully removed item from seller's current listings")
+      console.log("Successfully removed item from seller's current listings");
     } else {
       console.error("Multiple items with Object Id");
-
     }
   } catch (error) {
     console.error("Error deleting item by Id:", error);
   }
 }
-
 
 /**
  * Removes an account from the collection based on its object Id
