@@ -1,0 +1,358 @@
+[
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb93d"
+    },
+    "title": "\\\"Be Kind\\\" Tie-Dye Sweatshirt",
+    "description": "\"Be Kind\" tie-dye sweatshirt with rainbow colors and patterns.",
+    "seller": "FashionExplorer",
+    "category": "clothing",
+    "subcategory": "handmade",
+    "price": 28.99,
+    "timestamp": {
+      "$date": "2024-02-21T16:45:00.000Z"
+    },
+    "photoFilenames": [
+      "./data/photos/tie_dye_sweatshirt_1.jpg",
+      "./data/photos/tie_dye_sweatshirt_2.png"
+    ],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb93e"
+    },
+    "title": "Detailed Tree Drawing",
+    "description": "Intricate drawing of a tree trunk with vines coming out of it.",
+    "seller": "Jackie_Cohen",
+    "category": "art",
+    "subcategory": "drawing",
+    "price": 19.99,
+    "timestamp": {
+      "$date": "2024-02-26T19:20:00.000Z"
+    },
+    "photoFilenames": ["./data/photos/tree_drawing.png"],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb93f"
+    },
+    "title": "White Pearl Heart Necklace",
+    "description": "Dainty white pearl necklace with bow and heart pendant.",
+    "seller": "Sophia_Cheng",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 16.5,
+    "timestamp": {
+      "$date": "2024-03-02T18:10:00.000Z"
+    },
+    "photoFilenames": [
+      "./data/photos/white_pearl_heart_necklace_1.jpg",
+      "./data/photos/white_pearl_heart_necklace_2.png"
+    ],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb940"
+    },
+    "title": "Sculptural Wire Wall Art of Dog",
+    "description": "Modern wire wall art of dog to add a unique touch to your living space.",
+    "seller": "Wire&TuftCrafts",
+    "category": "art",
+    "subcategory": "other",
+    "price": 24.99,
+    "timestamp": {
+      "$date": "2024-03-07T15:05:00.000Z"
+    },
+    "photoFilenames": ["./data/photos/wire_wall_art.jpg"],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb941"
+    },
+    "title": "Crochet Orange Rabbit",
+    "description": "Cute crochet rabbit plushie with orange hat.",
+    "seller": "Emily_Wang",
+    "category": "crafts",
+    "subcategory": "crochet",
+    "price": 10.5,
+    "timestamp": {
+      "$date": "2024-03-12T20:30:00.000Z"
+    },
+    "photoFilenames": ["./data/photos/crochet_orange_rabbit.jpg"],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb942"
+    },
+    "title": "Crochet Purple Snoopy Tote Bag",
+    "description": "Crochet snoopy tote bag in purple and white color pattern.",
+    "seller": "Emily_Wang",
+    "category": "accessories",
+    "subcategory": "bags",
+    "price": 22.99,
+    "timestamp": {
+      "$date": "2024-03-17T16:15:00.000Z"
+    },
+    "photoFilenames": ["./data/photos/crochet_purple_snoopy_tote_bag.jpg"],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb943"
+    },
+    "title": "Handmade Macramé Plant Hanger Set of 4",
+    "description": "Set of 4 boho-inspired macramé plant hangers to showcase your greenery.",
+    "seller": "MacaraméJungle",
+    "category": "crafts",
+    "subcategory": "other",
+    "price": 18.75,
+    "timestamp": {
+      "$date": "2024-03-22T13:55:00.000Z"
+    },
+    "photoFilenames": ["./data/photos/macrame_plant_hanger.jpg"],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb944"
+    },
+    "title": "Crochet Pencil Pouch Set of 2",
+    "description": "Crochet pencil pouches in white with black border and gray flower latch detail.",
+    "seller": "Emily_Wang",
+    "category": "crafts",
+    "subcategory": "crochet",
+    "price": 9.99,
+    "timestamp": {
+      "$date": "2024-03-27T18:40:00.000Z"
+    },
+    "photoFilenames": ["./data/photos/crocet_white_pencil_pouches.jpg"],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb945"
+    },
+    "title": "Double Hanging Pearl Necklace",
+    "description": "Pink and white pearl necklace with double standed bow and heart pendant.",
+    "seller": "Sophia_Cheng",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 14.99,
+    "timestamp": {
+      "$date": "2024-04-01T15:25:00.000Z"
+    },
+    "photoFilenames": [
+      "./data/photos/double_hanging_pearl_necklace_1.jpg",
+      "./data/photos/double_hanging_pearl_necklace_2.jpg",
+      "./data/photos/double_hanging_pearl_necklace_3.jpg"
+    ],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb946"
+    },
+    "title": "Pencil Sketch Forest Print",
+    "description": "A print made from a drawing of a forest scene.",
+    "seller": "Jackie_Cohen",
+    "category": "art",
+    "subcategory": "prints",
+    "price": 7.99,
+    "timestamp": {
+      "$date": "2024-04-06T14:15:00.000Z"
+    },
+    "photoFilenames": ["./data/photos/forest_print.jpg"],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb947"
+    },
+    "title": "Crochet Green Bird Keychain",
+    "description": "Crochet green bird keychain accessory.",
+    "seller": "Emily_Wang",
+    "category": "crafts",
+    "subcategory": "crochet",
+    "price": 6,
+    "timestamp": {
+      "$date": "2024-04-11T18:50:00.000Z"
+    },
+    "photoFilenames": ["./data/photos/crochet_green_bird.jpg"],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb948"
+    },
+    "title": "Mixed Beads Necklace",
+    "description": "Necklace made with different size and shape beads. Pink, blue, and green color scheme.",
+    "seller": "Sophia_Cheng",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 15.5,
+    "timestamp": {
+      "$date": "2024-04-16T13:40:00.000Z"
+    },
+    "photoFilenames": [
+      "./data/photos/Mixed_beads_necklace_1.jpg",
+      "./data/photos/Mixed_beads_necklace_2.jpg",
+      "./data/photos/Mixed_beads_necklace_3.jpg"
+    ],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb949"
+    },
+    "title": "Pearl Tulip Necklace",
+    "description": "Pearl heart necklae with triple bow and tulip pendants.",
+    "seller": "Sophia_Cheng",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 20,
+    "timestamp": {
+      "$date": "2024-04-21T16:30:00.000Z"
+    },
+    "photoFilenames": ["./data/photos/pearl_tulip_necklace.jpg"],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb94a"
+    },
+    "title": "Pink Angel Necklace",
+    "description": "Glass and porcelain beaded necklace with angel charm and green seashell pendant.",
+    "seller": "Sophia_Cheng",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 18.5,
+    "timestamp": {
+      "$date": "2024-04-26T21:20:00.000Z"
+    },
+    "photoFilenames": ["./data/photos/pink_angel_necklace.jpg"],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb94b"
+    },
+    "title": "Water Girl Digital Art Print",
+    "description": "Digital art print of girl laying on water. Surrounded by lilies and hair floating.",
+    "seller": "Jackie_Cohen",
+    "category": "art",
+    "subcategory": "prints",
+    "price": 32.25,
+    "timestamp": {
+      "$date": "2024-05-01T18:15:00.000Z"
+    },
+    "photoFilenames": ["./data/photos/water_girl_digital_art.jpg"],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb94c"
+    },
+    "title": "DIY Beaded Phone Case Kit",
+    "description": "DIY beaded phone case kit for a fun and personalized tech accessory.",
+    "seller": "DIYQueen",
+    "category": "crafts",
+    "subcategory": "other",
+    "price": 29.99,
+    "timestamp": {
+      "$date": "2024-05-06T15:10:00.000Z"
+    },
+    "photoFilenames": [
+      "./data/photos/diy_phone_case_kit_1.jpg",
+      "./data/photos/diy_phone_case_kit_2.jpg"
+    ],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb94d"
+    },
+    "title": "Rhinestone Butterfly Necklace",
+    "description": "Rhinestone bow necklace with silver butterfly charm pendant.",
+    "seller": "Sophia_Cheng",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 18.5,
+    "timestamp": {
+      "$date": "2024-05-11T20:05:00.000Z"
+    },
+    "photoFilenames": ["./data/photos/rhinestone_butterfly_necklace.jpg"],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb94e"
+    },
+    "title": "Rhinestone Saturn Necklace",
+    "description": "Rhinestone bow necklace with pearls and silver bejeweled saturn charm.",
+    "seller": "Sophia_Cheng",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 17.5,
+    "timestamp": {
+      "$date": "2024-05-16T17:55:00.000Z"
+    },
+    "photoFilenames": ["./data/photos/rhinestone_saturn_necklace.jpg"],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb94f"
+    },
+    "title": "Reversibe Ribbon Bow Necklace",
+    "description": "Rhinestone bow and pearl necklace with ribbon bow on one side and heart locket on other.",
+    "seller": "Sophia_Cheng",
+    "category": "accessories",
+    "subcategory": "jewelry",
+    "price": 25.75,
+    "timestamp": {
+      "$date": "2024-05-21T14:50:00.000Z"
+    },
+    "photoFilenames": [
+      "./data/photos/ribbon_bow_necklace_1.jpg",
+      "./data/photos/ribbon_bow_necklace_2.png"
+    ],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb950"
+    },
+    "title": "Anatomical Heart Sculpture",
+    "description": "Mixed media anatomical heart sculpture.",
+    "seller": "Jackie_Cohen",
+    "category": "art",
+    "subcategory": "other",
+    "price": 33.5,
+    "timestamp": {
+      "$date": "2024-06-01T16:40:00.000Z"
+    },
+    "photoFilenames": ["./data/photos/anatomical_heart_sculpture.png"],
+    "ifSold": true
+  },
+  {
+    "_id": {
+      "$oid": "656bb25aabfe68217e3eb951"
+    },
+    "title": "Crochet Bear and Sunflower Coaster Set",
+    "description": "Set of 2 coasters. Cute brown bear coaster and vibrant sunflower coaster.",
+    "seller": "Emily_Wang",
+    "category": "crafts",
+    "subcategory": "crochet",
+    "price": 16,
+    "timestamp": {
+      "$date": "2024-06-26T14:15:00.000Z"
+    },
+    "photoFilenames": ["../data/photos/crochet_bear_and_sunflower.jpg"],
+    "ifSold": true
+  }
+]

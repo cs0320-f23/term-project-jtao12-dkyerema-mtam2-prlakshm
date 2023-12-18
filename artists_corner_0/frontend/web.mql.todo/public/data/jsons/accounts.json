@@ -1,0 +1,503 @@
+[
+  {
+    "_id": {
+      "$oid": "656bd988abfe68217e3eb962"
+    },
+    "username": "FashionExplorer",
+    "fullname": "Alexandra Marie Rodriguez",
+    "email": "trendsetter_alex@brown.edu",
+    "bio": "Fashion enthusiast and trendsetter.",
+    "currentListing_ids": [],
+    "pastListing_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb93d"
+      }
+    ],
+    "purchasedItem_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb93e"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb93f"
+      }
+    ],
+    "likedItem_ids": [],
+    "profilePhotoFilename": "fashionExplorer.jpg",
+    "contactInformation": {
+      "email": "trendsetter_alex@brown.edu",
+      "facebook": "Alexandra.Rodriguez.Fashion"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "656bd988abfe68217e3eb963"
+    },
+    "username": "Wire&TuftCrafts",
+    "fullname": "Liam Thomas Johnson",
+    "email": "crafty_liam@brown.edu",
+    "bio": "Crafting dreams into reality, one project at a time.",
+    "currentListing_ids": [
+      {
+        "$oid": "656bb24eabfe68217e3eb935"
+      }
+    ],
+    "pastListing_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb940"
+      }
+    ],
+    "purchasedItem_ids": [],
+    "likedItem_ids": [],
+    "profilePhotoFilename": "craftyCreator.jpg",
+    "contactInformation": {
+      "email": "crafty_liam@brown.edu",
+      "phone number": "555-123-4567",
+      "twitter": "Crafty_Liam"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "656bd988abfe68217e3eb964"
+    },
+    "username": "vintageVibes",
+    "fullname": "Eleanor Rose Turner",
+    "email": "vintage_eleanor@brown.edu",
+    "bio": "Exploring the world of vintage treasures.",
+    "currentListing_ids": [
+      {
+        "$oid": "656bb24eabfe68217e3eb927"
+      }
+    ],
+    "pastListing_ids": [],
+    "purchasedItem_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb940"
+      }
+    ],
+    "likedItem_ids": [],
+    "profilePhotoFilename": "vintageVibes.jpg",
+    "contactInformation": {
+      "email": "vintage_eleanor@brown.edu"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "656bd988abfe68217e3eb965"
+    },
+    "username": "Jackie_Cohen",
+    "fullname": "Jackie Cohen",
+    "email": "paint_genius@brown.edu",
+    "bio": "Pushing boundaries with art and paint. DM me for custom artworks!",
+    "currentListing_ids": [
+      {
+        "$oid": "656bb24eabfe68217e3eb92c"
+      },
+      {
+        "$oid": "656bb24eabfe68217e3eb939"
+      }
+    ],
+    "pastListing_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb93e"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb946"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb94b"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb950"
+      }
+    ],
+    "purchasedItem_ids": [],
+    "likedItem_ids": [],
+    "profilePhotoFilename": "paintGenius.png",
+    "contactInformation": {
+      "email": "paint_genius@brown.edu",
+      "phone number": "555-987-6543",
+      "instagram": "PaintGenius_Jackie"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "656bd988abfe68217e3eb966"
+    },
+    "username": "ecoFriendlySoul",
+    "fullname": "Isabella Claire Greene",
+    "email": "green_isabella@brown.edu",
+    "bio": "Advocate for a greener and sustainable lifestyle.",
+    "currentListing_ids": [
+      {
+        "$oid": "656bb24eabfe68217e3eb938"
+      }
+    ],
+    "pastListing_ids": [],
+    "purchasedItem_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb941"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb942"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb943"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb944"
+      }
+    ],
+    "likedItem_ids": [],
+    "profilePhotoFilename": "ecoFriendlySoul.jpg",
+    "contactInformation": {
+      "email": "green_isabella@brown.edu",
+      "phone number": "555-234-5678",
+      "facebook": "Isabella.Claire.Green"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "656bd988abfe68217e3eb967"
+    },
+    "username": "PotteryPassion",
+    "fullname": "Oliver William Davis",
+    "email": "oliver_pottery@brown.edu",
+    "bio": "Connecting souls through the language of pottery.",
+    "currentListing_ids": [
+      {
+        "$oid": "656bb24eabfe68217e3eb929"
+      }
+    ],
+    "pastListing_ids": [],
+    "purchasedItem_ids": [],
+    "likedItem_ids": [],
+    "profilePhotoFilename": "pottery_passion.jpeg",
+    "contactInformation": {
+      "email": "oliver_pottery@brown.edu",
+      "twitter": "Passionfruit_Pottery"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "656bd988abfe68217e3eb968"
+    },
+    "username": "Sophia_Cheng",
+    "fullname": "Sophia Cheng",
+    "email": "funky_jewels@brown.edu",
+    "bio": "Gen Z artist using jewelry to explore new trends. DM me for custom orders!",
+    "currentListing_ids": [
+      {
+        "$oid": "656bb24eabfe68217e3eb92a"
+      },
+      {
+        "$oid": "656bb24eabfe68217e3eb92d"
+      },
+      {
+        "$oid": "656bb24eabfe68217e3eb937"
+      }
+    ],
+    "pastListing_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb93f"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb945"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb948"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb949"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb94a"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb94d"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb94e"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb94f"
+      }
+    ],
+    "purchasedItem_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb947"
+      }
+    ],
+    "likedItem_ids": [],
+    "profilePhotoFilename": "funky_jewels.png",
+    "contactInformation": {
+      "email": "funky_jewels@brown.edu",
+      "phone number": "555-876-5432",
+      "instagram": "Funky_Jewels_Sophia"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "656bd988abfe68217e3eb969"
+    },
+    "username": "scienceGeek",
+    "fullname": "Aiden Michael Parker",
+    "email": "science_geek_aiden@brown.edu",
+    "bio": "Passionate about the wonders of science and discovery.",
+    "currentListing_ids": [],
+    "pastListing_ids": [],
+    "purchasedItem_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb946"
+      }
+    ],
+    "likedItem_ids": [],
+    "profilePhotoFilename": "defaultA.png",
+    "contactInformation": {
+      "email": "science_geek_aiden@brown.edu"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "656bd988abfe68217e3eb96a"
+    },
+    "username": "ArtsyTotes",
+    "fullname": "Sophie Grace Johnson",
+    "email": "sophie_art@brown.edu",
+    "bio": "Dreaming in colors and creating art with a touch of magic.",
+    "currentListing_ids": [
+      {
+        "$oid": "656bb24eabfe68217e3eb92b"
+      }
+    ],
+    "pastListing_ids": [],
+    "purchasedItem_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb945"
+      }
+    ],
+    "likedItem_ids": [],
+    "profilePhotoFilename": "artisticDreamer.jpeg",
+    "contactInformation": {
+      "email": "sophie_art@brown.edu",
+      "phone number": "555-345-6789",
+      "twitter": "ArtisticDreamer_Sophie"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "656bd988abfe68217e3eb96b"
+    },
+    "username": "ClayCraftsman",
+    "fullname": "Ethan Michael Adams",
+    "email": "ethan_clays@brown.edu",
+    "bio": "Clay crafting with a modern and innovative approach.",
+    "currentListing_ids": [
+      {
+        "$oid": "656bb24eabfe68217e3eb92f"
+      }
+    ],
+    "pastListing_ids": [],
+    "purchasedItem_ids": [],
+    "likedItem_ids": [],
+    "profilePhotoFilename": "clayCraftsman.jpg",
+    "contactInformation": {
+      "email": "ethan_clays@brown.edu",
+      "instagram": "ClaySlay_Ethan"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "656bd988abfe68217e3eb96c"
+    },
+    "username": "DIYQueen",
+    "fullname": "Lily Elizabeth Davis",
+    "email": "lily_DIY@brown.edu",
+    "bio": "Embracing the do-it-yourself culture with a royal touch.",
+    "currentListing_ids": [
+      {
+        "$oid": "656bb24eabfe68217e3eb932"
+      }
+    ],
+    "pastListing_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb94c"
+      }
+    ],
+    "purchasedItem_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb948"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb949"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb94a"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb94b"
+      }
+    ],
+    "likedItem_ids": [],
+    "profilePhotoFilename": "DIYQueen.jpg",
+    "contactInformation": {
+      "email": "lily_DIY@brown.edu",
+      "phone number": "555-789-0123",
+      "facebook": "Lily.Elizabeth.DIY"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "656bd988abfe68217e3eb96d"
+    },
+    "username": "ThreadArtCraft",
+    "fullname": "Lucas Benjamin Turner",
+    "email": "lucas_threads@brown.edu",
+    "bio": "Living affirmations through vintage finds and embroidered sayings.",
+    "currentListing_ids": [
+      {
+        "$oid": "656bb24eabfe68217e3eb93a"
+      },
+      {
+        "$oid": "656bb24eabfe68217e3eb931"
+      }
+    ],
+    "pastListing_ids": [],
+    "purchasedItem_ids": [],
+    "likedItem_ids": [],
+    "profilePhotoFilename": "defaultL.png",
+    "contactInformation": {
+      "email": "lucas_threads@brown.edu",
+      "twitter": "LucasThreads"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "656bd988abfe68217e3eb96e"
+    },
+    "username": "Emily_Wang",
+    "fullname": "Emily Wang",
+    "email": "crochet_crafter@brown.edu",
+    "bio": "Love all things cute and crochet. Open to custom orders!",
+    "currentListing_ids": [
+      {
+        "$oid": "656bb24eabfe68217e3eb928"
+      },
+      {
+        "$oid": "656bb24eabfe68217e3eb92e"
+      },
+      {
+        "$oid": "656bb24eabfe68217e3eb930"
+      },
+      {
+        "$oid": "656bb24eabfe68217e3eb933"
+      },
+      {
+        "$oid": "656bb24eabfe68217e3eb934"
+      },
+      {
+        "$oid": "656bb24eabfe68217e3eb936"
+      }
+    ],
+    "pastListing_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb941"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb942"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb944"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb947"
+      }
+    ],
+    "purchasedItem_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb94c"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb94d"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb94e"
+      }
+    ],
+    "likedItem_ids": [],
+    "profilePhotoFilename": "crochet_crafter.jpg",
+    "contactInformation": {
+      "email": "crochet_crafter@brown.edu",
+      "instagram": "CrochetCrafter"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "656bd988abfe68217e3eb96f"
+    },
+    "username": "natureInspired",
+    "fullname": "Noah William Greene",
+    "email": "noah_nature@brown.edu",
+    "bio": "Drawing inspiration from nature to create meaningful art.",
+    "currentListing_ids": [],
+    "pastListing_ids": [],
+    "purchasedItem_ids": [],
+    "likedItem_ids": [],
+    "profilePhotoFilename": "natureInspired.jpg",
+    "contactInformation": {
+      "email": "noah_nature@brown.edu"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "656bd988abfe68217e3eb970"
+    },
+    "username": "bookwormArtisan",
+    "fullname": "Aria Olivia Harper",
+    "email": "aria_bookworm@brown.edu",
+    "bio": "Crafting and creating with a heart full of stories.",
+    "currentListing_ids": [],
+    "pastListing_ids": [],
+    "purchasedItem_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb94f"
+      },
+      {
+        "$oid": "656bb25aabfe68217e3eb950"
+      }
+    ],
+    "likedItem_ids": [],
+    "profilePhotoFilename": "bookwormArtisan.jpg",
+    "contactInformation": {
+      "email": "aria_bookworm@brown.edu",
+      "phone number": "555-456-7890",
+      "facebook": "Aria.Harper.Bookworm"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "656bdbaaabfe68217e3eb973"
+    },
+    "username": "MacaraméJungle",
+    "fullname": "Emma Grace Mitchell",
+    "email": "passion_art@brown.edu",
+    "bio": "Passionate about art, nature, and creativity.",
+    "currentListing_ids": [],
+    "pastListing_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb943"
+      }
+    ],
+    "purchasedItem_ids": [
+      {
+        "$oid": "656bb25aabfe68217e3eb93d"
+      }
+    ],
+    "likedItem_ids": [],
+    "profilePhotoFilename": "defaultE.png",
+    "contactInformation": {
+      "email": "passion_art@brown.edu",
+      "phone number": "555-678-9012",
+      "instagram": "artisticSoul_Emma"
+    }
+  }
+]
