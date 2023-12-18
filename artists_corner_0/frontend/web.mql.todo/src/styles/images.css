@@ -1,13 +1,52 @@
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 30px;
+  margin-top: -60px;
+  border-color: blue;
+}
+
 .item {
-  max-width: 26rem;
+    flex: 0 0 calc(30% - 20px); /* Adjust width and spacing between images */
+    margin: 10px; /* Increase spacing around images */
+    box-sizing: border-box; /* Ensure padding and border are included in the total width */
+    transition: all 0.3s ease;
+
+  max-width: 23rem;
   background-color: #f8f8f8;
   padding: 2rem;
   border-radius: 10px;
 }
 
 .item-image {
-    /* Styles for the image */
-    width: 100%; /* Make the image fill the container */
-    height: auto; /* Maintain the aspect ratio */
-    border-radius: 5px; /* Add rounded corners if desired */
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.animated {
+    -webkit-animation: fadeInBottom 0.8s both;
+    -moz-animation: fadeInBottom 0.8s both;
+    -o-animation: fadeInBottom 0.8s both;
+    animation: fadeInBottom 0.8s both;
   }
+
+  .card-image {
+    width: 18rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .item:hover {
+    cursor: pointer;
+    transform: rotate(2deg);
+  }
+  
+
+/* .item-image p {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.2rem;
+        margin: 5px 0px;
+        color: #1657ac;
+      } */

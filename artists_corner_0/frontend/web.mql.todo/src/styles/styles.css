@@ -508,21 +508,6 @@ a {
         padding: 5px;
       }
 
-      .images {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center; /* Center the images horizontally */
-        align-items: center; /* Center the images vertically */
-        padding: 30px;
-        margin-top: -60px;
-      }
-
-      .photo {
-        flex: 0 0 calc(31.333% - 100px); /* Adjust width and spacing between images */
-        margin: 50px; /* Increase spacing around images */
-        height: 240px;
-      }
-
       .photo img {
         width: 100%;
         height: 100%;
@@ -538,12 +523,12 @@ a {
         border-radius: 5px; /* Optional: Add border-radius for styling */
       }
 
-      .accessories-container {
-        text-align: left;
-        margin-top: 10px;
-        margin-bottom: 50px;
-        margin-left: 80px;
+      .category-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; /* Adjust as needed */
       }
+      
       .accessories-container h2 {
         margin-left: 120px; /* Adjust this value to move the text to the right */
       }
@@ -573,7 +558,7 @@ a {
       }
 
       .side-text-container {
-        flex: 0 0 12%;
+        flex: 0 0 20%;
         padding: 20px;
       }
 
