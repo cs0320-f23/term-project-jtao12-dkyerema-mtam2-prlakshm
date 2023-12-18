@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getItemsByCategory } from "../mongo/Mongo-Functions";
 import ItemComponent from "./ItemComponent";
+import "../styles/category.css";
 
 const CategoryPage = () => {
   const { categoryName } = useParams();
@@ -11,18 +12,19 @@ const CategoryPage = () => {
     getItemsByCategory(categoryName)
       .then(([masterItems, soldItems]) => {
         const combinedItems = [...masterItems, ...soldItems];
-        console.log("Items:", combinedItems);
         setItems(combinedItems);
       })
       .catch(console.error);
   }, [categoryName]);
 
   return (
-    <div>
+    <div className="category-page-container">
       <h1>{categoryName}</h1>
-      {items.map((item) => (
-        <ItemComponent key={item._id} item={item} />
-      ))}
+      <div className="items-grid">
+        {items.map((item) => (
+          <ItemComponent key={item._id} item={item} />
+        ))}
+      </div>
     </div>
   );
 };

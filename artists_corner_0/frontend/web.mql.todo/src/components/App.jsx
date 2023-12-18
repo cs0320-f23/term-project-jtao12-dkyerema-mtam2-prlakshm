@@ -5,11 +5,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import HomePage from "./HomePage";
 import AboutPage from "./AboutPage";
 import CategoryPage from "./CategoryPage";
+import ItemDetailPage from "./ItemDetailPage";
 import "../styles/home.css";
 
-import Item from "../models/item";
-import { BSON } from "mongodb-stitch-browser-sdk";
-import Account from "../models/account";
 import { initializeStitchClient } from "../mongo/Mongo-Functions";
 
 function App() {
@@ -32,10 +30,9 @@ function App() {
       <div className="topnav">
         <div className="right-links">
           <Link to="/category/Accessories">Accessories</Link>
-          <Link to="/category/Clothing">Apparel</Link>
-          <Link to="/category/Art">Artwork</Link>
+          <Link to="/category/Clothing">Clothing</Link>
+          <Link to="/category/Art">Art</Link>
           <Link to="/category/Crafts">Crafts</Link>
-          {/* <Link to="/category/Miscellaneous">Misc.</Link> */}
           <Link to="/events">Events</Link>
           <Link to="/about">About</Link>
         </div>
@@ -45,6 +42,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/category/:categoryName" element={<CategoryPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/item/:itemId" element={<ItemDetailPage />} />
       </Routes>
 
       <div className="footer">
