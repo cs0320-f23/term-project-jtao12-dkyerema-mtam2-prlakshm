@@ -65,9 +65,9 @@ function App() {
       });
   }, []);
   useEffect(() => {
-    searchItems("Item Title")
+    searchItems("$19.25")
       .then(([masterItems, soldItems]) => {
-        setItems(sortMostToLeastRecent([masterItems || [], soldItems || []]));
+        setItems([masterItems || [], soldItems || []]);
       })
       .catch((error) => {
         console.error("Error:", error);
