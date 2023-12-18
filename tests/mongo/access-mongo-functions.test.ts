@@ -7,6 +7,7 @@ beforeAll(async () => {
 
 //-------------------------------------------------------------------------------------------------------------
 
+// Tests getAllItems function
 describe("getAllItems", () => {
   it("fetches all master and sold items from the database", async () => {
     // Calling function
@@ -30,6 +31,7 @@ describe("getAllItems", () => {
 
 //-------------------------------------------------------------------------------------------------------------
 
+// Tests getItemsByCategory function
 describe("getItemsByCategory", () => {
   it("fetches master and sold items based specific category where both nonempty", async () => {
     // Calling function
@@ -113,6 +115,7 @@ describe("getItemsByCategory", () => {
 
 //-------------------------------------------------------------------------------------------------------------
 
+// Tests getItemsBySubcategory function
 describe("getItemsBySubcategory", () => {
   it("fetches master and sold items based on specific subcategory where both valid", async () => {
     // Calling function
@@ -203,6 +206,7 @@ describe("getItemsBySubcategory", () => {
 
 //-------------------------------------------------------------------------------------------
 
+// Tests getItemsByCategoryAndSubcategory function
 describe("getItemsByCategoryAndSubcategory", () => {
   it("fetches items based on specific category and subcategory where valid for master_items and sold_items", async () => {
     // Calling function
@@ -280,6 +284,7 @@ describe("getItemsByCategoryAndSubcategory", () => {
 
 //------------------------------------------------------------------------------------------------------------
 
+// Tests getItemsByCategory and  getItemsByCategoryAndSubcategory function together
 describe("getItemsByCategory and getItemsByCategoryAndSubcategory", () => {
   it("fetches master and sold items based on category and empty subcategory string", async () => {
     // Calling functions
@@ -301,18 +306,14 @@ describe("getItemsByCategory and getItemsByCategoryAndSubcategory", () => {
     expect(emptySubcategory_sold).toHaveLength(1);
 
     // Assert that all values in master and sold items are defined
-    expect(clothing_master?.every((item) => item !== undefined)).toBe(
+    expect(clothing_master?.every((item) => item !== undefined)).toBe(true);
+    expect(clothing_sold?.every((item) => item !== undefined)).toBe(true);
+    expect(emptySubcategory_master?.every((item) => item !== undefined)).toBe(
       true
     );
-    expect(clothing_sold?.every((item) => item !== undefined)).toBe(
+    expect(emptySubcategory_sold?.every((item) => item !== undefined)).toBe(
       true
     );
-    expect(
-      emptySubcategory_master?.every((item) => item !== undefined)
-    ).toBe(true);
-    expect(
-      emptySubcategory_sold?.every((item) => item !== undefined)
-    ).toBe(true);
 
     // Assert that master items are the same
     if (emptySubcategory_master && emptySubcategory_sold) {
@@ -331,10 +332,8 @@ describe("getItemsByCategory and getItemsByCategoryAndSubcategory", () => {
     // Calling functions
     const [emptyCategory_master, emptyCategory_sold] =
       await MongoFunctions.getItemsByCategory("");
-    const [
-      empty_master,
-      empty_sold,
-    ] = await MongoFunctions.getItemsByCategoryAndSubcategory("", "");
+    const [empty_master, empty_sold] =
+      await MongoFunctions.getItemsByCategoryAndSubcategory("", "");
 
     // Assert master and sold items are defined
     expect(emptyCategory_master).toBeDefined();
@@ -353,358 +352,404 @@ describe("getItemsByCategory and getItemsByCategoryAndSubcategory", () => {
       true
     );
     expect(emptyCategory_sold?.every((item) => item !== undefined)).toBe(true);
-    expect(
-      empty_master?.every((item) => item !== undefined)
-    ).toBe(true);
-    expect(
-      empty_sold?.every((item) => item !== undefined)
-    ).toBe(true);
+    expect(empty_master?.every((item) => item !== undefined)).toBe(true);
+    expect(empty_sold?.every((item) => item !== undefined)).toBe(true);
 
-    if (
-      empty_master &&
-      empty_sold
-    ) {
+    if (empty_master && empty_sold) {
       // Assert that master items are the same
       expect(emptyCategory_master).toEqual(
         expect.arrayContaining(empty_master)
       );
 
       // Assert that sold items are the same
-      expect(emptyCategory_sold).toEqual(
-        expect.arrayContaining(empty_sold)
-      );
+      expect(emptyCategory_sold).toEqual(expect.arrayContaining(empty_sold));
     }
   });
 });
 
 //-----------------------------------------------------------------------------------------
 
+// Tests searchItems function
 describe("searchItems", () => {
-    it("fetches master and sold items based on keyword in title", async () => {
-      // Calling function
-      const [necklace_master_items, necklace_sold_items] = await MongoFunctions.searchItems("necklace");
-  
-      // Assert items are defined
-      expect(necklace_master_items).toBeDefined();
-      expect(necklace_sold_items).toBeDefined();
-  
-      // Assert item[] have respective items in database
-      expect(necklace_master_items).toHaveLength(4);
-      expect(necklace_sold_items).toHaveLength(8);
-  
-      // Assert that all values in items are defined
-      expect(necklace_master_items?.every((item) => item !== undefined)).toBe(true);
-      expect(necklace_sold_items?.every((item) => item !== undefined)).toBe(true);
-    });
-    it("fetches master and sold items based on keyword in subcategory", async () => {
-      // Calling function
-      const [other_master_items, other_sold_items] = await MongoFunctions.searchItems("other");
-  
-      // Assert items are defined
-      expect(other_master_items).toBeDefined();
-      expect(other_sold_items).toBeDefined();
-  
-      // Assert item[] have respective items in database
-      expect(other_master_items).toHaveLength(5);
-      expect(other_sold_items).toHaveLength(5);
-  
-      // Assert that all values in items are defined
-      expect(other_master_items?.every((item) => item !== undefined)).toBe(true);
-      expect(other_sold_items?.every((item) => item !== undefined)).toBe(true);
-    });
-    it("fetches master and sold items based on keyword seller", async () => {
-      // Calling function
-      const [seller_master_items, seller_sold_items] = await MongoFunctions.searchItems("Emily_Wang");
-  
-      // Assert items are defined
-      expect(seller_master_items).toBeDefined();
-      expect(seller_sold_items).toBeDefined();
-  
-      // Assert item[] have respective items in database
-      expect(seller_master_items).toHaveLength(6);
-      expect(seller_sold_items).toHaveLength(5);
-  
-      // Assert that all values in items are defined
-      expect(seller_master_items?.every((item) => item !== undefined)).toBe(true);
-      expect(seller_sold_items?.every((item) => item !== undefined)).toBe(true);
-    });
-    it("fetches master and sold items based on keyword by price", async () => {
-      // Calling function
-      const [price_master_items, price_sold_items] = await MongoFunctions.searchItems("$19.25");
-  
-      // Assert items are defined
-      expect(price_master_items).toBeDefined();
-      expect(price_sold_items).toBeDefined();
-  
-      // Assert item[] have respective items in database
-      expect(price_master_items).toHaveLength(2);
-      expect(price_sold_items).toHaveLength(4);
-  
-      // Assert that all values in items are defined
-      expect(price_master_items?.every((item) => item !== undefined)).toBe(true);
-      expect(price_sold_items?.every((item) => item !== undefined)).toBe(true);
-    });
-  });
-  
-  //------------------------------------------------------------------------------------------
+  it("fetches master and sold items based on keyword in title", async () => {
+    // Calling function
+    const [necklace_master_items, necklace_sold_items] =
+      await MongoFunctions.searchItems("necklace");
 
-    // Helper function to check if an array is sorted
-    function isSortedAscendingPrice(arr: number[]): boolean {
-        for (let i = 1; i < arr.length; i++) {
-          if (arr[i - 1] > arr[i]) {
-            return false;
-          }
-        }
-        return true;
-      }
-      
-  describe("sortPriceLowToHigh", () => {
-    it("sorts master and sold item prices low to high for all items", async () => {
-        // Call getAllItems to get the initial items
-        const [master_items, sold_items] = await MongoFunctions.getAllItems();
-      
-        // Assert items are defined
-        expect(master_items).toBeDefined();
-        expect(sold_items).toBeDefined();
-      
-        // Call sortPriceLowToHigh on the returned tuple
-        const [sorted_master, sorted_sold] = master_items && sold_items ? MongoFunctions.sortPriceLowToHigh([master_items, sold_items]) : [undefined, undefined];
-      
-        // Extract price lists from sorted items
-        const masterPrices = sorted_master?.map(item => item.price) || [];
-        const soldPrices = sorted_sold?.map(item => item.price) || [];
-      
-        // Check each of the price lists to ensure prices are sorted low to high
-        expect(isSortedAscendingPrice(masterPrices)).toBe(true);
-        expect(isSortedAscendingPrice(soldPrices)).toBe(true);
-      
-        // Handle the case where sortPriceLowToHigh returns undefined
-        if (!sorted_master || !sorted_sold) {
-          fail("sortPriceLowToHigh returned undefined");
-        }
-    });
-    it("sorts master and sold item prices low to high for specific category", async () => {
-        // Call getAllItems to get the initial items
-        const [master_items, sold_items] = await MongoFunctions.getItemsByCategory("crafts");
-      
-        // Assert items are defined
-        expect(master_items).toBeDefined();
-        expect(sold_items).toBeDefined();
-      
-        // Call sortPriceLowToHigh on the returned tuple
-        const [sorted_master, sorted_sold] = master_items && sold_items ? MongoFunctions.sortPriceLowToHigh([master_items, sold_items]) : [undefined, undefined];
-      
-        // Extract price lists from sorted items
-        const masterPrices = sorted_master?.map(item => item.price) || [];
-        const soldPrices = sorted_sold?.map(item => item.price) || [];
-      
-        // Check each of the price lists to ensure prices are sorted low to high
-        expect(isSortedAscendingPrice(masterPrices)).toBe(true);
-        expect(isSortedAscendingPrice(soldPrices)).toBe(true);
-      
-        // Handle the case where sortPriceLowToHigh returns undefined
-        if (!sorted_master || !sorted_sold) {
-          fail("sortPriceLowToHigh returned undefined");
-        }
-    });
+    // Assert items are defined
+    expect(necklace_master_items).toBeDefined();
+    expect(necklace_sold_items).toBeDefined();
+
+    // Assert item[] have respective items in database
+    expect(necklace_master_items).toHaveLength(4);
+    expect(necklace_sold_items).toHaveLength(8);
+
+    // Assert that all values in items are defined
+    expect(necklace_master_items?.every((item) => item !== undefined)).toBe(
+      true
+    );
+    expect(necklace_sold_items?.every((item) => item !== undefined)).toBe(true);
   });
-  
+  it("fetches master and sold items based on keyword in subcategory", async () => {
+    // Calling function
+    const [other_master_items, other_sold_items] =
+      await MongoFunctions.searchItems("other");
+
+    // Assert items are defined
+    expect(other_master_items).toBeDefined();
+    expect(other_sold_items).toBeDefined();
+
+    // Assert item[] have respective items in database
+    expect(other_master_items).toHaveLength(5);
+    expect(other_sold_items).toHaveLength(5);
+
+    // Assert that all values in items are defined
+    expect(other_master_items?.every((item) => item !== undefined)).toBe(true);
+    expect(other_sold_items?.every((item) => item !== undefined)).toBe(true);
+  });
+  it("fetches master and sold items based on keyword seller", async () => {
+    // Calling function
+    const [seller_master_items, seller_sold_items] =
+      await MongoFunctions.searchItems("Emily_Wang");
+
+    // Assert items are defined
+    expect(seller_master_items).toBeDefined();
+    expect(seller_sold_items).toBeDefined();
+
+    // Assert item[] have respective items in database
+    expect(seller_master_items).toHaveLength(6);
+    expect(seller_sold_items).toHaveLength(5);
+
+    // Assert that all values in items are defined
+    expect(seller_master_items?.every((item) => item !== undefined)).toBe(true);
+    expect(seller_sold_items?.every((item) => item !== undefined)).toBe(true);
+  });
+  it("fetches master and sold items based on keyword by price", async () => {
+    // Calling function
+    const [price_master_items, price_sold_items] =
+      await MongoFunctions.searchItems("$19.25");
+
+    // Assert items are defined
+    expect(price_master_items).toBeDefined();
+    expect(price_sold_items).toBeDefined();
+
+    // Assert item[] have respective items in database
+    expect(price_master_items).toHaveLength(2);
+    expect(price_sold_items).toHaveLength(4);
+
+    // Assert that all values in items are defined
+    expect(price_master_items?.every((item) => item !== undefined)).toBe(true);
+    expect(price_sold_items?.every((item) => item !== undefined)).toBe(true);
+  });
+});
+
+//------------------------------------------------------------------------------------------
+
+/**
+ * Helper function to check if an array of prices is sorted in ascending order (low to high)
+ * @param arr An array of prices
+ * @returns True if the prices are sorted in ascending order, false otherwise
+ */
+function isSortedAscendingPrice(arr: number[]): boolean {
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i - 1] > arr[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// Tests sortPriceLowToHigh function
+describe("sortPriceLowToHigh", () => {
+  it("sorts master and sold item prices low to high for all items", async () => {
+    // Call getAllItems to get the initial items
+    const [master_items, sold_items] = await MongoFunctions.getAllItems();
+
+    // Assert items are defined
+    expect(master_items).toBeDefined();
+    expect(sold_items).toBeDefined();
+
+    // Call sortPriceLowToHigh on the returned tuple
+    const [sorted_master, sorted_sold] =
+      master_items && sold_items
+        ? MongoFunctions.sortPriceLowToHigh([master_items, sold_items])
+        : [undefined, undefined];
+
+    // Extract price lists from sorted items
+    const masterPrices = sorted_master?.map((item) => item.price) || [];
+    const soldPrices = sorted_sold?.map((item) => item.price) || [];
+
+    // Check each of the price lists to ensure prices are sorted low to high
+    expect(isSortedAscendingPrice(masterPrices)).toBe(true);
+    expect(isSortedAscendingPrice(soldPrices)).toBe(true);
+
+    // Handle the case where sortPriceLowToHigh returns undefined
+    if (!sorted_master || !sorted_sold) {
+      fail("sortPriceLowToHigh returned undefined");
+    }
+  });
+  it("sorts master and sold item prices low to high for specific category", async () => {
+    // Call getAllItems to get the initial items
+    const [master_items, sold_items] = await MongoFunctions.getItemsByCategory(
+      "crafts"
+    );
+
+    // Assert items are defined
+    expect(master_items).toBeDefined();
+    expect(sold_items).toBeDefined();
+
+    // Call sortPriceLowToHigh on the returned tuple
+    const [sorted_master, sorted_sold] =
+      master_items && sold_items
+        ? MongoFunctions.sortPriceLowToHigh([master_items, sold_items])
+        : [undefined, undefined];
+
+    // Extract price lists from sorted items
+    const masterPrices = sorted_master?.map((item) => item.price) || [];
+    const soldPrices = sorted_sold?.map((item) => item.price) || [];
+
+    // Check each of the price lists to ensure prices are sorted low to high
+    expect(isSortedAscendingPrice(masterPrices)).toBe(true);
+    expect(isSortedAscendingPrice(soldPrices)).toBe(true);
+
+    // Handle the case where sortPriceLowToHigh returns undefined
+    if (!sorted_master || !sorted_sold) {
+      fail("sortPriceLowToHigh returned undefined");
+    }
+  });
+});
+
 //--------------------------------------------------------------------
 
-// Helper function to check if an array is sorted in descending order
+/**
+ * Helper function to check if an array of prices is sorted in descending order (high to low)
+ * @param arr An array of prices
+ * @returns True if the prices are sorted in descending order, false otherwise
+ */
 function isSortedDescendingPrice(arr: number[]): boolean {
-    for (let i = 1; i < arr.length; i++) {
-      if (arr[i - 1] < arr[i]) {
-        return false;
-      }
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i - 1] < arr[i]) {
+      return false;
     }
-    return true;
   }
-  
-  describe("sortPriceHighToLow", () => {
-    it("sorts master and sold item prices high to low for all items", async () => {
-      // Call getAllItems to get the initial items
-      const [master_items, sold_items] = await MongoFunctions.getAllItems();
-  
-      // Assert items are defined
-      expect(master_items).toBeDefined();
-      expect(sold_items).toBeDefined();
-  
-      // Call sortPriceHighToLow on the returned tuple
-      const [sorted_master, sorted_sold] = master_items && sold_items ? MongoFunctions.sortPriceHighToLow([master_items, sold_items]) : [undefined, undefined];
-  
-      // Extract price lists from sorted items
-      const masterPrices = sorted_master?.map(item => item.price) || [];
-      const soldPrices = sorted_sold?.map(item => item.price) || [];
-  
-      // Check each of the price lists to ensure prices are sorted high to low
-      expect(isSortedDescendingPrice(masterPrices)).toBe(true);
-      expect(isSortedDescendingPrice(soldPrices)).toBe(true);
-  
-      // Handle the case where sortPriceHighToLow returns undefined
-      if (!sorted_master || !sorted_sold) {
-        fail("sortPriceHighToLow returned undefined");
-      }
-    });
-    it("sorts master and sold item prices high to low for specific subcategory", async () => {
-      // Call getAllItems to get the initial items
-      const [master_items, sold_items] = await MongoFunctions.getItemsBySubcategory("jewelry");
-  
-      // Assert items are defined
-      expect(master_items).toBeDefined();
-      expect(sold_items).toBeDefined();
-  
-      // Call sortPriceHighToLow on the returned tuple
-      const [sorted_master, sorted_sold] = master_items && sold_items ? MongoFunctions.sortPriceHighToLow([master_items, sold_items]) : [undefined, undefined];
-  
-      // Extract price lists from sorted items
-      const masterPrices = sorted_master?.map(item => item.price) || [];
-      const soldPrices = sorted_sold?.map(item => item.price) || [];
-  
-      // Check each of the price lists to ensure prices are sorted high to low
-      expect(isSortedDescendingPrice(masterPrices)).toBe(true);
-      expect(isSortedDescendingPrice(soldPrices)).toBe(true);
-  
-      // Handle the case where sortPriceHighToLow returns undefined
-      if (!sorted_master || !sorted_sold) {
-        fail("sortPriceHighToLow returned undefined");
-      }
-    });
-  });
+  return true;
+}
 
-  //-----------------------------------------------------------------------------------------
-  
-  /**
+// Tests sortPriceHighToLow function
+describe("sortPriceHighToLow", () => {
+  it("sorts master and sold item prices high to low for all items", async () => {
+    // Call getAllItems to get the initial items
+    const [master_items, sold_items] = await MongoFunctions.getAllItems();
+
+    // Assert items are defined
+    expect(master_items).toBeDefined();
+    expect(sold_items).toBeDefined();
+
+    // Call sortPriceHighToLow on the returned tuple
+    const [sorted_master, sorted_sold] =
+      master_items && sold_items
+        ? MongoFunctions.sortPriceHighToLow([master_items, sold_items])
+        : [undefined, undefined];
+
+    // Extract price lists from sorted items
+    const masterPrices = sorted_master?.map((item) => item.price) || [];
+    const soldPrices = sorted_sold?.map((item) => item.price) || [];
+
+    // Check each of the price lists to ensure prices are sorted high to low
+    expect(isSortedDescendingPrice(masterPrices)).toBe(true);
+    expect(isSortedDescendingPrice(soldPrices)).toBe(true);
+
+    // Handle the case where sortPriceHighToLow returns undefined
+    if (!sorted_master || !sorted_sold) {
+      fail("sortPriceHighToLow returned undefined");
+    }
+  });
+  it("sorts master and sold item prices high to low for specific subcategory", async () => {
+    // Call getAllItems to get the initial items
+    const [master_items, sold_items] =
+      await MongoFunctions.getItemsBySubcategory("jewelry");
+
+    // Assert items are defined
+    expect(master_items).toBeDefined();
+    expect(sold_items).toBeDefined();
+
+    // Call sortPriceHighToLow on the returned tuple
+    const [sorted_master, sorted_sold] =
+      master_items && sold_items
+        ? MongoFunctions.sortPriceHighToLow([master_items, sold_items])
+        : [undefined, undefined];
+
+    // Extract price lists from sorted items
+    const masterPrices = sorted_master?.map((item) => item.price) || [];
+    const soldPrices = sorted_sold?.map((item) => item.price) || [];
+
+    // Check each of the price lists to ensure prices are sorted high to low
+    expect(isSortedDescendingPrice(masterPrices)).toBe(true);
+    expect(isSortedDescendingPrice(soldPrices)).toBe(true);
+
+    // Handle the case where sortPriceHighToLow returns undefined
+    if (!sorted_master || !sorted_sold) {
+      fail("sortPriceHighToLow returned undefined");
+    }
+  });
+});
+
+//-----------------------------------------------------------------------------------------
+
+/**
  * Helper function to check if an array of timestamps (Date objects) is sorted in ascending order
  * @param arr An array of timestamps (Date objects)
  * @returns True if the timestamps are sorted in ascending order, false otherwise
  */
 function isSortedAscendingTimestamp(arr: Date[]): boolean {
-    for (let i = 1; i < arr.length; i++) {
-      if (arr[i - 1] > arr[i]) {
-        return false;
-      }
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i - 1] > arr[i]) {
+      return false;
     }
-    return true;
   }
+  return true;
+}
 
-  describe("sortLeastToMostRecent", () => {
-    it("sorts master and sold item timestamps least to most recent for all items", async () => {
-      // Call getAllItems to get the initial items
-      const [master_items, sold_items] = await MongoFunctions.getAllItems();
-  
-      // Assert items are defined
-      expect(master_items).toBeDefined();
-      expect(sold_items).toBeDefined();
-  
-      // Call sortLeastToMostRecent on the returned tuple
-      const [sorted_master, sorted_sold] = master_items && sold_items ? MongoFunctions.sortLeastToMostRecent([master_items, sold_items]) : [undefined, undefined];
-  
-      // Extract timestamp lists from sorted items
-      const masterTimestamps = sorted_master?.map(item => new Date(item.timestamp)) || [];
-      const soldTimestamps = sorted_sold?.map(item => new Date(item.timestamp)) || [];
-  
-      // Check each of the timestamp lists to ensure timestamps are sorted least to most recent
-      expect(isSortedAscendingTimestamp(masterTimestamps)).toBe(true);
-      expect(isSortedAscendingTimestamp(soldTimestamps)).toBe(true);
-  
-      // Handle the case where sortLeastToMostRecent returns undefined
-      if (!sorted_master || !sorted_sold) {
-        fail("sortLeastToMostRecent returned undefined");
-      }
-    });
-    it("sorts master and sold item timestamps least to most recent for specific category", async () => {
-      // Call getAllItems to get the initial items
-      const [master_items, sold_items] = await MongoFunctions.getItemsByCategory("art");
-  
-      // Assert items are defined
-      expect(master_items).toBeDefined();
-      expect(sold_items).toBeDefined();
-  
-      // Call sortLeastToMostRecent on the returned tuple
-      const [sorted_master, sorted_sold] = master_items && sold_items ? MongoFunctions.sortLeastToMostRecent([master_items, sold_items]) : [undefined, undefined];
-  
-      // Extract timestamp lists from sorted items
-      const masterTimestamps = sorted_master?.map(item => new Date(item.timestamp)) || [];
-      const soldTimestamps = sorted_sold?.map(item => new Date(item.timestamp)) || [];
-  
-      // Check each of the timestamp lists to ensure timestamps are sorted least to most recent
-      expect(isSortedAscendingTimestamp(masterTimestamps)).toBe(true);
-      expect(isSortedAscendingTimestamp(soldTimestamps)).toBe(true);
-  
-      // Handle the case where sortLeastToMostRecent returns undefined
-      if (!sorted_master || !sorted_sold) {
-        fail("sortLeastToMostRecent returned undefined");
-      }
-    });
+// Tests sortLeastToMostRecent function
+describe("sortLeastToMostRecent", () => {
+  it("sorts master and sold item timestamps least to most recent for all items", async () => {
+    // Call getAllItems to get the initial items
+    const [master_items, sold_items] = await MongoFunctions.getAllItems();
+
+    // Assert items are defined
+    expect(master_items).toBeDefined();
+    expect(sold_items).toBeDefined();
+
+    // Call sortLeastToMostRecent on the returned tuple
+    const [sorted_master, sorted_sold] =
+      master_items && sold_items
+        ? MongoFunctions.sortLeastToMostRecent([master_items, sold_items])
+        : [undefined, undefined];
+
+    // Extract timestamp lists from sorted items
+    const masterTimestamps =
+      sorted_master?.map((item) => new Date(item.timestamp)) || [];
+    const soldTimestamps =
+      sorted_sold?.map((item) => new Date(item.timestamp)) || [];
+
+    // Check each of the timestamp lists to ensure timestamps are sorted least to most recent
+    expect(isSortedAscendingTimestamp(masterTimestamps)).toBe(true);
+    expect(isSortedAscendingTimestamp(soldTimestamps)).toBe(true);
+
+    // Handle the case where sortLeastToMostRecent returns undefined
+    if (!sorted_master || !sorted_sold) {
+      fail("sortLeastToMostRecent returned undefined");
+    }
   });
-  
-  //---------------------------------------------------------------------------------------------------
+  it("sorts master and sold item timestamps least to most recent for specific category", async () => {
+    // Call getAllItems to get the initial items
+    const [master_items, sold_items] = await MongoFunctions.getItemsByCategory(
+      "art"
+    );
 
-  /**
+    // Assert items are defined
+    expect(master_items).toBeDefined();
+    expect(sold_items).toBeDefined();
+
+    // Call sortLeastToMostRecent on the returned tuple
+    const [sorted_master, sorted_sold] =
+      master_items && sold_items
+        ? MongoFunctions.sortLeastToMostRecent([master_items, sold_items])
+        : [undefined, undefined];
+
+    // Extract timestamp lists from sorted items
+    const masterTimestamps =
+      sorted_master?.map((item) => new Date(item.timestamp)) || [];
+    const soldTimestamps =
+      sorted_sold?.map((item) => new Date(item.timestamp)) || [];
+
+    // Check each of the timestamp lists to ensure timestamps are sorted least to most recent
+    expect(isSortedAscendingTimestamp(masterTimestamps)).toBe(true);
+    expect(isSortedAscendingTimestamp(soldTimestamps)).toBe(true);
+
+    // Handle the case where sortLeastToMostRecent returns undefined
+    if (!sorted_master || !sorted_sold) {
+      fail("sortLeastToMostRecent returned undefined");
+    }
+  });
+});
+
+//---------------------------------------------------------------------------------------------------
+
+/**
  * Helper function to check if an array of timestamps (Date objects) is sorted in descending order
  * @param arr An array of timestamps (Date objects)
  * @returns True if the timestamps are sorted in descending order, false otherwise
  */
 function isSortedDescendingTimestamp(arr: Date[]): boolean {
-    for (let i = 1; i < arr.length; i++) {
-      if (arr[i - 1] < arr[i]) {
-        return false;
-      }
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i - 1] < arr[i]) {
+      return false;
     }
-    return true;
   }
-  
-  describe("sortMostToLeastRecent", () => {
-    it("sorts master and sold item timestamps most to least recent for all items", async () => {
-      // Call getAllItems to get the initial items
-      const [master_items, sold_items] = await MongoFunctions.getAllItems();
-  
-      // Assert items are defined
-      expect(master_items).toBeDefined();
-      expect(sold_items).toBeDefined();
-  
-      // Call sortMostToLeastRecent on the returned tuple
-      const [sorted_master, sorted_sold] = master_items && sold_items ? MongoFunctions.sortMostToLeastRecent([master_items, sold_items]) : [undefined, undefined];
-  
-      // Extract timestamp lists from sorted items
-      const masterTimestamps = sorted_master?.map(item => new Date(item.timestamp)) || [];
-      const soldTimestamps = sorted_sold?.map(item => new Date(item.timestamp)) || [];
-  
-      // Check each of the timestamp lists to ensure timestamps are sorted most to least recent
-      expect(isSortedDescendingTimestamp(masterTimestamps)).toBe(true);
-      expect(isSortedDescendingTimestamp(soldTimestamps)).toBe(true);
-  
-      // Handle the case where sortMostToLeastRecent returns undefined
-      if (!sorted_master || !sorted_sold) {
-        fail("sortMostToLeastRecent returned undefined");
-      }
-    });
-    it("sorts master and sold item timestamps most to least recent for specific subcategory", async () => {
-      // Call getAllItems to get the initial items
-      const [master_items, sold_items] = await MongoFunctions.getItemsByCategory("crochet");
-  
-      // Assert items are defined
-      expect(master_items).toBeDefined();
-      expect(sold_items).toBeDefined();
-  
-      // Call sortMostToLeastRecent on the returned tuple
-      const [sorted_master, sorted_sold] = master_items && sold_items ? MongoFunctions.sortMostToLeastRecent([master_items, sold_items]) : [undefined, undefined];
-  
-      // Extract timestamp lists from sorted items
-      const masterTimestamps = sorted_master?.map(item => new Date(item.timestamp)) || [];
-      const soldTimestamps = sorted_sold?.map(item => new Date(item.timestamp)) || [];
-  
-      // Check each of the timestamp lists to ensure timestamps are sorted most to least recent
-      expect(isSortedDescendingTimestamp(masterTimestamps)).toBe(true);
-      expect(isSortedDescendingTimestamp(soldTimestamps)).toBe(true);
-  
-      // Handle the case where sortMostToLeastRecent returns undefined
-      if (!sorted_master || !sorted_sold) {
-        fail("sortMostToLeastRecent returned undefined");
-      }
-    });
-  });
-  
+  return true;
+}
 
-  
+// Tests sortMostToLeastRecent function
+describe("sortMostToLeastRecent", () => {
+  it("sorts master and sold item timestamps most to least recent for all items", async () => {
+    // Call getAllItems to get the initial items
+    const [master_items, sold_items] = await MongoFunctions.getAllItems();
+
+    // Assert items are defined
+    expect(master_items).toBeDefined();
+    expect(sold_items).toBeDefined();
+
+    // Call sortMostToLeastRecent on the returned tuple
+    const [sorted_master, sorted_sold] =
+      master_items && sold_items
+        ? MongoFunctions.sortMostToLeastRecent([master_items, sold_items])
+        : [undefined, undefined];
+
+    // Extract timestamp lists from sorted items
+    const masterTimestamps =
+      sorted_master?.map((item) => new Date(item.timestamp)) || [];
+    const soldTimestamps =
+      sorted_sold?.map((item) => new Date(item.timestamp)) || [];
+
+    // Check each of the timestamp lists to ensure timestamps are sorted most to least recent
+    expect(isSortedDescendingTimestamp(masterTimestamps)).toBe(true);
+    expect(isSortedDescendingTimestamp(soldTimestamps)).toBe(true);
+
+    // Handle the case where sortMostToLeastRecent returns undefined
+    if (!sorted_master || !sorted_sold) {
+      fail("sortMostToLeastRecent returned undefined");
+    }
+  });
+  it("sorts master and sold item timestamps most to least recent for specific subcategory", async () => {
+    // Call getAllItems to get the initial items
+    const [master_items, sold_items] = await MongoFunctions.getItemsByCategory(
+      "crochet"
+    );
+
+    // Assert items are defined
+    expect(master_items).toBeDefined();
+    expect(sold_items).toBeDefined();
+
+    // Call sortMostToLeastRecent on the returned tuple
+    const [sorted_master, sorted_sold] =
+      master_items && sold_items
+        ? MongoFunctions.sortMostToLeastRecent([master_items, sold_items])
+        : [undefined, undefined];
+
+    // Extract timestamp lists from sorted items
+    const masterTimestamps =
+      sorted_master?.map((item) => new Date(item.timestamp)) || [];
+    const soldTimestamps =
+      sorted_sold?.map((item) => new Date(item.timestamp)) || [];
+
+    // Check each of the timestamp lists to ensure timestamps are sorted most to least recent
+    expect(isSortedDescendingTimestamp(masterTimestamps)).toBe(true);
+    expect(isSortedDescendingTimestamp(soldTimestamps)).toBe(true);
+
+    // Handle the case where sortMostToLeastRecent returns undefined
+    if (!sorted_master || !sorted_sold) {
+      fail("sortMostToLeastRecent returned undefined");
+    }
+  });
+});

@@ -15,10 +15,17 @@ export default class Account {
     public _id?: BSON.ObjectId
   ) {}
 
+    /**
+   * Converts object return from MongoDB to account
+   * @param accountData object from MongoDB database
+   * @returns object as an account
+   */
   static fromObject(accountData: Record<string, any>): Account | undefined {
     if (accountData) {
       const contactInformation = new Map<string, string>(
-        Object.entries(accountData.contactInformation || {}).map(([key, value]) => [key, String(value)])
+        Object.entries(accountData.contactInformation || {}).map(
+          ([key, value]) => [key, String(value)]
+        )
       );
       return new Account(
         accountData.username,

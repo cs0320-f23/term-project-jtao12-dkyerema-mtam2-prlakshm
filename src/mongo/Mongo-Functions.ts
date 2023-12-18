@@ -42,15 +42,17 @@ let mongodb: RemoteMongoClient | undefined;
  * getAccountById(id: BSON.ObjectId) => Account
  * getAccountByUsername(username: string) => Account
  * ifUsernameAlreadyExists(username: string) => boolean
+ * getAllUsernames() => string[]
+ * getProfilePhotoByUsername(username: string) => string
  * 
  * 
  * Modify database:
  * addItemToCurrentListings(username: string, itemId: BSON.ObjectId, 
  *    accountsCollection: RemoteMongoCollection<Account>) => void
  * insertNewItem(title: string, description: string, seller: string, category: string, 
- *    subcategory: string, price: number, photoFilenames: string[]) => void
+ *    subcategory: string, price: number, photoFilenames: string[]) => BSON.ObjectId
  * insertNewAccount(username: string, fullname: string, email: string, bio: string,
-      profilePhotoFilename: string, contactInformation: Map<String, String>) => void
+      profilePhotoFilename: string, contactInformation: Map<String, String>) => BSON.ObjectId
  * deleteAccountById(accountId: BSON.ObjectId) => void
  * addItemToLikedListings(username: string, itemId: BSON.ObjectId) => void
  * updateItem(id: BSON.ObjectId, newTitle: string, newDescription: string, newSeller: string,
@@ -666,7 +668,10 @@ export async function getAllUsernames(): Promise<string[]> {
       db.collection("accounts");
 
     // Find all documents in the accounts collection, projecting only the "username" field
-    const accountsCursor = accountsCollection.find({}, { projection: { username: 1 } });
+    const accountsCursor = accountsCollection.find(
+      {},
+      { projection: { username: 1 } }
+    );
 
     // Extract usernames from the accounts
     const usernamesArray = await accountsCursor.toArray();
@@ -679,9 +684,7 @@ export async function getAllUsernames(): Promise<string[]> {
   }
 }
 
-
 /**
-
  * Retrieves the profile photo filename for an account from the database based on its username
  * @param username Account username
  * @returns Profile photo filename or undefined if error -- no or multiple accounts with username
@@ -1216,7 +1219,7 @@ export async function markItemAsSold(id: BSON.ObjectId): Promise<void> {
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
-    
+
     const db = mongodb?.db("artists_corner_pvd");
     if (!db) {
       throw new Error("Database not available");
