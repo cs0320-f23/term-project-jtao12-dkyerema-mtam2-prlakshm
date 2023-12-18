@@ -667,11 +667,8 @@ export async function getAllUsernames(): Promise<string[]> {
       db.collection("accounts");
 
     // Find all documents in the accounts collection, projecting only the "username" field
-    const accountsCursor = accountsCollection.find(
-      {},
-      { projection: { username: 1 } }
-    );
-
+    const accountsCursor = accountsCollection.find({}, { projection: { username: 1 } });
+    
     // Extract usernames from the accounts
     const usernames: string[] = await accountsCursor.toArray();
 
@@ -683,6 +680,7 @@ export async function getAllUsernames(): Promise<string[]> {
 }
 
 /**
+
  * Retrieves the profile photo filename for an account from the database based on its username
  * @param username Account username
  * @returns Profile photo filename or undefined if error -- no or multiple accounts with username
@@ -1217,7 +1215,7 @@ export async function markItemAsSold(id: BSON.ObjectId): Promise<void> {
     await client?.auth.loginWithCredential(
       new UserApiKeyCredential(ACCESS_TOKEN)
     );
-
+    
     const db = mongodb?.db("artists_corner_pvd");
     if (!db) {
       throw new Error("Database not available");
