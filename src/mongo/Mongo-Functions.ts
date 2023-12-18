@@ -792,6 +792,7 @@ export async function insertNewAccount(
     const accountsCollection: RemoteMongoCollection<Account> =
       db.collection("accounts");
 
+
     const newAccount: Account = {
       username: username,
       fullname: fullname,
@@ -802,7 +803,7 @@ export async function insertNewAccount(
       purchasedItem_ids: [],
       likedItem_ids: [],
       profilePhotoFilename: profilePhotoFilename,
-      contactInformation: contactInformation,
+      contactInformation: Object.fromEntries(contactInformation),
     };
 
     // Add new account to collection
