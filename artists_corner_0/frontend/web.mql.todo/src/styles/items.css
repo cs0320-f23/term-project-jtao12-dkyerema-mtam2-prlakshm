@@ -32,3 +32,11 @@
   cursor: pointer;
   transform: rotate(2deg);
 }
+
+.item-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 20px;
+  gap: 20px;
+}
