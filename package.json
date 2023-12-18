@@ -25,14 +25,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-map-gl": "^7.1.6",
-<<<<<<< HEAD
-    "react-map-gl-geocoder": "^1.8.1",
-    "react-router-dom": "^6.21.0",
-    "realm-web": "^2.0.0"
-=======
-    "react-map-gl-geocoder": "^2.2.0",
-    "react-scripts": "^5.0.1"
->>>>>>> e8f0fa60331cd3860e944b309b6aead4a6816e62
+    "react-map-gl-geocoder": "^2.2.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.39.0",
