@@ -1,9 +1,9 @@
 import React from "react";
 import "../styles/about.css";
-import pranaviImage from "../assets/pranavi.jpg";
-import dorindaImage from "../assets/dorinda.jpg";
-import jeffreyImage from "../assets/jeffrey.jpg";
-import marissaImage from "../assets/marissa.jpg";
+import pranaviImage from "../images/about-us/pranavi.jpg";
+import dorindaImage from "../images/about-us/dorinda.jpg";
+import jeffreyImage from "../images/about-us/jeffrey.jpg";
+import marissaImage from "../images/about-us/marissa.jpg";
 
 function AboutPage() {
   return (

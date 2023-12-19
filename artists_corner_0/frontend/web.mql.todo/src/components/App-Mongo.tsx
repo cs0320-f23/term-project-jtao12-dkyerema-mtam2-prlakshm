@@ -11,19 +11,13 @@ import {
   insertNewItem,
   insertNewAccount,
   addItemToLikedListings,
-<<<<<<< HEAD
-  updateAccount, 
-  markItemAsSold, 
-  getProfilePhotoByUsername
-=======
   updateAccount,
   markItemAsSold,
-  getAllUsernames,
->>>>>>> frontend-category-page
 } from "../mongo/Mongo-Functions";
 import Item from "../models/item";
 import { BSON } from "mongodb-stitch-browser-sdk";
 import Account from "../models/account";
+import React from "react";
 
 /**
  * This is the highest level component!

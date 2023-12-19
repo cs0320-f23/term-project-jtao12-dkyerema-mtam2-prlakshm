@@ -58,7 +58,7 @@ const ItemDetailPage = () => {
               src={seller.photoProfileFilenames}
               alt={seller.fullname}
             />
-            <a href={`/seller/${seller.username}`}>{seller.fullname}</a>
+            <a href={`/user/${seller.username}`}>{seller.fullname}</a>
           </div>
 
           <h2 style={{ margin: "0rem" }}>{item.title}</h2>
