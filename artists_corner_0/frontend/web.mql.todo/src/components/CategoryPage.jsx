@@ -16,7 +16,7 @@ const CategoryPage = () => {
   const [currentItems, setCurrentItems] = useState([]);
   const [subcategories, setSubcategories] = useState(new Set());
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
-  const [selectedFilter, setSelectedFilter] = useState([]);
+  const [selectedSort, setSelectedSort] = useState([]);
 
 
   const fetchItems = async () => {
@@ -71,8 +71,8 @@ const CategoryPage = () => {
   }, [categoryName]);
 
   useEffect(() => {
-    if (selectedFilter) {
-      console.log("selected filter:" + selectedFilter)
+    if (selectedSort) {
+      console.log("selected filter:" + selectedSort)
       console.log("current items:" + currentItems)
 
       // const sortedItems = sortItemsByOption(selectedFilter, currentItems);
@@ -80,7 +80,7 @@ const CategoryPage = () => {
     } else {
       setCurrentItems(currentItems);
     }
-  }, [selectedFilter, currentItems]);
+  }, [selectedSort, currentItems]);
 
   const handleSubcategoryClick = async (subcategory) => {
     setSelectedSubcategory(subcategory);
@@ -92,22 +92,22 @@ const CategoryPage = () => {
     }
   };
 
-const handleSort = async (filter) => {
-  console.log("filter value: " + filter.value)
-  setSelectedFilter(filter.value)
-  if (selectedFilter) {
-    sortItemsByOption(selectedFilter);
+const handleSort = async (sort) => {
+  console.log("filter value: " + sort.value)
+  setSelectedSort(sort.value)
+  if (selectedSort) {
+    sortItemsByOption(selectedSort);
         
   } else {
     fetchItems();
   }
 };
   
-const sortItemsByOption = async (filter) => {
+const sortItemsByOption = async (sort) => {
   const [masterItems, soldItems] = await getItemsByCategory(categoryName);
   let combinedItems = [];
 
-  switch (filter) {
+  switch (sort) {
     case "lowToHigh":
       combinedItems = sortPriceLowToHigh([masterItems, soldItems]);
       break;
@@ -155,7 +155,7 @@ const sortItemsByOption = async (filter) => {
             className="reset-filter"
             onClick={() => handleSubcategoryClick("")}
           >
-            Reset Filter
+            reset filter
           </button>
         )}
 
@@ -164,25 +164,24 @@ const sortItemsByOption = async (filter) => {
           { label: "high to low", value: "highToLow" },
           { label: "most recent", value: "mostRecent" },
           { label: "least recent", value: "leastRecent" },
-        ].map((filter) => (
+        ].map((sort) => (
           <button
-            key={filter.value}
+            key={sort.value}
             className={`filter-tag ${
-              selectedFilter === filter.value ? "selected" : ""
+              selectedSort === sort.value ? "selected" : ""
             }`}
-            // onClick={() => setSelectedFilter(filter.value)}
-            onClick={() => handleSort(filter)}
+            onClick={() => handleSort(sort)}
             >
-            {filter.label}
+            {sort.label}
           </button>
         ))}
 
-        {selectedSubcategory && (
+        {selectedSort && (
           <button
             className="reset-filter"
-            onClick={() => handleSubcategoryClick("")}
+            onClick={() => handleSort("")}
           >
-            Sort By
+            reset sort
           </button>
         )}
       </div>
