@@ -47,7 +47,7 @@ function App() {
           <Link to="/category/Clothing">Clothing</Link>
           <Link to="/category/Art">Art</Link>
           <Link to="/category/Crafts">Crafts</Link>
-          <Link to="/events">Events</Link>
+          {/* <Link to="/events">Events</Link> */}
           <Link to="/about">About</Link>
         </div>
       </div>

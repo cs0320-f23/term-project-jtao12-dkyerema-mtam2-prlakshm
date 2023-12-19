@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   searchItems,
-  getItemsByCategory,
   getItemsBySubcategory,
   sortPriceLowToHigh,
   sortByPriceHighToLow,
@@ -14,8 +13,8 @@ import "../styles/category.css";
 
 
 const SearchPage = ({ searchString, searchClicked }) => {
+  console.log("search string:" + searchString)
   const { categoryName } = useParams();
-  // const [items, setItems] = useState([]);
   const [subcategories, setSubcategories] = useState(new Set());
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
 
@@ -38,10 +37,6 @@ const SearchPage = ({ searchString, searchClicked }) => {
     }
   };
 
-  const handleSearchClick = () => {
-    setSearchClicked(true);
-  };
-
   const handleSubcategoryClick = async (subcategory) => {
     setSelectedSubcategory(subcategory);
     if (subcategory) {
@@ -57,15 +52,7 @@ const SearchPage = ({ searchString, searchClicked }) => {
     }, [searchString]);
 
     useEffect(() => {
-      // if (selectedSort) {
-      //   console.log("selected filter:" + selectedSort)
-      //   console.log("current items:" + currentItems)
-  
-      //   // const sortedItems = sortItemsByOption(selectedFilter, currentItems);
-      //   // setCurrentItems(sortedItems);
-      // } else {
         setCurrentItems(currentItems);
-      // }
     }, [selectedSort, currentItems]);
 
     const handleSort = async (sort) => {
@@ -79,7 +66,6 @@ const SearchPage = ({ searchString, searchClicked }) => {
     };
       
     const sortItemsByOption = async (subcategory, sort) => {
-      // console.log
       const [masterItems, soldItems] = await getItemsBySubcategory(subcategory);
       let combinedItems = [];
     
@@ -113,7 +99,7 @@ const SearchPage = ({ searchString, searchClicked }) => {
   return (
     <div>
     <div className="category-page-container">
-      <h1>{categoryName}</h1>
+      <h1>Search</h1>
       <div className="subcategory-tags">
         {[...subcategories].map((subcat) => (
           <button

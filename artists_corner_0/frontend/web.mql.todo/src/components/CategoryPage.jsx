@@ -40,15 +40,7 @@ const CategoryPage = () => {
   }, [categoryName]);
 
   useEffect(() => {
-    // if (selectedSort) {
-    //   console.log("selected filter:" + selectedSort)
-    //   console.log("current items:" + currentItems)
-
-    //   // const sortedItems = sortItemsByOption(selectedFilter, currentItems);
-    //   // setCurrentItems(sortedItems);
-    // } else {
       setCurrentItems(currentItems);
-    // }
   }, [selectedSort, currentItems]);
 
   const handleSubcategoryClick = async (subcategory) => {
