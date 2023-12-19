@@ -6,6 +6,7 @@ import HomePage from "./HomePage";
 import AboutPage from "./AboutPage";
 import CategoryPage from "./CategoryPage";
 import ItemDetailPage from "./ItemDetailPage";
+import SellerPage from "./SellerPage";
 import "../styles/home.css";
 
 import { initializeStitchClient } from "../mongo/Mongo-Functions";
@@ -43,6 +44,7 @@ function App() {
         <Route path="/category/:categoryName" element={<CategoryPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/item/:itemId" element={<ItemDetailPage />} />
+        <Route path="/user/:username" element={<SellerPage />} />{" "}
       </Routes>
 
       <div className="footer">
