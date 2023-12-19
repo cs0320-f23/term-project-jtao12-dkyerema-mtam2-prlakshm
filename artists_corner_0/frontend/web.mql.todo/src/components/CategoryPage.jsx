@@ -6,7 +6,7 @@ import {
   sortPriceLowToHigh,
   sortByPriceHighToLow,
   sortMostToLeastRecent,
-  sortLeastToMostRecent
+  sortLeastToMostRecent,
 } from "../mongo/Mongo-Functions";
 import ItemComponent from "./ItemComponent";
 import "../styles/category.css";
@@ -17,19 +17,49 @@ const CategoryPage = () => {
   const [subcategories, setSubcategories] = useState(new Set());
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
   const [selectedFilter, setSelectedFilter] = useState([]);
-  // const [originalItems, setOriginalItems] = useState([]); // Represents the original unsorted items.
 
 
   const fetchItems = async () => {
     try {
+      //////////
+
       const [masterItems, soldItems] = await getItemsByCategory(categoryName);
+      console.log("Master Items:");
+      masterItems.map(item => {
+        // console.log(item);
+        // Access and read values of each item object
+        console.log("master Title:", item.title);
+      });
+
+
+      console.log("Sold Items:");
+      soldItems.map(item => {
+        // console.log(item);
+        // Access and read values of each item object
+        console.log("sold Title:", item.title);
+      });
+
+      //////////
+
+      const masterItemsStrings = masterItems.map(item => JSON.stringify(item.title));
+
+      // Log the string representation of each master item
+      console.log("Master Items Strings:");
+      masterItemsStrings.forEach(itemString => console.log(itemString));
+
       const combinedItems = [...masterItems, ...soldItems];
+      console.log("tuple length: " + [masterItems, soldItems].length)
+      console.log("tuple... length: " + [...masterItems, ...soldItems].length)
+      console.log("combined items length: " + combinedItems.length)
+
       setCurrentItems(combinedItems);
 
       // Extract and set subcategories
       const subcategoriesSet = new Set(
         combinedItems.map((item) => item.subcategory)
+
       );
+      
       setSubcategories(subcategoriesSet);
     } catch (error) {
       console.error("Error fetching items:", error);
@@ -45,8 +75,8 @@ const CategoryPage = () => {
       console.log("selected filter:" + selectedFilter)
       console.log("current items:" + currentItems)
 
-      const sortedItems = sortItemsByOption(selectedFilter, currentItems);
-      setCurrentItems(sortedItems);
+      // const sortedItems = sortItemsByOption(selectedFilter, currentItems);
+      // setCurrentItems(sortedItems);
     } else {
       setCurrentItems(currentItems);
     }
@@ -62,43 +92,47 @@ const CategoryPage = () => {
     }
   };
 
-const handleSort = async () => {
+const handleSort = async (filter) => {
+  console.log("filter value: " + filter.value)
+  setSelectedFilter(filter.value)
   if (selectedFilter) {
-    const sortedItems = sortItemsByOption(selectedFilter, currentItems);
-    setCurrentItems(sortedItems);
-    
+    sortItemsByOption(selectedFilter);
+        
   } else {
     fetchItems();
   }
 };
   
-  const sortItemsByOption = (filter, items) => {
-    switch (filter) {
-      case "lowToHigh":
-        return [
-          sortPriceLowToHigh(items[0]), // Sort master items
-          sortPriceLowToHigh(items[1]), // Sort sold items
-        ];
-      case "highToLow":
-        return [
-          sortByPriceHighToLow(items[0]), // Sort master items
-          sortByPriceHighToLow(items[1]), // Sort sold items
-        ];
-      case "mostRecent":
-        return [
-          sortMostToLeastRecent(items[0]), // Sort master items
-          sortMostToLeastRecent(items[1]), // Sort sold items
-        ];
-      case "leastRecent":
-        return [
-          sortLeastToMostRecent(items[0]), // Sort master items
-          sortLeastToMostRecent(items[1]), // Sort sold items
-        ];
-      default:
-        return items;
-    }
-  };
-  
+const sortItemsByOption = async (filter) => {
+  const [masterItems, soldItems] = await getItemsByCategory(categoryName);
+  let combinedItems = [];
+
+  switch (filter) {
+    case "lowToHigh":
+      combinedItems = sortPriceLowToHigh([masterItems, soldItems]);
+      break;
+
+    case "highToLow":
+      combinedItems = sortByPriceHighToLow([masterItems, soldItems]);
+      break;
+
+    case "mostRecent":
+      combinedItems = sortMostToLeastRecent([masterItems, soldItems]);
+      break;
+
+    case "leastRecent":
+      combinedItems = sortLeastToMostRecent([masterItems, soldItems]);
+      break;
+
+    default:
+      return [masterItems, soldItems];
+  }
+
+  const [filtMasterItems, filtSoldItems] = combinedItems;
+  setCurrentItems([...filtMasterItems, ...filtSoldItems]);
+
+  return combinedItems;
+};
   
 
   return (
@@ -136,8 +170,8 @@ const handleSort = async () => {
             className={`filter-tag ${
               selectedFilter === filter.value ? "selected" : ""
             }`}
-            onClick={() => setSelectedFilter(filter.value)}
-            // onClick={() => handleSort()}
+            // onClick={() => setSelectedFilter(filter.value)}
+            onClick={() => handleSort(filter)}
             >
             {filter.label}
           </button>
