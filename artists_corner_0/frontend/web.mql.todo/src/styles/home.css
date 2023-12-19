@@ -207,7 +207,6 @@ https://gomakethings.com/full-width-images-with-only-css/ */
 .header .search-container button:hover {
   background: #ccc;
 }
-
 .topnav {
   display: flex;
   justify-content: space-between;
@@ -242,6 +241,7 @@ https://gomakethings.com/full-width-images-with-only-css/ */
   flex-wrap: wrap;
   flex-direction: row;
 }
+
 
 .experience-container {
   display: flex;
