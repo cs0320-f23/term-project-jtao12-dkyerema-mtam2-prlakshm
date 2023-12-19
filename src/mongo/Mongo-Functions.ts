@@ -254,6 +254,41 @@ export async function getItemsBySubcategory(
 }
 
 /**
+ * Retrieves items from the database associated with a specific seller by username
+ * @param username string (username of the seller)
+ * @returns tuple of [masterItems, soldItems] of items associated with that seller
+ */
+export async function getItemsBySellerUsername(
+  username: string
+): Promise<ItemTuple> {
+  try {
+    await client?.auth.loginWithCredential(
+      new UserApiKeyCredential(ACCESS_TOKEN)
+    );
+
+    const db = mongodb?.db("artists_corner_pvd");
+    if (!db) {
+      throw new Error("Database not available");
+    }
+
+    const masterItemsCollection: RemoteMongoCollection<Item> =
+      db.collection("master_items");
+    const masterItemsCursor = masterItemsCollection.find({ seller: username });
+    const master_Items: Item[] = await masterItemsCursor.toArray();
+
+    const soldItemsCollection: RemoteMongoCollection<Item> =
+      db.collection("sold_items");
+    const soldItemsCursor = soldItemsCollection.find({ seller: username });
+    const sold_Items: Item[] = await soldItemsCursor.toArray();
+
+    return [master_Items, sold_Items];
+  } catch (error) {
+    console.error("Error fetching items by seller username:", error);
+    return [];
+  }
+}
+
+/**
  * Retrieves items from database from based on search string
  * @param keyword string (insensitive) of keyword(s) want to search for
  * @returns tuple of [masterItems, soldItems] of items in with that keyword

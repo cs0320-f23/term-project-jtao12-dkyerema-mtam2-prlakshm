@@ -10,6 +10,7 @@ import {
 } from "../mongo/Mongo-Functions";
 import ItemComponent from "./ItemComponent";
 import "../styles/category.css";
+import { Link } from "react-router-dom";
 
 const CategoryPage = () => {
   const { categoryName } = useParams();
