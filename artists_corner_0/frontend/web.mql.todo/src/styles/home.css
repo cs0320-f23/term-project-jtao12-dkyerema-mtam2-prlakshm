@@ -290,6 +290,25 @@ a {
   }
 }
 
+.team-member img {
+  width: 350px;
+  height: 350px;
+  border-radius: 16px;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.team-member img:hover {
+  transform: rotate(2deg);
+}
+
+@media (max-width: 768px) {
+  .team-members {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 480px) {
   .card {
     width: calc(100% - 2rem); /* one item per row on very small screens */

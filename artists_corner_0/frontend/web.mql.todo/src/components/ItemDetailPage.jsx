@@ -56,7 +56,7 @@ const ItemDetailPage = () => {
             <img
               className="profile-photo"
               src={seller.photoProfileFilenames}
-              alt={item.title}
+              alt={seller.fullname}
             />
             <a href={`/seller/${seller.username}`}>{seller.fullname}</a>
           </div>

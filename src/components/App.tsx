@@ -11,8 +11,15 @@ import {
   insertNewItem,
   insertNewAccount,
   addItemToLikedListings,
+<<<<<<< HEAD
+  updateAccount, 
+  markItemAsSold, 
+  getProfilePhotoByUsername
+=======
   updateAccount,
   markItemAsSold,
+  getAllUsernames,
+>>>>>>> frontend-category-page
 } from "../mongo/Mongo-Functions";
 import Item from "../models/item";
 import { BSON } from "mongodb-stitch-browser-sdk";
@@ -64,9 +71,9 @@ function App() {
       });
   }, []);
   useEffect(() => {
-    searchItems("Item Title")
+    searchItems("$19.25")
       .then(([masterItems, soldItems]) => {
-        setItems(sortMostToLeastRecent([masterItems || [], soldItems || []]));
+        setItems([masterItems || [], soldItems || []]);
       })
       .catch((error) => {
         console.error("Error:", error);

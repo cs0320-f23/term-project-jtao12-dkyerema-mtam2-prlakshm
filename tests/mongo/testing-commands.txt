@@ -1,0 +1,7 @@
+Terminal Testing Commands: 
+
+npx jest access-mongo-functions.test.ts
+
+npx jest modify-mongo-functions.test.ts
+
+npx jest misc-mongo-functions.test.ts

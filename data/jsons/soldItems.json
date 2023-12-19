@@ -3,7 +3,7 @@
     "_id": {
       "$oid": "656bb25aabfe68217e3eb93d"
     },
-    "title": "\\\"Be Kind\\\" Tie-Dye Sweatshirt",
+    "title": "Be Kind Tie-Dye Sweatshirt",
     "description": "\"Be Kind\" tie-dye sweatshirt with rainbow colors and patterns.",
     "seller": "FashionExplorer",
     "category": "clothing",
@@ -13,8 +13,8 @@
       "$date": "2024-02-21T16:45:00.000Z"
     },
     "photoFilenames": [
-      "./data/photos/tie_dye_sweatshirt_1.jpg",
-      "./data/photos/tie_dye_sweatshirt_2.png"
+      "../data/photos/tie_dye_sweatshirt_1.jpg",
+      "../data/photos/tie_dye_sweatshirt_2.jpg"
     ],
     "ifSold": true
   },
@@ -31,7 +31,7 @@
     "timestamp": {
       "$date": "2024-02-26T19:20:00.000Z"
     },
-    "photoFilenames": ["./data/photos/tree_drawing.png"],
+    "photoFilenames": ["../data/photos/tree_drawing.png"],
     "ifSold": true
   },
   {
@@ -48,8 +48,8 @@
       "$date": "2024-03-02T18:10:00.000Z"
     },
     "photoFilenames": [
-      "./data/photos/white_pearl_heart_necklace_1.jpg",
-      "./data/photos/white_pearl_heart_necklace_2.png"
+      "../data/photos/white_pearl_heart_necklace_1.jpg",
+      "../data/photos/white_pearl_heart_necklace_2.png"
     ],
     "ifSold": true
   },
@@ -66,7 +66,7 @@
     "timestamp": {
       "$date": "2024-03-07T15:05:00.000Z"
     },
-    "photoFilenames": ["./data/photos/wire_wall_art.jpg"],
+    "photoFilenames": ["../data/photos/wire_wall_art.jpg"],
     "ifSold": true
   },
   {
@@ -82,7 +82,7 @@
     "timestamp": {
       "$date": "2024-03-12T20:30:00.000Z"
     },
-    "photoFilenames": ["./data/photos/crochet_orange_rabbit.jpg"],
+    "photoFilenames": ["../data/photos/crochet_orange_rabbit.jpg"],
     "ifSold": true
   },
   {
@@ -98,7 +98,7 @@
     "timestamp": {
       "$date": "2024-03-17T16:15:00.000Z"
     },
-    "photoFilenames": ["./data/photos/crochet_purple_snoopy_tote_bag.jpg"],
+    "photoFilenames": ["../data/photos/crochet_purple_snoopy_tote_bag.jpg"],
     "ifSold": true
   },
   {
@@ -114,7 +114,7 @@
     "timestamp": {
       "$date": "2024-03-22T13:55:00.000Z"
     },
-    "photoFilenames": ["./data/photos/macrame_plant_hanger.jpg"],
+    "photoFilenames": ["../data/photos/macrame_plant_hanger.jpg"],
     "ifSold": true
   },
   {
@@ -130,7 +130,7 @@
     "timestamp": {
       "$date": "2024-03-27T18:40:00.000Z"
     },
-    "photoFilenames": ["./data/photos/crocet_white_pencil_pouches.jpg"],
+    "photoFilenames": ["../data/photos/crocet_white_pencil_pouches.jpg"],
     "ifSold": true
   },
   {
@@ -147,9 +147,9 @@
       "$date": "2024-04-01T15:25:00.000Z"
     },
     "photoFilenames": [
-      "./data/photos/double_hanging_pearl_necklace_1.jpg",
-      "./data/photos/double_hanging_pearl_necklace_2.jpg",
-      "./data/photos/double_hanging_pearl_necklace_3.jpg"
+      "../data/photos/double_hanging_pearl_necklace_1.jpg",
+      "../data/photos/double_hanging_pearl_necklace_2.jpg",
+      "../data/photos/double_hanging_pearl_necklace_3.jpg"
     ],
     "ifSold": true
   },
@@ -166,7 +166,7 @@
     "timestamp": {
       "$date": "2024-04-06T14:15:00.000Z"
     },
-    "photoFilenames": ["./data/photos/forest_print.jpg"],
+    "photoFilenames": ["../data/photos/forest_print.jpg"],
     "ifSold": true
   },
   {
@@ -182,7 +182,7 @@
     "timestamp": {
       "$date": "2024-04-11T18:50:00.000Z"
     },
-    "photoFilenames": ["./data/photos/crochet_green_bird.jpg"],
+    "photoFilenames": ["../data/photos/crochet_green_bird.jpg"],
     "ifSold": true
   },
   {
@@ -199,9 +199,9 @@
       "$date": "2024-04-16T13:40:00.000Z"
     },
     "photoFilenames": [
-      "./data/photos/Mixed_beads_necklace_1.jpg",
-      "./data/photos/Mixed_beads_necklace_2.jpg",
-      "./data/photos/Mixed_beads_necklace_3.jpg"
+      "../data/photos/mixed_beads_necklace_1.jpg",
+      "../data/photos/mixed_beads_necklace_2.jpg",
+      "../data/photos/mixed_beads_necklace_3.jpg"
     ],
     "ifSold": true
   },
@@ -218,7 +218,7 @@
     "timestamp": {
       "$date": "2024-04-21T16:30:00.000Z"
     },
-    "photoFilenames": ["./data/photos/pearl_tulip_necklace.jpg"],
+    "photoFilenames": ["../data/photos/pearl_tulip_necklace.jpg"],
     "ifSold": true
   },
   {
@@ -234,7 +234,7 @@
     "timestamp": {
       "$date": "2024-04-26T21:20:00.000Z"
     },
-    "photoFilenames": ["./data/photos/pink_angel_necklace.jpg"],
+    "photoFilenames": ["../data/photos/pink_angel_necklace.jpg"],
     "ifSold": true
   },
   {
@@ -250,7 +250,7 @@
     "timestamp": {
       "$date": "2024-05-01T18:15:00.000Z"
     },
-    "photoFilenames": ["./data/photos/water_girl_digital_art.jpg"],
+    "photoFilenames": ["../data/photos/water_girl_digital_art.png"],
     "ifSold": true
   },
   {
@@ -267,8 +267,8 @@
       "$date": "2024-05-06T15:10:00.000Z"
     },
     "photoFilenames": [
-      "./data/photos/diy_phone_case_kit_1.jpg",
-      "./data/photos/diy_phone_case_kit_2.jpg"
+      "../data/photos/diy_phone_case_kit_1.jpg",
+      "../data/photos/diy_phone_case_kit_2.jpg"
     ],
     "ifSold": true
   },
@@ -285,7 +285,7 @@
     "timestamp": {
       "$date": "2024-05-11T20:05:00.000Z"
     },
-    "photoFilenames": ["./data/photos/rhinestone_butterfly_necklace.jpg"],
+    "photoFilenames": ["../data/photos/rhinestone_butterfly_necklace.jpg"],
     "ifSold": true
   },
   {
@@ -301,7 +301,7 @@
     "timestamp": {
       "$date": "2024-05-16T17:55:00.000Z"
     },
-    "photoFilenames": ["./data/photos/rhinestone_saturn_necklace.jpg"],
+    "photoFilenames": ["../data/photos/rhinestone_saturn_necklace.jpg"],
     "ifSold": true
   },
   {
@@ -318,8 +318,8 @@
       "$date": "2024-05-21T14:50:00.000Z"
     },
     "photoFilenames": [
-      "./data/photos/ribbon_bow_necklace_1.jpg",
-      "./data/photos/ribbon_bow_necklace_2.png"
+      "../data/photos/ribbon_bow_necklace_1.jpg",
+      "../data/photos/ribbon_bow_necklace_2.png"
     ],
     "ifSold": true
   },
@@ -336,7 +336,7 @@
     "timestamp": {
       "$date": "2024-06-01T16:40:00.000Z"
     },
-    "photoFilenames": ["./data/photos/anatomical_heart_sculpture.png"],
+    "photoFilenames": ["../data/photos/anatomical_heart_sculpture.png"],
     "ifSold": true
   },
   {

@@ -105,10 +105,12 @@ const sortItemsByOption = async (sort) => {
   return (
     <div className="category-page-container">
       <h1>{categoryName}</h1>
-      <div className="subcategory-tags">
+      <div data-testid="subcategory-tags" className="subcategory-tags">
         {[...subcategories].map((subcat) => (
           <button
             key={subcat}
+            aria-label={subcat}
+            title={subcat}
             className={`tag ${
               selectedSubcategory === subcat ? "selected" : ""
             }`}
