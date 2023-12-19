@@ -18,46 +18,14 @@ const CategoryPage = () => {
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
   const [selectedSort, setSelectedSort] = useState([]);
 
-
   const fetchItems = async () => {
     try {
-      //////////
-
       const [masterItems, soldItems] = await getItemsByCategory(categoryName);
-      console.log("Master Items:");
-      masterItems.map(item => {
-        // console.log(item);
-        // Access and read values of each item object
-        console.log("master Title:", item.title);
-      });
-
-
-      console.log("Sold Items:");
-      soldItems.map(item => {
-        // console.log(item);
-        // Access and read values of each item object
-        console.log("sold Title:", item.title);
-      });
-
-      //////////
-
-      const masterItemsStrings = masterItems.map(item => JSON.stringify(item.title));
-
-      // Log the string representation of each master item
-      console.log("Master Items Strings:");
-      masterItemsStrings.forEach(itemString => console.log(itemString));
-
       const combinedItems = [...masterItems, ...soldItems];
-      console.log("tuple length: " + [masterItems, soldItems].length)
-      console.log("tuple... length: " + [...masterItems, ...soldItems].length)
-      console.log("combined items length: " + combinedItems.length)
-
       setCurrentItems(combinedItems);
 
-      // Extract and set subcategories
       const subcategoriesSet = new Set(
         combinedItems.map((item) => item.subcategory)
-
       );
       
       setSubcategories(subcategoriesSet);
@@ -71,15 +39,15 @@ const CategoryPage = () => {
   }, [categoryName]);
 
   useEffect(() => {
-    if (selectedSort) {
-      console.log("selected filter:" + selectedSort)
-      console.log("current items:" + currentItems)
+    // if (selectedSort) {
+    //   console.log("selected filter:" + selectedSort)
+    //   console.log("current items:" + currentItems)
 
-      // const sortedItems = sortItemsByOption(selectedFilter, currentItems);
-      // setCurrentItems(sortedItems);
-    } else {
+    //   // const sortedItems = sortItemsByOption(selectedFilter, currentItems);
+    //   // setCurrentItems(sortedItems);
+    // } else {
       setCurrentItems(currentItems);
-    }
+    // }
   }, [selectedSort, currentItems]);
 
   const handleSubcategoryClick = async (subcategory) => {
@@ -93,7 +61,6 @@ const CategoryPage = () => {
   };
 
 const handleSort = async (sort) => {
-  console.log("filter value: " + sort.value)
   setSelectedSort(sort.value)
   if (selectedSort) {
     sortItemsByOption(selectedSort);

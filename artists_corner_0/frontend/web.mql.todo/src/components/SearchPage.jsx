@@ -1,31 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
-  searchItems} from "../mongo/Mongo-Functions";
+  searchItems,
+  getItemsByCategory,
+  getItemsBySubcategory,
+  sortPriceLowToHigh,
+  sortByPriceHighToLow,
+  sortMostToLeastRecent,
+  sortLeastToMostRecent,
+} from "../mongo/Mongo-Functions";
 import ItemComponent from "./ItemComponent";
 import "../styles/category.css";
 
 
 const SearchPage = ({ searchString, searchClicked }) => {
   const { categoryName } = useParams();
-  const [items, setItems] = useState([]);
+  // const [items, setItems] = useState([]);
   const [subcategories, setSubcategories] = useState(new Set());
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
-  // const [searchString, setSearchString] = useState('');
-  // const [searchClicked, setSearchClicked] = useState(false);
 
-  console.log("2:" + searchString);
+  const [currentItems, setCurrentItems] = useState([]);
+  const [selectedSort, setSelectedSort] = useState([]);
 
   const fetchItems = async () => {
     try {
       const [masterItems, soldItems] = await searchItems(searchString);
       const combinedItems = [...masterItems, ...soldItems];
-      setItems(combinedItems);
+      setCurrentItems(combinedItems);
 
-      // Extract and set subcategories
       const subcategoriesSet = new Set(
         combinedItems.map((item) => item.subcategory)
       );
+
       setSubcategories(subcategoriesSet);
     } catch (error) {
       console.error("Error fetching items:", error);
@@ -40,34 +46,72 @@ const SearchPage = ({ searchString, searchClicked }) => {
     setSelectedSubcategory(subcategory);
     if (subcategory) {
       const [masterItems, soldItems] = await getItemsBySubcategory(subcategory);
-      setItems([...masterItems, ...soldItems]);
+      setCurrentItems([...masterItems, ...soldItems]);
     } else {
-      fetchItems(); // Reset to all items in the category
+      fetchItems(); 
     }
   };
 
   useEffect(() => {
-    // if (searchClicked) {
-      // console.log("puppies")
       fetchItems();
-      // setSearchClicked(false);
-      // setSearchString("")
-    // }
-  }, [searchString]);
+    }, [searchString]);
 
-  console.log("search clicked? " + searchClicked)
+    useEffect(() => {
+      // if (selectedSort) {
+      //   console.log("selected filter:" + selectedSort)
+      //   console.log("current items:" + currentItems)
+  
+      //   // const sortedItems = sortItemsByOption(selectedFilter, currentItems);
+      //   // setCurrentItems(sortedItems);
+      // } else {
+        setCurrentItems(currentItems);
+      // }
+    }, [selectedSort, currentItems]);
+
+    const handleSort = async (sort) => {
+      setSelectedSort(sort.value)
+      if (selectedSort) {
+        sortItemsByOption(selectedSubcategory, selectedSort);
+            
+      } else {
+        fetchItems();
+      }
+    };
+      
+    const sortItemsByOption = async (subcategory, sort) => {
+      // console.log
+      const [masterItems, soldItems] = await getItemsBySubcategory(subcategory);
+      let combinedItems = [];
+    
+      switch (sort) {
+        case "lowToHigh":
+          combinedItems = sortPriceLowToHigh([masterItems, soldItems]);
+          break;
+    
+        case "highToLow":
+          combinedItems = sortByPriceHighToLow([masterItems, soldItems]);
+          break;
+    
+        case "mostRecent":
+          combinedItems = sortMostToLeastRecent([masterItems, soldItems]);
+          break;
+    
+        case "leastRecent":
+          combinedItems = sortLeastToMostRecent([masterItems, soldItems]);
+          break;
+    
+        default:
+          return [masterItems, soldItems];
+      }
+    
+      const [filtMasterItems, filtSoldItems] = combinedItems;
+      setCurrentItems([...filtMasterItems, ...filtSoldItems]);
+    
+      return combinedItems;
+    };
 
   return (
     <div>
-      {/* <input
-        type="text"
-        placeholder="Search..."
-        value={searchString}
-        setValue={setSearchString}
-        onChange={handleInputChange}
-      />
-      <button onClick={handleSearchClick}>Search</button> */}
-    
     <div className="category-page-container">
       <h1>{categoryName}</h1>
       <div className="subcategory-tags">
@@ -87,12 +131,37 @@ const SearchPage = ({ searchString, searchClicked }) => {
             className="reset-filter"
             onClick={() => handleSubcategoryClick("")}
           >
-            Reset Filter
+            reset filter
+          </button>
+        )}
+        {[
+          { label: "low to high", value: "lowToHigh" },
+          { label: "high to low", value: "highToLow" },
+          { label: "most recent", value: "mostRecent" },
+          { label: "least recent", value: "leastRecent" },
+        ].map((sort) => (
+          <button
+            key={sort.value}
+            className={`filter-tag ${
+              selectedSort === sort.value ? "selected" : ""
+            }`}
+            onClick={() => handleSort(sort)}
+            >
+            {sort.label}
+          </button>
+        ))}
+
+        {selectedSort && (
+          <button
+            className="reset-filter"
+            onClick={() => handleSort("")}
+          >
+            reset sort
           </button>
         )}
       </div>
       <div className="items-grid">
-        {items.map((item) => (
+        {currentItems.map((item) => (
           <ItemComponent key={item._id} item={item} />
         ))}
       </div>

@@ -170,6 +170,7 @@ https://gomakethings.com/full-width-images-with-only-css/ */
 .header input[type="text"] {
   font-family: "Space Grotesk";
   padding: 6px 6px 6px 12px;
+  float: right;
   margin-top: 8px;
   margin-right: 6px;
   font-size: 0.9rem;
@@ -235,7 +236,7 @@ https://gomakethings.com/full-width-images-with-only-css/ */
   transform: translateY(-5px);
 }
 
-.container {
+.search-container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
