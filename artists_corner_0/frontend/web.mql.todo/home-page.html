@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <meta name="description" content="my portfolio" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space%20Grotesk:wght@400;700&display=swap:"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/7a616d3413.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let lastScrollTop = 0;
+        let mainContent = document.querySelector(".main-content");
+        let footer = document.querySelector(".footer");
+
+        window.addEventListener("scroll", function () {
+          let st = window.pageYOffset || document.documentElement.scrollTop;
+          let footerHeight = footer.offsetHeight;
+
+          if (st > lastScrollTop) {
+            // Scrolling down
+            mainContent.style.marginBottom = "0";
+          } else {
+            // Scrolling up
+            mainContent.style.marginBottom = footerHeight + "px";
+          }
+
+          lastScrollTop = st <= 0 ? 0 : st;
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="header">
+      <a style="color: #303030" href="home.html">Artist's Corner PVD</a>
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search..." name="search" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="topnav">
+      <div class="right-links">
+        <a href="accessories.html">Accessories</a>
+        <a href="apparel.html">Apparel</a>
+        <a href="artwork.html">Artwork</a>
+        <a href="crafts.html">Crafts</a>
+        <a href="misc.html">Misc.</a>
+        <a href="events.html">Events</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Verdana, sans-serif;
+        margin: 0;
+      }
+
+      .mySlides {
+        display: none;
+      }
+
+      img {
+        vertical-align: middle;
+      }
+
+      /* Slideshow container */
+      .slideshow-container {
+        width: 100%;
+        max-height: 225px;
+        position: relative;
+        margin: auto;
+      }
+
+      /* Caption text */
+      .text {
+        color: #f2f2f2;
+        font-family: "Recoleta";
+        font-size: 80px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+      }
+
+      /* Fading animation */
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .text {
+          font-size: 11px;
+        }
+      }
+
+      .upcoming-events {
+        text-align: center;
+        margin-top: 45px;
+        font-size: 1.5rem;
+        color: #333;
+        margin-top: -100px;
+        margin-left: 40px; /* Adjust this value to move the text to the right */
+      }
+
+      .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        background-color: white; /* Adjust background color as needed */
+        padding: 10px; /* Adjust padding as needed */
+      }
+
+      .column {
+        float: left;
+        width: 25%;
+        padding: 5px;
+      }
+
+      .images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Center the images horizontally */
+        align-items: center; /* Center the images vertically */
+        padding: 30px;
+        margin-top: -50px;
+      }
+
+      .photo {
+        flex: 0 0 calc(31.333% - 100px); /* Adjust width and spacing between images */
+        margin: 50px; /* Increase spacing around images */
+        height: 240px;
+      }
+
+      .photo img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .upcoming-events-container {
+        text-align: center;
+        margin-top: 200px;
+        margin-bottom: 50px;
+      }
+      .upcoming-events {
+        display: inline-block;
+        text-align: left;
+        font-size: 1.5rem;
+        color: #333;
+      }
+      .photo-description {
+        font-size: 16px;
+        color: #666;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      /* Clearfix (clear floats) */
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+    </style>
+
+    <div class="main-content">
+      <section class="slideshow">
+        <div class="slideshow-container">
+          <div class="mySlides fade">
+            <img src="small oil painting.jpeg" style="width: 100%" />
+            <div class="text">20 Dec: Dance Performance at Sayles</div>
+          </div>
+
+          <div class="mySlides fade">
+            <img src="small oil painting.jpeg" style="width: 100%" />
+            <div class="text">21 Dec: Painting Exhibition at List</div>
+          </div>
+
+          <div class="mySlides fade">
+            <img src="small oil painting.jpeg" style="width: 100%" />
+            <div class="text">22 Dec: Pottery Workshop</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="upcoming-events-container">
+        <div class="upcoming-events">
+          <div class="container">
+            <div class="heading_container">
+              <h2>Upcoming Events</h2>
+              <div class="images">
+                <div class="photo">
+                  <img src="pottery.jpeg" alt="photo" />
+                  <p class="photo-description">Jan 1: Pottery Workshop</p>
+                </div>
+
+                <div class="photo">
+                  <img src="pottery.jpeg" alt="photo" />
+                  <p class="photo-description">Jan 1: Pottery Workshop</p>
+                </div>
+
+                <div class="photo">
+                  <img src="pottery.jpeg" alt="photo" />
+                  <p class="photo-description">Jan 1: Pottery Workshop</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">
+      <p style="font-size: 0.9rem">
+        Copyright © 2023 Artist's Corner PVD.&nbsp; Made with ❤️ in Providence.
+      </p>
+    </div>
+
+    <script>
+      let slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 5000); // Change image every 5 seconds
+      }
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let mainContent = document.querySelector(".main-content");
+        let footer = document.querySelector(".footer");
+        let placeholder = document.createElement("div");
+
+        // Set the height of the placeholder to be the same as the footer
+        placeholder.style.height = footer.offsetHeight + "px";
+        mainContent.appendChild(placeholder);
+
+        window.addEventListener("resize", function () {
+          // Update the height of the placeholder on window resize
+          placeholder.style.height = footer.offsetHeight + "px";
+        });
+      });
+    </script>
+  </body>
+</html>

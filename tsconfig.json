@@ -16,6 +16,9 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
+  "include": [
+    "src",
+    "artists_corner_0/frontend/web.mql.todo/src/components/App.jsx"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
