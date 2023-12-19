@@ -36,7 +36,7 @@ If keeping the return as an object then for the fields strings remain as strings
 
 # Tests:
 
-## Jest Testing
+## Banckend Jest Testing
 
 <span style="color:#75BFEC;">tests/mongo</span>
 <br>access-mongo-functions.test.ts
@@ -46,9 +46,22 @@ If keeping the return as an object then for the fields strings remain as strings
 <br>This test suite tests all the Mongo functions that modify the database. This test suite adds new items/accounts, updates items/accounts, and deletes items/accounts. There are only a few tests because we didn't want to disrupt the mocked database data too much. 
 
 <br>misc-mongo-functions.test.ts
-<br>This test suite tests any miscellaneous Mongo functions. It inlcudes fuzz tests for `getAllUsernames()` and `ifUsernameAlreadyExists()`.
+<br>This test suite tests any miscellaneous Mongo functions. It inlcudes fuzz tests for `getAllUsernames()` and `ifUsernameAlreadyExists()
 
-## Playwright Testing
+## Frontend Jest and Vi Testing
+
+For frontend, we wrote Unit Tests for App, Category, Item, and Seller pages using vitest and jest. In each testing suite, we checked that each page would display the appropriate text and images. We also checked that all the necessary components would be in each page. 
+
+To test App, our main high level component, we checked that basic elements of the page were rendered correctly, including the header and nav bar. We also tested that we could navigate to other pages using the nav bar.
+
+To test the functionality of the CategoryPage component, we created unit tests to check that it correctly displays items based on categories and handles user interactions. For example, ensuring that the accessories category shows items like “Blue Green Beaded Bow Necklace.” We also wrote tests to check if filtering by subcategories works (e.g., selecting ‘prints’ in the art category shows the exact number of items and names of the items). We also checked whether clicking on an item card navigates correctly to the item detail page.
+
+To test the functionality of the ItemDetailPage component, we created unit tests to check whether the page renders the correct information about the specific item along with the associated seller details. 
+
+To test the functionality of the SellerPage component, we created unit tests to check if the seller’s items would display correctly. For sellers who only had sold items, there should be no current items. The error messages should also display if there’s an issue with fetching data from the backend. 
+
+We also wrote Integration Tests to check the navigation between pages. For example, when the user navigates to the About page then the Home page, the text on each page should be displayed as intended. 
+
 
 
 # How To:
