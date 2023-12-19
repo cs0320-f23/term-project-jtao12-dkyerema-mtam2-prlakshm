@@ -1,8 +1,8 @@
 import React from "react";
 import Slideshow from "./Slideshow";
-import crab from "../assets/crab-eboard.jpg";
-import magnet from "../assets/magnet-workshop.jpg";
-import model from "../assets/model-call.jpg";
+import crab from "../images/events/crab-eboard.jpg";
+import magnet from "../images/events/magnet-workshop.jpg";
+import model from "../images/events/model-call.jpg";
 
 function HomePage() {
   return (
