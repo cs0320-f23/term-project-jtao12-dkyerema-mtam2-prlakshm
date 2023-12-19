@@ -7,7 +7,7 @@ import AboutPage from "./AboutPage";
 import CategoryPage from "./CategoryPage";
 import ItemDetailPage from "./ItemDetailPage";
 import SearchPage from "./SearchPage"
-import SellerPage from "./SellerPage"; // Import UserPage component
+import SellerPage from "./SellerPage";
 import "../styles/home.css";
 
 import { initializeStitchClient } from "../mongo/Mongo-Functions";
@@ -62,7 +62,7 @@ function App() {
         <Route path={`/search`} element={<SearchPage 
           searchString={searchString}
           />} />
-        <Route path="/user/:username" element={<SellerPage />} />
+        <Route path="/user/:username" element={<SellerPage />} />{" "}
       </Routes>
 
       <div className="footer">

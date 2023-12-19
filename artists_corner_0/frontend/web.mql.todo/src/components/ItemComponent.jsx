@@ -7,7 +7,7 @@ const ItemComponent = ({ item }) => {
     item.photoFilenames.length > 0 ? item.photoFilenames[0] : null;
 
   return (
-    <div data-testid="item-card" className="item-card">
+    <div className="item-card">
       <Link to={`/item/${item._id}`}>
         {mainImageSrc && <img src={mainImageSrc} alt={item.title} />}
         <p>
