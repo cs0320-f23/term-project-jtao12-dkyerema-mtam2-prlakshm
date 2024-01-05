@@ -6,8 +6,8 @@
 h1 {
   font-family: "Space Grotesk";
   font-size: 2rem;
-  margin-left: 7rem;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 8rem;
 }
 
 .subcategory-items-container {
@@ -18,7 +18,7 @@ h1 {
   display: flex;
   flex-direction: column;
   border-right: 1px solid #ccc; /* Add a border on the right */
-  padding-left: 30px;
+  padding-left: 20px;
   padding-right: 30px; /* Adjust padding as needed */
 }
 
@@ -67,4 +67,22 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   padding: 20px; /* Adjust padding as needed */
+}
+
+.sort-dropdown {
+  position: relative;
+  top: -0.5rem;
+  right: -67rem;
+  width: 20rem;
+}
+
+.sort-dropdown select {
+  font-family: "Space Grotesk";
+  font-size: medium;
+  background-color: rgb(223, 227, 255); /* Light blue background color */
+  border-radius: 8px;
+  padding: 8px;
+  border: 0;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }

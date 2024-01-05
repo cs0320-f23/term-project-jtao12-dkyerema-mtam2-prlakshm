@@ -55,10 +55,10 @@ const CategoryPage = () => {
     }
   };
 
-  const handleSort = async (sort) => {
-    setSelectedSort(sort.value);
-    if (selectedSort) {
-      sortItemsByOption(selectedSort);
+  const handleSort = async (selectedValue) => {
+    setSelectedSort(selectedValue);
+    if (selectedValue !== "reset") {
+      sortItemsByOption(selectedValue);
     } else {
       fetchItems();
     }
@@ -98,10 +98,19 @@ const CategoryPage = () => {
   return (
     <div className="category-page-container">
       <h1>{categoryName}</h1>
-      <div
-        className="subcategory-items-container"
-        style={{ marginTop: "2rem" }}
-      >
+      <div className="sort-dropdown">
+        <select
+          value={selectedSort}
+          onChange={(e) => handleSort(e.target.value)}
+        >
+          <option value="reset">Reset Sort</option>
+          <option value="lowToHigh">Low to High</option>
+          <option value="highToLow">High to Low</option>
+          <option value="mostRecent">Most Recent</option>
+          <option value="leastRecent">Least Recent</option>
+        </select>
+      </div>
+      <div className="subcategory-items-container">
         <div data-testid="subcategory-tags" className="subcategory-tags">
           {[...subcategories].map((subcat) => (
             <button
@@ -122,29 +131,6 @@ const CategoryPage = () => {
               onClick={() => handleSubcategoryClick("")}
             >
               reset filter
-            </button>
-          )}
-
-          {[
-            { label: "low to high", value: "lowToHigh" },
-            { label: "high to low", value: "highToLow" },
-            { label: "most recent", value: "mostRecent" },
-            { label: "least recent", value: "leastRecent" },
-          ].map((sort) => (
-            <button
-              key={sort.value}
-              className={`filter-tag ${
-                selectedSort === sort.value ? "selected" : ""
-              }`}
-              onClick={() => handleSort(sort)}
-            >
-              {sort.label}
-            </button>
-          ))}
-
-          {selectedSort && (
-            <button className="reset-filter" onClick={() => handleSort("")}>
-              reset sort
             </button>
           )}
         </div>
