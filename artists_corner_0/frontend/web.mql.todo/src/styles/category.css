@@ -1,58 +1,70 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap");
-
 .category-page-container {
   margin-left: 6rem;
   margin-right: 6rem;
 }
 
-.tag {
+h1 {
   font-family: "Space Grotesk";
-  font-size: medium;
-  background-color: rgb(255, 223, 223);
-  border-radius: 15px;
-  padding: 6px 14px;
-  margin: 10px 8px 24px 0rem;
-  border: 0;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  font-size: 2rem;
+  margin-left: 7rem;
+  margin-bottom: 20px;
 }
 
-.filter-tag {
-  font-family: "Space Grotesk";
-  font-size: medium;
-  background-color: rgb(223, 227, 255);
-  border-radius: 15px;
-  padding: 6px 14px;
-  margin: 10px 8px 24px 0rem;
-  border: 0;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+.subcategory-items-container {
+  display: flex;
 }
 
+.subcategory-tags {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #ccc; /* Add a border on the right */
+  padding-left: 30px;
+  padding-right: 30px; /* Adjust padding as needed */
+}
+
+.tag,
+.filter-tag,
 .reset-filter {
   font-family: "Space Grotesk";
   font-size: medium;
-  background-color: rgb(238, 238, 238);
   border-radius: 15px;
   padding: 6px 14px;
-  margin: 10px 8px 24px 0rem;
+  margin: 10px 0px 24px 60px;
   border: 0;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
+  width: 10rem; /* Set the desired width */
 }
 
-.tag:hover {
-  cursor: pointer;
-  transform: translateY(-5px);
+.tag {
+  background-color: rgb(255, 223, 223);
 }
 
-.filter-tag:hover {
-  cursor: pointer;
-  transform: translateY(-5px);
+.filter-tag {
+  background-color: rgb(223, 227, 255);
 }
 
+.reset-filter {
+  background-color: rgb(238, 238, 238);
+}
 
+.tag:hover,
+.filter-tag:hover,
 .reset-filter:hover {
   cursor: pointer;
   transform: translateY(-5px);
+}
+
+.tag.selected,
+.filter-tag.selected,
+.reset-filter.selected {
+  background-color: #ff7f7f; /* Set the desired darker color for selected tags */
+  color: #fff; /* Set the text color for better visibility */
+}
+
+.items-grid {
+  margin-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px; /* Adjust padding as needed */
 }
