@@ -397,7 +397,7 @@ export async function getItemListById(
  * @param items an item[] to sort
  * @returns items[] sorted with price low to high
  */
-function sortPriceLowToHighHelper(items: Item[]): Item[] {
+export function sortPriceLowToHighHelper(items: Item[]): Item[] {
   return items.slice().sort((a, b) => a.price - b.price);
 }
 
@@ -426,7 +426,7 @@ export function sortPriceLowToHigh(itemTuple: ItemTuple): ItemTuple {
  * @param items an item[] to sort
  * @returns items[] sorted with price high to low
  */
-function sortPriceHighToLowHelper(items: Item[]): Item[] {
+export function sortPriceHighToLowHelper(items: Item[]): Item[] {
   return items.slice().sort((a, b) => b.price - a.price);
 }
 
@@ -455,7 +455,7 @@ export function sortPriceHighToLow(itemTuple: ItemTuple): ItemTuple {
  * @param items an item[] to sort
  * @returns items[] sorted with timestamps from least recent to most recent
  */
-function sortLeastToMostRecentHelper(items: Item[]): Item[] {
+export function sortLeastToMostRecentHelper(items: Item[]): Item[] {
   return items.slice().sort((a, b) => {
     // Convert timestamps into dates and compare
     const aTime = new Date(a.timestamp).getTime();
@@ -490,7 +490,7 @@ export function sortLeastToMostRecent(itemTuple: ItemTuple): ItemTuple {
  * @param items an item[] to sort
  * @returns items[] sorted with timestamps from most recent to least recent
  */
-function sortMostToLeastRecentHelper(items: Item[]): Item[] {
+export function sortMostToLeastRecentHelper(items: Item[]): Item[] {
   return items.slice().sort((a, b) => {
     // Convert timestamps into dates and compare
     const aTime = new Date(a.timestamp).getTime();
